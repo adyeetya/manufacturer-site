@@ -29,8 +29,17 @@ const MobileNav = () => {
       animate={open ? 'open' : 'closed'}
     >
       <div className="flex justify-between w-full">
-        <div className="w-1/3 h-14 flex justify-center items-center">
-          <Link href="/">LOGO</Link>
+        <div className="w-1/3 h-14 flex justify-start p-4 items-center">
+          <Link href="/">
+            <video
+              src="/videos/logo-manufacturing.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="h-14"
+            />
+          </Link>
         </div>
         <ToggleButton setOpen={setOpen} />
       </div>
