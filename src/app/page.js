@@ -216,7 +216,7 @@ const TiltedCards = () => {
               </div>
               <p className="text-xs">
                 It could be a no-code solution like Webflow or an enterprise
-                publishing platform like WordPress VIP. We'll help you choose
+                publishing platform like WordPress VIP. We&apos;ll help you choose
                 and implement the right tech for your website and the tools you
                 need to make the most of it.
               </p>

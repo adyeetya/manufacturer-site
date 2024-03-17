@@ -21,7 +21,7 @@ const Footer = () => {
         </h1>
         <div className="flex flex-col sm:flex-row gap-6 sm:justify-evenly my-24">
           <div className=" font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
-            <p>What we're good at</p>
+            <p>What we&apos;re good at</p>
             <Link href="/modular-interiors" className="">
               <h1
                 className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
