@@ -1,113 +1,735 @@
-import Image from "next/image";
+'use client'
+import React, { useRef, useState, useEffect } from 'react'
+import Link from 'next/link'
+import MaxWidthWrapper from '../components/MaxWidthWrapper'
+import { Lora } from 'next/font/google'
+import {
+  Stars,
+  Arrow,
+  Star,
+  Globe,
+  Web,
+  Design,
+} from '../components/icons/Icons'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import EmblaCarousel from '../components/Carousel/EmblaCarousel'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '../components/ui/carousel'
 
-export default function Home() {
+import {
+  BrandsCarousel,
+  BrandsCarouselContent,
+  BrandsCarouselItem,
+  BrandsCarouselPrevious,
+  BrandsCarouselNext,
+} from '../components/ui/brandsCarousel'
+import Image from 'next/image'
+import axios from 'axios'
+const lora = Lora({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const SectionWithVideos = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <section className="bg-gray-900 my-12 w-full rounded">
+      <div className="mx-auto p-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {/* Video column 1 */}
+          <div className="group relative overflow-hidden rounded ">
+            <video
+              className="w-full h-full object-cover object-center aspect-square"
+              autoPlay
+              loop
+              muted
+              playsInline
+              src="/videos/vid1.mp4"
+            ></video>
+            <div
+              className={`absolute bottom-4 left-4 text-amber-50 text-3xl ${lora.className}`}
+            >
+              Modular Interiors
+            </div>
+            <div className="absolute bottom-4 right-4">
+              <Link
+                href="/modular-interiors"
+                className="text-amber-50 border border-amber-50 py-1 px-2 rounded-sm text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
+              >
+                View all work
+                <span className="ml-2">
+                  <Arrow />
+                </span>{' '}
+              </Link>
+            </div>
+          </div>
+          {/* Video column 2 */}
+          <div className="group relative overflow-hidden rounded">
+            <video
+              className="w-full h-full object-cover object-center aspect-square"
+              autoPlay
+              loop
+              muted
+              playsInline
+              src="/videos/vid2.mp4"
+            ></video>
+            <div
+              className={`absolute bottom-4 left-4 text-amber-50 text-3xl ${lora.className}`}
+            >
+              Designer Interiors
+            </div>
+            <div className="absolute bottom-4 right-4">
+              <Link
+                href="/modular-interiors"
+                className="text-amber-50 border border-amber-50 py-1 px-2 rounded-sm text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
+              >
+                View all work
+                <span className="ml-2">
+                  <Arrow />
+                </span>{' '}
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+  )
+}
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+const SectionForComponent = () => {
+  return (
+    <div className="relative flex my-6 flex-col items-center justify-center w-full">
+      <p className="text-sm my-12 font-semibold flex justify-center items-center">
+        <span className="mx-2">
+          <Star />
+        </span>
+        Our bread & butter{' '}
+        <span className="mx-2">
+          <Star />
+        </span>
+      </p>
+      <div className="text-center flex justify-center flex-col items-center">
+        <h1 className={`text-7xl font-bold ${lora.className}`}>
+          {' '}
+          <span className="italic">Distinctly</span> <br /> human work
+        </h1>
+        <div className="group -my-3 w-48 h-16 border border-black rounded-full flex items-center justify-center z-10 bg-[#f8ece4] hover:bg-black hover:text-white cursor-pointer">
+          <span className="group-hover:hidden">FOR</span>
+          <span className="hidden group-hover:block">
+            <Link href="/modular-interiors">VIEW OUR WORKS</Link>
+          </span>
+        </div>
+        <div className="flex flex-row gap-2">
+          <div className="sm:absolute sm:top-48 sm:left-4 flex justify-between ">
+            <img
+              src="/images/a1.jpg"
+              alt="Image 1"
+              className="w-64 h-full object-cover rounded"
+            />
+          </div>
+          <div className="sm:absolute sm:bottom-16 sm:right-4 flex justify-between ">
+            <img
+              src="/images/a2.jpg"
+              alt="Image 2"
+              className="w-64 h-full object-cover rounded"
+            />
+          </div>
+        </div>
+        <h1 className={`text-7xl font-bold ${lora.className}`}>
+          <span className="italic">Distinctly</span> <br /> human brands
+        </h1>
+      </div>
+      <p className="text-sm mt-8 sm:my-16 flex justify-center items-center w-full sm:max-w-96">
+        We partner with the risk-takers, the crusaders, and the
+        everybody-called-them-crazy inventors to break all the right rules and
+        push all the right limits with creative work that stops at nothing to be
+        different.
+      </p>
+    </div>
+  )
+}
+
+const TiltedCards = () => {
+  return (
+    <div className="flex my-6 flex-col justify-center items-center w-full">
+      <p className="text-sm my-12 font-semibold flex justify-center items-center">
+        <span className="mx-2">
+          <Star />
+        </span>
+        Stand Out{' '}
+        <span className="mx-2">
+          <Star />
+        </span>
+      </p>
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center  w-full">
+        <div className="relative w-full sm:w-64 h-64 sm:h-80 border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded">
+          <div className="absolute inset-0 transform">
+            <div className="p-4 flex flex-col justify-between items-center h-full">
+              <div className="flex flex-col justify-center items-center gap-8">
+                <Globe />
+                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+                  Brand & <br className="hidden sm:block" /> Content
+                </h2>
+              </div>
+              <p className="text-xs">
+                Create authentic content and collateral (print and digital) from
+                a centralized design system easy to replicate and iterate as you
+                evolve.
+              </p>
+              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="relative w-full sm:w-64 h-64 sm:h-80 border border-black overflow-hidden rounded sm:mb-16 sm:hover:h-[19rem] hover:shadow-2xl transition-all duration-500">
+          <div className="absolute inset-0 transform">
+            <div className="p-4 flex flex-col justify-between items-center h-full">
+              <div className="flex flex-col justify-center items-center gap-8">
+                <Design />
+                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+                  Design
+                </h2>
+              </div>
+              <p className="text-xs">
+                From conversion-optimized landing pages to complex and scalable
+                design systems, our goal is beautifully fluid and flawlessly
+                functional websites that solve the right problems—and look{' '}
+                <em>really</em> good while they do it.
+              </p>
+              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="relative w-full sm:w-64 h-64 sm:h-80 border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded">
+          {' '}
+          <div className="absolute inset-0 transform">
+            <div className="p-4 flex flex-col justify-between items-center h-full">
+              <div className="flex flex-col justify-center items-center gap-8">
+                <Web />
+                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+                  Web <br className="hidden sm:block" /> Technology
+                </h2>
+              </div>
+              <p className="text-xs">
+                It could be a no-code solution like Webflow or an enterprise
+                publishing platform like WordPress VIP. We'll help you choose
+                and implement the right tech for your website and the tools you
+                need to make the most of it.
+              </p>
+              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex my-12">
+        <Link
+          href="#"
+          className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+        >
+          Our Capabilities
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+const CardCarousel = () => {
+  const [categoryDataArray, setCategoryDataArray] = useState([])
+  const categoryFolderMapping = {
+    106: 'mandir',
+    107: 'chest-of-drawers',
+    108: 'bar-units',
+    109: 'side-tables',
+    110: 'foldable-beds',
+    111: 'foyer-cabinets',
+    112: 'bathroom-vanities',
+    69: 'crockery-units',
+    70: 'glass-partiton',
+    67: 'dressers',
+    65: 'wardrobe',
+    68: 'tv-unit-designs',
+  }
+  useEffect(() => {
+    const fetchCategoryData = async () => {
+      try {
+        const timestamp = Date.now()
+        const categoryIds = [
+          106, 107, 108, 109, 110, 111, 112, 69, 70, 67, 65, 68,
+        ] // Add the category IDs you want to fetch
+
+        // Fetch category data
+        const categoryPromises = categoryIds.map(async (categoryId) => {
+          const response = await fetch(
+            `https://api.designindianwardrobe.com/api/categories/${categoryId}?timestamp=${timestamp}`
+          )
+          if (response.ok) {
+            const data = await response.json()
+            return data
+          } else {
+            console.error(
+              `Error fetching data for category ${categoryId}:`,
+              response.statusText
+            )
+            return {}
+          }
+        })
+
+        const categoryDataArray = await Promise.all(categoryPromises)
+
+        // Fetch image data for each category
+        const imageDataPromises = categoryDataArray.map(
+          async (categoryData) => {
+            const imageResponse = await fetch(
+              `https://api.designindianwardrobe.com/api/images/${categoryData.id}?timestamp=${timestamp}`
+            )
+            if (imageResponse.ok) {
+              const imageData = await imageResponse.json()
+              // Assuming you want only one image per category
+              const selectedImage = imageData[0]
+              return selectedImage
+            } else {
+              console.error(
+                `Error fetching image for category ${categoryData.id}:`,
+                imageResponse.statusText
+              )
+              return {}
+            }
+          }
+        )
+
+        const imageDataArray = await Promise.all(imageDataPromises)
+
+        // Combine category data with corresponding image data
+        const mergedDataArray = categoryDataArray.map(
+          (categoryData, index) => ({
+            ...categoryData,
+            image: imageDataArray[index],
+          })
+        )
+
+        setCategoryDataArray(mergedDataArray)
+      } catch (error) {
+        console.error('Error during fetch:', error)
+      }
+    }
+
+    fetchCategoryData()
+  }, [])
+
+  // const cardData = [
+  //   {
+  //     id: 1,
+  //     imageUrl:
+  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
+  //     heading: 'Card 1 Heading',
+  //     content: 'Content for card 1',
+  //   },
+  //   {
+  //     id: 2,
+  //     imageUrl:
+  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
+  //     heading: 'Card 2 Heading',
+  //     content: 'Content for card 2',
+  //   },
+  //   {
+  //     id: 3,
+  //     imageUrl:
+  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
+  //     heading: 'Card 3 Heading',
+  //     content: 'Content for card 3',
+  //   },
+  //   {
+  //     id: 4,
+  //     imageUrl:
+  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
+  //     heading: 'Card 4 Heading',
+  //     content: 'Content for card 4',
+  //   },
+  //   {
+  //     id: 5,
+  //     imageUrl:
+  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
+  //     heading: 'Card 5 Heading',
+  //     content: 'Content for card 5',
+  //   },
+  //   // Add more card data as needed
+  // ]
+  // const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
+  return (
+    <div className="w-full my-24">
+      <h1
+        className={`text-left text-4xl sm:text-6xl mb-3 font-bold ${lora.className}`}
+      >
+        <span className="italic">Works</span>
+      </h1>
+      {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
+      <Carousel
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+      >
+        <CarouselContent className="">
+          {categoryDataArray.map((categoryData) => (
+            <CarouselItem
+              key={categoryData.id}
+              className="md:basis-1/2 lg:basis-1/3 "
+            >
+              <Link
+                key={categoryData.id}
+                href={`/modular-interiors/${
+                  categoryFolderMapping[categoryData.id]
+                }`}
+              >
+                <div className="flex flex-col items-start">
+                  <div className="relative overflow-hidden rounded-md h-96 w-96 aspect-video">
+                    {categoryData.image ? (
+                      <Image
+                        fill
+                        src={`https://api.designindianwardrobe.com/uploads/${categoryData.image.filename}`}
+                        alt={categoryData.image.filename}
+                        className="rounded"
+                      />
+                    ) : (
+                      <Image
+                        fill
+                        src="/images/error.jpg"
+                        alt="No image found"
+                        className="rounded"
+                      />
+                    )}
+                  </div>
+                  <h3 className={`text-3xl mt-2 font-bold ${lora.className}`}>
+                    {categoryData.name}
+                  </h3>
+                </div>
+              </Link>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+      <div className="flex my-12 w-full justify-center items-center">
+        <Link
+          href="/modular-interiors"
+          className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+        >
+          Explore Our Works
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+const BrandsSection = () => {
+  const cardData = [
+    {
+      id: 1,
+      imageUrl: '/images/brands-nobg/b1.png',
+    },
+    {
+      id: 2,
+      imageUrl: '/images/brands-nobg/b4.png',
+    },
+    {
+      id: 3,
+      imageUrl: '/images/brands-nobg/b6.png',
+    },
+
+    {
+      id: 5,
+      imageUrl: '/images/brands-nobg/b8.png',
+    },
+    {
+      id: 6,
+      imageUrl: '/images/brands-nobg/b9.png',
+    },
+    {
+      id: 7,
+      imageUrl: '/images/brands-nobg/b10.png',
+    },
+    {
+      id: 8,
+      imageUrl: '/images/brands-nobg/c1.png',
+    },
+    {
+      id: 9,
+      imageUrl: '/images/brands-nobg/c2.png',
+    },
+    {
+      id: 10,
+      imageUrl: '/images/brands-nobg/c4.png',
+    },
+    {
+      id: 11,
+      imageUrl: '/images/brands-nobg/c5.png',
+    },
+    {
+      id: 12,
+      imageUrl: '/images/brands-nobg/c6.png',
+    },
+    {
+      id: 13,
+      imageUrl: '/images/brands-nobg/c8.png',
+    },
+    {
+      id: 14,
+      imageUrl: '/images/brands-nobg/c10.png',
+    },
+
+    // Add more card data as needed
+  ]
+  return (
+    <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
+      <div className="max-w-screen-2xl px-2.5 xl:px-20 mx-auto">
+        <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
+          Our Brands Collection
+        </h1>
+        <BrandsCarousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className=" bg-white rounded-full overflow-hidden"
+        >
+          <BrandsCarouselContent>
+            {cardData.map((card) => (
+              <BrandsCarouselItem
+                key={card.id}
+                className="basis-1/2 lg:basis-1/5 "
+              >
+                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
+                  <img
+                    src={card.imageUrl}
+                    alt={card.heading}
+                    className="w-full h-auto rounded object-cover"
+                  />
+                </div>
+              </BrandsCarouselItem>
+            ))}
+          </BrandsCarouselContent>
+        </BrandsCarousel>
+        <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8">
+          <div className="flex flex-col items-center w-full sm:w-1/2 rounded">
+            <Image
+              src="/images/temp.webp"
+              alt="Your Image"
+              className="max-w-full h-auto rounded"
+              height={1000}
+              width={1000}
+            />
+          </div>
+          <div className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded">
+            <div className="flex flex-col justify-center items-center">
+              <div className="mb-12">
+                {' '}
+                <Stars />
+              </div>
+              <h1
+                className={`text-left text-6xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
+              >
+                We do work worth doing.
+              </h1>
+            </div>
+            <div className="flex-grow"></div>
+            <div className="flex my-12 w-full justify-center items-center">
+              <Link
+                href="/modular-interiors"
+                className={`whitespace-nowrap text-lg sm:text-xl px-2 py-1 rounded border-2 border-[var(--text-color)] text-[var(--text-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+              >
+                Explore Our Works
+              </Link>
+            </div>
+          </div>
+        </section>
+        <div className="flex flex-col sm:flex-row px-8">
+          <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
+            <p className="text-lg sm:text-2xl">Value exists on a spectrum.</p>
+          </div>
+          <div className="w-full sm:w-1/2 px-4">
+            <p className="text-lg sm:text-2xl text-left">
+              {<Stars />}{' '}
+              <span className="ml-8 sm:ml-16">
+                Drive engagement (i.e. conversions) with branding, content, and
+                websites that surpass loopy creativity to solve real problems
+                and resonate with your people.
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const BlogsSection = () => {
+  const [posts, setPosts] = useState([])
+  useEffect(() => {
+    // Fetch all posts by default or posts by selected category
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(
+          'https://homes.devotionalindia.com/wp-json/wp/v2/posts?_embed'
+        )
+        // Extract the first three posts
+        const Posts = response.data.slice(4, 7)
+        setPosts(Posts)
+      } catch (error) {
+        console.error('Error fetching WordPress posts:', error)
+      }
+    }
+
+    fetchPosts()
+  }, [])
+  console.log(posts)
+  return (
+    <div className="w-full my-24 px-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+        <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
+          The <span className="italic"> Latest</span>
+        </h1>
+        <p className="text-sm max-w-sm">
+          {<Stars />}{' '}
+          <span className="ml-8 sm:ml-16">
+            Drive engagement (i.e. conversions) with branding, content, and
+            websites that surpass loopy creativity to solve real problems and
+            resonate with your people.
+          </span>
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {posts.map((card) => (
+          <Link key={card.id} href={`/magazine/${card.slug}/${card.id}`}>
+            <div className=" overflow-hidden">
+              {card._embedded && card._embedded['wp:featuredmedia'] && (
+                <Image
+                  width={1000}
+                  height={1000}
+                  src={card._embedded['wp:featuredmedia'][0].source_url}
+                  alt={card._embedded['wp:featuredmedia'][0].alt_text}
+                  className="mb-2 w-full h-52 object-cover rounded-t"
+                />
+              )}
+              <div className="my-4">
+                <h1
+                  className={`text-left text-3xl mb-8 font-bold ${lora.className} `}
+                >
+                  {card.title.rendered.split(' ').slice(0, 3).join(' ')}
+                  {card.title.rendered.split(' ').length > 3 ? ' ...' : ''}
+                </h1>
+                <p className="text-gray-600 mb-4"> {card.title.rendered}</p>
+                {/* <div className="flex items-center">
+                <img
+                  src={card.author.avatarUrl}
+                  alt={card.author.name}
+                  className="w-8 h-8 rounded-full mr-2"
+                />
+                <span className="text-gray-700">{card.author.name}</span>
+              </div> */}
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="flex my-12 w-full justify-center items-center">
+        <Link
+          href="/magazine"
+          className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+        >
+          The Latest Blogs
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export default function Home() {
+  const ref = useRef()
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  })
+  const scaleD = useTransform(scrollYProgress, [0, 1], [1, 0])
+  const scaleM = useTransform(scrollYProgress, [0, 1], [1, 0])
+
+  return (
+    <>
+      <div ref={ref}>
+        {/* /for larger */}
+        <motion.div
+          style={{ scale: scaleD }}
+          className="mx-auto my-4 hidden sm:flex  items-center justify-center "
+        >
+          <h1 className={`sm:text-[10vw] font-bold ${lora.className}`}>
+            <span className="italic">Conscious</span>{' '}
+            <span className=""> Creative</span>
+          </h1>
+        </motion.div>
+        {/* for mobile */}
+        <motion.div
+          style={{ scale: scaleM }}
+          className="mx-2 my-4 flex sm:hidden flex-col justify-center "
+        >
+          <h1
+            className={` inline text-6xl font-bold text-left ${lora.className}`}
+          >
+            <span className="italic">Conscious</span>
+          </h1>
+          <h1
+            className={` inline text-6xl font-bold text-right ${lora.className}`}
+          >
+            Creative
+          </h1>
+        </motion.div>
       </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <MaxWidthWrapper className="mb-12 mt-20 sm:mt-24 flex flex-col items-center justify-center text-center">
+        <div className="mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
+          <div className="flex flex-wrap content-center">
+            <p className="text-lg sm:text-3xl text-left">
+              {<Stars />}{' '}
+              <span className="ml-8 sm:ml-16">
+                Drive engagement (i.e. conversions) with branding, content, and
+                websites that surpass loopy creativity to solve real problems
+                and resonate with your people.
+              </span>
+            </p>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="flex w-full justify-end">
+            <Link
+              href="/contact-us"
+              className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+        {/* --------------------------- */}
+        <SectionWithVideos />
+        {/* --------------------------- */}
+        <SectionForComponent />
+        {/* --------------------------- */}
+        <TiltedCards />
+        {/* --------------------------- */}
+        <CardCarousel />
+      </MaxWidthWrapper>
+      {/* --------------------------- */}
+      <BrandsSection />
+      {/* --------------------------- */}
+      <MaxWidthWrapper>
+        <BlogsSection />
+        {/* --------------------------- */}
+      </MaxWidthWrapper>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      {/* --------------------------- */}
+    </>
+  )
 }

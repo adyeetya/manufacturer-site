@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://127.0.0.1:5500/step2-P.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Section with Image and Dropdowns</title>
+    <link rel="stylesheet" href="./Centered Section with Image and Dropdowns_files/step2.css">
+     <link rel="stylesheet" href="./Centered Section with Image and Dropdowns_files/all.min.css">
+  </head>
+  <body>
+    <div class="md-stepper-horizontal orange">
+      <div class="md-step active done">
+        <div class="md-step-circle"><span>1</span></div>
+        <div class="md-step-title">KITCHEN LAYOUT</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+      <div class="md-step active">
+        <div class="md-step-circle"><span>2</span></div>
+        <div class="md-step-title">MEASUREMENTS</div>
+
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+      <div class="md-step">
+        <div class="md-step-circle"><span>3</span></div>
+        <div class="md-step-title">PACKAGE</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+      <div class="md-step">
+        <div class="md-step-circle"><span>4</span></div>
+        <div class="md-step-title">GET QUOTE</div>
+        <div class="md-step-bar-left"></div>
+        <div class="md-step-bar-right"></div>
+      </div>
+    </div>
+    <div class="centered-section">
+      <h3>Now review the measurements for accuracy</h3>
+      <img src="./Centered Section with Image and Dropdowns_files/parallel-d-1623232078-micLU.png" alt="Centered Image">
+      <div class="dropdown-container">
+        <label for="dropdown1">A</label>
+        <select id="dropdown1" name="dropdown1">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8" selected="">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <p class="ft">ft.</p>
+      </div>
+      <div class="dropdown-container">
+        <label for="dropdown2">B</label>
+        <select id="dropdown2" name="dropdown2">
+          <option value="3 ">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8" selected="">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+        <p class="ft">ft.</p>
+      </div>
+      <div class="buttons-container">
+        <!-- Prev button -->
+        <button id="prevButton" onclick="navigateBack()">Back</button>
+        <!-- Next button -->
+        <button id="nextButton" onclick="saveAndNavigate()">Next</button>
+      </div>
+    </div>
+
+    <script>
+      function saveAndNavigate() {
+        const selectedOption1 = document.querySelector(
+          'select[name="dropdown1"]'
+        ).value
+
+        // Get the selected option from dropdown2
+        const selectedOption2 = document.querySelector(
+          'select[name="dropdown2"]'
+        ).value
+        if (!selectedOption1 || !selectedOption2) {
+          console.error('Please select the size of A and B')
+          return
+        }
+
+        let price
+        switch (selectedOption1) {
+          case 3:
+            price = 30
+            break
+          case 4:
+            price = 40
+            break
+          case 5:
+            price = 50
+            break
+          case 6:
+            price = 60
+            break
+          case 7:
+            price = 70
+            break
+          case 8:
+            price = 80
+            break
+          case 9:
+            price = 90
+            break
+          case 10:
+            price = 100
+            break
+          case 11:
+            price = 110
+            break
+          case 12:
+            price = 120
+            break
+
+          default:
+            price = 0
+        }
+        switch (selectedOption2) {
+          case 3:
+            price = price + 30
+            break
+          case 4:
+            price = price + 40
+            break
+          case 5:
+            price = price + 50
+            break
+          case 6:
+            price = price + 60
+            break
+          case 7:
+            price = price + 70
+            break
+          case 8:
+            price = price + 80
+            break
+          case 9:
+            price = price + 90
+            break
+          case 10:
+            price = price + 100
+            break
+          case 11:
+            price = price + 110
+            break
+          case 12:
+            price = price + 120
+            break
+
+          default:
+            price = price
+        }
+        localStorage.setItem('sizeA', selectedOption1)
+        localStorage.setItem('sizeB', selectedOption2)
+        // localStorage.setItem('packagePrice', price)
+
+        // Navigate to the next step
+        let nextStep = 'step3.html'
+
+        window.location.href = nextStep
+      }
+      function navigateBack() {
+        let prevStep = 'step1.html'
+        window.location.href = prevStep
+      }
+    </script>
+  <!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>

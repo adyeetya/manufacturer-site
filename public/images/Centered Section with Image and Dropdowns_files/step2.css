@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,400i,700');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  -ms-font-smoothing: antialiased !important;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr; /* Stepper takes auto height, container box takes remaining height */
+  min-height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main-container {
+  max-width: 786px;
+
+  margin: 20px auto; /* Center the box horizontally with some top margin */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.centered-section {
+  max-width: 786px;
+
+  margin: 20px auto; /* Center the box horizontally with some top margin */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* .centered-section {
+  text-align: center;
+  width: 60%;
+  padding: 40px;
+  border: 3px solid transparent;
+  box-shadow: 0 0 20px #c3c3c367;
+  border-radius: 0.5rem;
+} */
+
+.centered-section img {
+  /* width: 70%; */
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.dropdown-container {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+label {
+  margin-right: 10px;
+  font-size: 22px; /* Optional: Add margin as needed */
+}
+.ft {
+  margin-left: 10px;
+  font-size: 22px;
+}
+select {
+  width: 100%;
+  height: 70px;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc; /* Add border styles as needed */
+  font-size: 22px; /* Optional: Adjust font size as needed */
+}
+option {
+  font-size: 22px;
+}
+select:hover,
+select:focus {
+  border-color: #007bff; /* Change to your desired color */
+  outline: none;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add a gap between the buttons */
+  margin-top: 24px;
+}
+#prevButton,
+#nextButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#prevButton {
+  background-color: #808080; /* Gray color for Previous button */
+  color: #fff; /* White text color */
+}
+
+#nextButton {
+  background-color: #007bff; /* Blue color for Next button */
+  color: #fff; /* White text color */
+}
+
+#prevButton:hover {
+  background-color: #606060; /* Darker gray on hover for Previous button */
+}
+
+#nextButton:hover {
+  background-color: #0056b3; /* Darker blue on hover for Next button */
+}
+/* stepper css */
+
+.md-stepper-horizontal {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px -6px rgba(0, 0, 0, 0.5);
+}
+.md-stepper-horizontal .md-step {
+  display: table-cell;
+  position: relative;
+  padding: 24px;
+}
+.md-stepper-horizontal .md-step:hover,
+.md-stepper-horizontal .md-step:active {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+.md-stepper-horizontal .md-step:active {
+  border-radius: 15% / 75%;
+}
+.md-stepper-horizontal .md-step:first-child:active {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.md-stepper-horizontal .md-step:last-child:active {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.md-stepper-horizontal .md-step:hover .md-step-circle {
+  background-color: #757575;
+}
+.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
+.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
+  display: none;
+}
+.md-stepper-horizontal .md-step .md-step-circle {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  background-color: #999999;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.md-stepper-horizontal.green .md-step.active .md-step-circle {
+  background-color: #00ae4d;
+}
+.md-stepper-horizontal.orange .md-step.active .md-step-circle {
+  background-color: #f96302;
+}
+.md-stepper-horizontal .md-step.active .md-step-circle {
+  background-color: rgb(33, 150, 243);
+}
+.md-stepper-horizontal .md-step.done .md-step-circle:before {
+  font-family: 'FontAwesome';
+  font-weight: 100;
+  content: '\f00c';
+}
+.md-stepper-horizontal .md-step.done .md-step-circle *,
+.md-stepper-horizontal .md-step.editable .md-step-circle * {
+  display: none;
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+.md-stepper-horizontal .md-step.editable .md-step-circle:before {
+  font-family: 'FontAwesome';
+  font-weight: 100;
+  content: '\f040';
+}
+.md-stepper-horizontal .md-step .md-step-title {
+  margin-top: 16px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.md-stepper-horizontal .md-step .md-step-title,
+.md-stepper-horizontal .md-step .md-step-optional {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.26);
+}
+.md-stepper-horizontal .md-step.active .md-step-title {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.87);
+}
+.md-stepper-horizontal .md-step.active.done .md-step-title,
+.md-stepper-horizontal .md-step.active.editable .md-step-title {
+  font-weight: 600;
+}
+.md-stepper-horizontal .md-step .md-step-optional {
+  font-size: 12px;
+}
+.md-stepper-horizontal .md-step.active .md-step-optional {
+  color: rgba(0, 0, 0, 0.54);
+}
+.md-stepper-horizontal .md-step .md-step-bar-left,
+.md-stepper-horizontal .md-step .md-step-bar-right {
+  position: absolute;
+  top: 36px;
+  height: 1px;
+  border-top: 1px solid #dddddd;
+}
+.md-stepper-horizontal .md-step .md-step-bar-right {
+  right: 0;
+  left: 50%;
+  margin-left: 20px;
+}
+.md-stepper-horizontal .md-step .md-step-bar-left {
+  left: 0;
+  right: 50%;
+  margin-right: 20px;
+}
