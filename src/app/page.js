@@ -52,7 +52,7 @@ const SectionWithVideos = () => {
               src="/videos/vid3.mp4"
             ></video>
             <div
-              className={`absolute bottom-4 left-4 text-amber-50 text-3xl ${lora.className}`}
+              className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
               Modular Interiors
             </div>
@@ -79,7 +79,7 @@ const SectionWithVideos = () => {
               src="/videos/vid2.mp4"
             ></video>
             <div
-              className={`absolute bottom-4 left-4 text-amber-50 text-3xl ${lora.className}`}
+              className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
               Designer Interiors
             </div>
