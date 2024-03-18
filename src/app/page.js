@@ -49,7 +49,7 @@ const SectionWithVideos = () => {
               loop
               muted
               playsInline
-              src="/videos/vid1.mp4"
+              src="/videos/vid3.mp4"
             ></video>
             <div
               className={`absolute bottom-4 left-4 text-amber-50 text-3xl ${lora.className}`}
