@@ -12,13 +12,25 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
 import CallIcon from '@mui/icons-material/Call'
+
 const Footer = () => {
   return (
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
-        <h1 className="text-4xl sm:text-7xl text-right sm:text-center font-extrabold my-4">
-          MODULAR KITCHEN MANUFACTURING
+        <h1 className="text-4xl tracking-tight  sm:text-7xl text-right sm:text-center font-extrabold my-4">
+          MODULAR INTERIOR MANUFACTURING
         </h1>
+        <div className="flex my-24 sm:my-48  w-full justify-center items-center">
+          <a
+            href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`whitespace-nowrap text-xl sm:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+          >
+            Calculate Your Estimates
+          </a>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-6 sm:justify-evenly my-24">
           <div className=" font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>What we&apos;re good at</p>

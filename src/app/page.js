@@ -102,9 +102,31 @@ const SectionWithVideos = () => {
 }
 
 const SectionForComponent = () => {
+  const variants = {
+    initial: {
+      y: 30,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  }
   return (
-    <div className="relative flex my-6 flex-col items-center justify-center w-full">
-      <p className="text-sm my-12 font-semibold flex justify-center items-center">
+    <motion.div
+      variants={variants}
+      initial="initial"
+      whileInView="animate"
+      className="relative flex my-6 flex-col items-center justify-center w-full"
+    >
+      <motion.p
+        variants={variants}
+        className="text-sm my-12 font-semibold flex justify-center items-center"
+      >
         <span className="mx-2">
           <Star />
         </span>
@@ -112,7 +134,7 @@ const SectionForComponent = () => {
         <span className="mx-2">
           <Star />
         </span>
-      </p>
+      </motion.p>
       <div className="text-center flex justify-center flex-col items-center">
         <h1 className={`text-7xl font-bold ${lora.className}`}>
           {' '}
@@ -132,10 +154,10 @@ const SectionForComponent = () => {
               className="w-64 h-full object-cover rounded"
             />
           </div>
-          <div className="sm:absolute sm:bottom-16 sm:right-4 flex justify-between ">
+          <div className="sm:absolute sm:top-48 sm:left-4 flex justify-between ">
             <img
               src="/images/a2.jpg"
-              alt="Image 2"
+              alt="Image 1"
               className="w-64 h-full object-cover rounded"
             />
           </div>
@@ -144,13 +166,16 @@ const SectionForComponent = () => {
           <span className="italic">Distinctly</span> <br /> human brands
         </h1>
       </div>
-      <p className="text-sm mt-8 sm:my-16 flex justify-center items-center w-full sm:max-w-96">
+      <motion.p
+        variants={variants}
+        className="text-sm mt-8 sm:my-16 flex justify-center items-center w-full sm:max-w-96"
+      >
         We partner with the risk-takers, the crusaders, and the
         everybody-called-them-crazy inventors to break all the right rules and
         push all the right limits with creative work that stops at nothing to be
         different.
-      </p>
-    </div>
+      </motion.p>
+    </motion.div>
   )
 }
 
@@ -216,9 +241,9 @@ const TiltedCards = () => {
               </div>
               <p className="text-xs">
                 It could be a no-code solution like Webflow or an enterprise
-                publishing platform like WordPress VIP. We&apos;ll help you choose
-                and implement the right tech for your website and the tools you
-                need to make the most of it.
+                publishing platform like WordPress VIP. We&apos;ll help you
+                choose and implement the right tech for your website and the
+                tools you need to make the most of it.
               </p>
               <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
@@ -485,6 +510,26 @@ const BrandsSection = () => {
 
     // Add more card data as needed
   ]
+
+  const variants = {
+    initial: {
+      x: 10,
+      opacity: 0,
+    },
+    initialL: {
+      x: -10,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
       <div className="max-w-screen-2xl px-2.5 xl:px-20 mx-auto">
@@ -516,7 +561,12 @@ const BrandsSection = () => {
           </BrandsCarouselContent>
         </BrandsCarousel>
         <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8">
-          <div className="flex flex-col items-center w-full sm:w-1/2 rounded">
+          <motion.div
+            variants={variants}
+            initial="initialL"
+            whileInView="animate"
+            className="flex flex-col items-center w-full sm:w-1/2 rounded"
+          >
             <Image
               src="/images/temp.webp"
               alt="Your Image"
@@ -524,8 +574,13 @@ const BrandsSection = () => {
               height={1000}
               width={1000}
             />
-          </div>
-          <div className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded">
+          </motion.div>
+          <motion.div
+            variants={variants}
+            initial="initial"
+            whileInView="animate"
+            className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded"
+          >
             <div className="flex flex-col justify-center items-center">
               <div className="mb-12">
                 {' '}
@@ -546,7 +601,7 @@ const BrandsSection = () => {
                 Explore Our Works
               </Link>
             </div>
-          </div>
+          </motion.div>
         </section>
         <div className="flex flex-col sm:flex-row px-8">
           <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
@@ -659,6 +714,25 @@ export default function Home() {
   const scaleD = useTransform(scrollYProgress, [0, 1], [1, 0])
   const scaleM = useTransform(scrollYProgress, [0, 1], [1, 0])
 
+  const variants = {
+    initial: {
+      x: 10,
+      opacity: 0,
+    },
+    initialL: {
+      x: -10,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
     <>
       <div ref={ref}>
@@ -692,7 +766,12 @@ export default function Home() {
 
       <MaxWidthWrapper className="mb-12 mt-20 sm:mt-24 flex flex-col items-center justify-center text-center">
         <div className="mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
-          <div className="flex flex-wrap content-center">
+          <motion.div
+            variants={variants}
+            initial="initialL"
+            whileInView="animate"
+            className="flex flex-wrap content-center"
+          >
             <p className="text-lg sm:text-3xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
@@ -701,16 +780,21 @@ export default function Home() {
                 and resonate with your people.
               </span>
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex w-full justify-end">
+          <motion.div
+            variants={variants}
+            initial="initial"
+            whileInView="animate"
+            className="flex w-full justify-end"
+          >
             <Link
               href="/contact-us"
               className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
             >
               Get Started
             </Link>
-          </div>
+          </motion.div>
         </div>
         {/* --------------------------- */}
         <SectionWithVideos />
