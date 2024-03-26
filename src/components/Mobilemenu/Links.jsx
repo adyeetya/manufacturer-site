@@ -39,11 +39,15 @@ const itemVariants = {
 const Links = () => {
   const items = ['Work', 'Get Quotes', 'Visit Us', 'Our Story', 'The Latest']
   const links = [
-    { name: 'Work', slug: '/modular-interiors', text: 'What we do.' },
+    {
+      name: 'Modular Interiors',
+      slug: '/modular-interiors',
+      text: 'What we do.',
+    },
     { name: 'Get Quotes', slug: '/get-quote', text: 'Get free estimates.' },
     { name: 'Visit Us', slug: '/book-visit', text: 'Book an appointment.' },
     { name: 'Our Story', slug: '/about-us', text: 'Know the brand.' },
-    { name: 'The Latest', slug: '/magazine', text: 'See the latest blogs.' },
+    { name: 'The Magazine', slug: '/magazine', text: 'See the latest blogs.' },
   ]
 
   return (

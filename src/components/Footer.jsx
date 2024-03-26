@@ -38,7 +38,7 @@ const Footer = () => {
               <h1
                 className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
-                Work
+                Modular Interiors
               </h1>
             </Link>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
               <h1
                 className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
-                The Latest
+                The Magazine
               </h1>
             </Link>
           </div>

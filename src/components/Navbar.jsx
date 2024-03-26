@@ -16,7 +16,7 @@ const Navbar = () => {
             href="/modular-interiors"
             className="font-semibold text-sm 2xl:text-base inline-block relative transition duration-300 ease-in-out group px-2 py-1"
           >
-            Work
+            Modular Interiors
             <span className="absolute bottom-0 left-0 w-full h-[2px] rounded-full bg-gray-900 origin-left transform scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
           </Link>
 
@@ -59,7 +59,7 @@ const Navbar = () => {
             href="/magazine"
             className="whitespace-nowrap font-semibold text-sm 2xl:text-base inline-block relative transition duration-300 ease-in-out group px-2 py-1"
           >
-            The Latest
+            The Magazine
             <span className="absolute bottom-0 left-0 w-full h-[2px] rounded-full bg-gray-900 origin-left transform scale-x-0 transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
           </Link>
           <Link

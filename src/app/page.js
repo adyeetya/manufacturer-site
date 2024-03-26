@@ -147,7 +147,7 @@ const SectionForComponent = () => {
           </span>
         </div>
         <div className="flex flex-row gap-2">
-          <div className="sm:absolute sm:top-48 sm:left-4 flex justify-between ">
+          <div className="sm:absolute sm:top-48 sm:right-4 flex justify-between ">
             <img
               src="/images/a1.jpg"
               alt="Image 1"
