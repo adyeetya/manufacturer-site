@@ -38,19 +38,26 @@ const lora = Lora({
 
 const SectionWithVideos = () => {
   return (
-    <section className="bg-gray-900 my-12 w-full rounded">
+    <section className="bg-gray-900 my-12 w-full rounded-xl">
       <div className="mx-auto p-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Video column 1 */}
-          <div className="group relative overflow-hidden rounded ">
-            <video
-              className="w-full h-full object-cover object-center aspect-square"
-              autoPlay
-              loop
-              muted
-              playsInline
-              src="/videos/vid3.mp4"
-            ></video>
+          {/* Image column 1 */}
+          <div className="relative group rounded-xl overflow-hidden aspect-square">
+            <img
+              className="w-full h-full object-cover object-center"
+              src="/images/img-1.jpg"
+              alt="Modular Interiors"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <video
+                className="w-[90%] object-cover object-center rounded-xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src="/videos/vid3.mp4"
+              ></video>
+            </div>
             <div
               className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
@@ -59,7 +66,7 @@ const SectionWithVideos = () => {
             <div className="absolute bottom-4 right-4">
               <Link
                 href="/modular-interiors"
-                className="text-amber-50 border border-amber-50 py-1 px-2 rounded-sm text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
+                className="text-amber-50 border border-amber-50 py-1 px-2 rounded text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
               >
                 View all work
                 <span className="ml-2">
@@ -68,25 +75,32 @@ const SectionWithVideos = () => {
               </Link>
             </div>
           </div>
-          {/* Video column 2 */}
-          <div className="group relative overflow-hidden rounded">
-            <video
-              className="w-full h-full object-cover object-center aspect-square"
-              autoPlay
-              loop
-              muted
-              playsInline
-              src="/videos/vid2.mp4"
-            ></video>
+          {/* Image column 2 */}
+          <div className="relative group rounded-xl overflow-hidden aspect-square">
+            <img
+              className="w-full h-full object-cover object-center"
+              src="/images/img-2.jpg"
+              alt="Modular Kitchen"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <video
+                className="w-[90%] object-cover object-center rounded-xl"
+                autoPlay
+                loop
+                muted
+                playsInline
+                src="/videos/vid2.mp4"
+              ></video>
+            </div>
             <div
               className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
-              Designer Interiors
+              Modular Kitchens
             </div>
             <div className="absolute bottom-4 right-4">
               <Link
                 href="/modular-interiors"
-                className="text-amber-50 border border-amber-50 py-1 px-2 rounded-sm text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
+                className="text-amber-50 border border-amber-50 py-1 px-2 rounded text-md flex items-center group-hover:bg-amber-50 group-hover:text-gray-900"
               >
                 View all work
                 <span className="ml-2">
@@ -136,9 +150,10 @@ const SectionForComponent = () => {
         </span>
       </motion.p>
       <div className="text-center flex justify-center flex-col items-center">
-        <h1 className={`text-7xl font-bold ${lora.className}`}>
+        <h1 className={`text-7xl tracking-tighter font-bold ${lora.className}`}>
           {' '}
-          <span className="italic">Distinctly</span> <br /> human work
+          <span className="italic">Some </span> <br />
+          Exquisite Work
         </h1>
         <div className="group -my-3 w-48 h-16 border border-black rounded-full flex items-center justify-center z-10 bg-[#f8ece4] hover:bg-black hover:text-white cursor-pointer">
           <span className="group-hover:hidden">FOR</span>
@@ -162,18 +177,19 @@ const SectionForComponent = () => {
             />
           </div>
         </div>
-        <h1 className={`text-7xl font-bold ${lora.className}`}>
-          <span className="italic">Distinctly</span> <br /> human brands
+        <h1 className={`text-7xl font-bold tracking-tighter ${lora.className}`}>
+          <span className="italic">Some </span> <br />
+          Exquisite People
         </h1>
       </div>
       <motion.p
         variants={variants}
         className="text-sm mt-8 sm:my-16 flex justify-center items-center w-full sm:max-w-96"
       >
-        We partner with the risk-takers, the crusaders, and the
-        everybody-called-them-crazy inventors to break all the right rules and
-        push all the right limits with creative work that stops at nothing to be
-        different.
+        With over 950+ architects, interior designers collaborating with us and
+        serving their clients, why don’t you come direct and save more than 30%
+        of the middleman cost. Think About you, perhaps 🤔the saving could be an
+        Abroad Trip’s Worth 😉.
       </motion.p>
     </motion.div>
   )
@@ -386,11 +402,11 @@ const CardCarousel = () => {
   // const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
   return (
-    <div className="w-full my-24">
+    <div className="w-full my-24 sm:px-8 px-4">
       <h1
-        className={`text-left text-4xl sm:text-6xl mb-3 font-bold ${lora.className}`}
+        className={`text-left text-4xl sm:text-5xl sm:ml-20 mb-4 font-bold ${lora.className}`}
       >
-        <span className="italic">Works</span>
+        <span className="italic">Our Complete Collection</span>
       </h1>
       {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <Carousel
@@ -411,21 +427,21 @@ const CardCarousel = () => {
                   categoryFolderMapping[categoryData.id]
                 }`}
               >
-                <div className="flex flex-col items-start">
-                  <div className="relative overflow-hidden rounded-md h-96 w-96 aspect-video">
+                <div className="flex flex-col items-center">
+                  <div className="relative overflow-hidden rounded-md w-80 h-72 ">
                     {categoryData.image ? (
                       <Image
                         fill
                         src={`https://api.designindianwardrobe.com/uploads/${categoryData.image.filename}`}
                         alt={categoryData.image.filename}
-                        className="rounded"
+                        className="rounded-2xl"
                       />
                     ) : (
                       <Image
                         fill
                         src="/images/error.jpg"
                         alt="No image found"
-                        className="rounded"
+                        className="rounded-2xl"
                       />
                     )}
                   </div>
@@ -532,7 +548,7 @@ const BrandsSection = () => {
 
   return (
     <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
-      <div className="max-w-screen-2xl px-2.5 xl:px-20 mx-auto">
+      <div className="max-w-screen-2xl  mx-auto">
         <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
           Our Brands Collection
         </h1>
@@ -541,7 +557,7 @@ const BrandsSection = () => {
             align: 'start',
             loop: true,
           }}
-          className=" bg-white rounded-full overflow-hidden"
+          className=" bg-white  w-full overflow-hidden"
         >
           <BrandsCarouselContent>
             {cardData.map((card) => (
@@ -739,9 +755,11 @@ export default function Home() {
         {/* /for larger */}
         <motion.div
           style={{ scale: scaleD }}
-          className="mx-auto my-4 hidden sm:flex  items-center justify-center "
+          className="mx-auto pt-8 hidden sm:flex  items-center justify-center "
         >
-          <h1 className={`sm:text-[10vw] font-bold ${lora.className}`}>
+          <h1
+            className={`sm:text-[10vw] tracking-tighter font-bold ${lora.className}`}
+          >
             <span className="italic">Conscious</span>{' '}
             <span className=""> Creative</span>
           </h1>
@@ -749,7 +767,7 @@ export default function Home() {
         {/* for mobile */}
         <motion.div
           style={{ scale: scaleM }}
-          className="mx-2 my-4 flex sm:hidden flex-col justify-center "
+          className="mx-2 py-4 pt-8 flex sm:hidden flex-col justify-center "
         >
           <h1
             className={` inline text-6xl font-bold text-left ${lora.className}`}
@@ -764,7 +782,7 @@ export default function Home() {
         </motion.div>
       </div>
 
-      <MaxWidthWrapper className="mb-12 mt-20 sm:mt-24 flex flex-col items-center justify-center text-center">
+      <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
         <div className="mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
           <motion.div
             variants={variants}
@@ -772,12 +790,15 @@ export default function Home() {
             whileInView="animate"
             className="flex flex-wrap content-center"
           >
-            <p className="text-lg sm:text-3xl text-left">
+            <p className="text-lg sm:text-2xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
-                Drive engagement (i.e. conversions) with branding, content, and
-                websites that surpass loopy creativity to solve real problems
-                and resonate with your people.
+                Top Modular Interior Manufacturing Brand main heading - Design
+                Indian Homes/Kitchen is the Largest Modular Kitchens - Wardrobes
+                - Interiors manufacturing Brand, we are manufacturing extensive
+                range of modular interior projects & serving to our direct
+                customers, architects, interior designers, builders & project
+                developers across New Delhi - Gurgaon - Noida - NCR.
               </span>
             </p>
           </motion.div>
@@ -803,8 +824,10 @@ export default function Home() {
         {/* --------------------------- */}
         <TiltedCards />
         {/* --------------------------- */}
-        <CardCarousel />
       </MaxWidthWrapper>
+      <div className="">
+        <CardCarousel />
+      </div>
       {/* --------------------------- */}
       <BrandsSection />
       {/* --------------------------- */}

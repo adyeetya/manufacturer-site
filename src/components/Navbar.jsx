@@ -1,9 +1,15 @@
 'use client'
 import React, { useEffect, useRef } from 'react'
-
+import Image from 'next/image'
 import Link from 'next/link'
 import Switch from './ColorSwitch/Switch'
 import MobileNav from './MobileNav'
+import { Lora } from 'next/font/google'
+const lora = Lora({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 const Navbar = () => {
   return (
     <nav className="sticky h-16 inset-x-0 top-0 z-30 w-full bg-[var(--theme-color)] transition-all">
@@ -37,14 +43,43 @@ const Navbar = () => {
         </div>
         <div className="w-1/3 h-16 flex justify-center items-center">
           <Link href="/">
-            <video
+            {/* <video
               src="/videos/logo-manufacturing.mp4"
               autoPlay
               loop
               muted
               playsInline
               className="h-16"
-            />
+            /> */}
+            <div className="flex h-16 justify-center items-center">
+              {/* <h1 className={` tracking-tighter font-[900] text-2xl`}>
+                <span className="">Modular Kitchen Manufacturing</span>
+              </h1> */}
+              {/* <h1
+                className={`tracking-tighter font-[900] text-xl relative inline-block`}
+              >
+                <span
+                  className="absolute -z-10 top-0 left-0 text-transparent "
+                  style={{
+                    WebkitTextStroke: '1px black',
+                    textStroke: '1px black',
+                  }}
+                >
+                  Modular Manufacturing
+                </span>
+                <span className="relative z-10 text-black ">
+                  Modular Manufacturing
+                </span>
+              </h1> */}
+
+              <Image
+                src="/images/dik-logo.png"
+                alt=""
+                width={1000}
+                height={1000}
+                className="w-16 h-16"
+              />
+            </div>
           </Link>
         </div>
         <div className=" w-1/3 h-16 items-center flex justify-between space-x-6">
