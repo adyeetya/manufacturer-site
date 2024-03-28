@@ -369,14 +369,15 @@ const Footer = () => {
           MODULAR INTERIOR MANUFACTURING
         </h1>
         <div className="flex my-24 sm:my-48  w-full justify-center items-center">
-          <a
-            href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            // href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
+            // target="_blank"
+            // rel="noopener noreferrer"
+            href='/calculator'
             className={`whitespace-nowrap text-xl sm:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
           >
             Calculate Your Estimates
-          </a>
+          </Link>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 sm:justify-evenly my-24">

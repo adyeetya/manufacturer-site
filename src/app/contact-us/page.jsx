@@ -276,7 +276,7 @@ const MiddleInfoSection = () => {
         <div className="w-full sm:w-1/3 p-4 mb-4 sm:mb-0 sm:border-l-4 sm:border-r-4 sm:border-l-black sm:border-r-black">
           <h2 className="text-xl font-semibold mb-4 capitalize">CALL US ON</h2>
           {/* card1 */}
-          <div className="rounded-lg shadow-md overflow-hidden h-48">
+          <div className="rounded shadow-md overflow-hidden h-48">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
               <h2 className="text-white text-md font-semibold">
                 Here to Serve - Hi.. !
@@ -294,7 +294,7 @@ const MiddleInfoSection = () => {
             </div>
           </div>
           {/* card2 */}
-          <div className="rounded-lg shadow-md overflow-hidden h-48 my-4">
+          <div className="rounded shadow-md overflow-hidden h-48 my-4">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
               <h2 className="text-white text-md font-semibold">
                 Someone From Boutique Office
@@ -312,7 +312,7 @@ const MiddleInfoSection = () => {
             </div>
           </div>
           {/* card3 */}
-          <div className="rounded-lg shadow-md overflow-hidden h-48 my-4">
+          <div className="rounded shadow-md overflow-hidden h-48 my-4">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
               <h2 className="text-white text-md font-semibold">
                 Someone from Industrial Office
@@ -557,7 +557,7 @@ const FullScreenImage = () => {
         alt="Full Screen Image"
         width={2000} // Adjust width as needed
         height={1080} // Adjust height as needed
-        className="rounded-md"
+        className="rounded"
       />
     </div>
   )
@@ -606,7 +606,7 @@ const ScheduleChatSection = () => {
 //         href="/book-with-top-interior-designers-architects"
 //         className="w-full md:w-1/3 p-2"
 //       >
-//         <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+//         <div className="bg-white rounded overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
 //           <div className="py-6 px-2">
 //             <div className="text-center">
 //               {/* <Mail className="text-5xl text-green-500 mx-auto" /> */}
@@ -636,7 +636,7 @@ const ScheduleChatSection = () => {
 //         href="/interior-designing-estimates-pricing"
 //         className="w-full md:w-1/3 p-2"
 //       >
-//         <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+//         <div className="bg-white rounded overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
 //           <div className="py-6 px-2">
 //             <div className="text-center">
 //               {/* <Mail className="text-5xl text-green-500 mx-auto" /> */}
@@ -661,7 +661,7 @@ const ScheduleChatSection = () => {
 //       </Link>
 //       {/* card3 */}
 //       <Link href="/magazine" className="w-full md:w-1/3 p-2">
-//         <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
+//         <div className="bg-white rounded overflow-hidden shadow-md hover:shadow-lg transition duration-300 ease-in-out">
 //           <div className="py-6 px-2">
 //             <div className="text-center">
 //               {/* <Mail className="text-5xl text-green-500 mx-auto" /> */}
@@ -747,7 +747,7 @@ const page = () => {
               <div className="flex items-center">
                 <button
                   onClick={handleEmailClick}
-                  className="w-48 flex justify-center items-center p-2  rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:border-red-200 text-sm"
+                  className="w-48 flex justify-center items-center p-2  rounded hover:bg-gray-200 focus:outline-none focus:ring focus:border-red-200 text-sm"
                 >
                   <Mail color="#EF4444" className="mr-2" />
                   Email us
@@ -759,7 +759,7 @@ const page = () => {
               <div className="flex items-center">
                 <button
                   onClick={handlePhoneClick}
-                  className="w-48 flex justify-center items-center p-2  rounded-md hover:bg-gray-200 focus:outline-none focus:ring focus:border-red-200 text-sm"
+                  className="w-48 flex justify-center items-center p-2  rounded hover:bg-gray-200 focus:outline-none focus:ring focus:border-red-200 text-sm"
                 >
                   <Phone color="#EF4444" className="mr-2" />
                   Call us

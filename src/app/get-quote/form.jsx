@@ -87,11 +87,7 @@ const FileUploadForm = () => {
               <p className="text-center text-lg">
                 Thank you for your submission!
               </p>
-              <Image
-                src={'/images/thankyou.png'}
-                width={400}
-                height={300}
-              />
+              <Image src={'/images/thankyou.png'} width={400} height={300} />
               <h1 className="text-center font-bold">
                 {' '}
                 FOR ANY PRIORITY BOOKING OF DESIGN/PLANNING MEETING, DO CALL US
@@ -121,7 +117,7 @@ const FileUploadForm = () => {
                       type="text"
                       id="name"
                       name="name"
-                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded-md block w-full appearance-none leading-5 transition duration-150 ease-in-out"
+                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded block w-full appearance-none leading-5 transition duration-150 ease-in-out"
                       onChange={handleChange}
                     />
                   </div>
@@ -137,7 +133,7 @@ const FileUploadForm = () => {
                       type="text"
                       id="address"
                       name="address"
-                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded-md block w-full appearance-none leading-5 transition duration-150 ease-in-out"
+                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded block w-full appearance-none leading-5 transition duration-150 ease-in-out"
                       onChange={handleChange}
                     />
                   </div>
@@ -153,7 +149,7 @@ const FileUploadForm = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded-md block w-full appearance-none leading-5 transition duration-150 ease-in-out"
+                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded block w-full appearance-none leading-5 transition duration-150 ease-in-out"
                       onChange={handleChange}
                     />
                   </div>
@@ -169,7 +165,7 @@ const FileUploadForm = () => {
                       type="tel"
                       id="number"
                       name="number"
-                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded-md block w-full appearance-none leading-5 transition duration-150 ease-in-out"
+                      className="form-input bg-white focus:outline-none focus:shadow-outline border border-gray-300 py-2 px-4 rounded block w-full appearance-none leading-5 transition duration-150 ease-in-out"
                       onChange={handleChange}
                     />
                   </div>
@@ -185,7 +181,7 @@ const FileUploadForm = () => {
                       type="file"
                       id="file"
                       name="file"
-                      className="form-input bg-white text-green-500 border border-green-500 py-2 px-4 rounded-md shadow-sm tracking-wide block w-full appearance-none leading-5 transition duration-150 ease-in-out"
+                      className="form-input bg-white text-green-500 border border-green-500 py-2 px-4 rounded shadow-sm tracking-wide block w-full appearance-none leading-5 transition duration-150 ease-in-out"
                       onChange={handleFileChange}
                     />
                   </div>
@@ -204,7 +200,7 @@ const FileUploadForm = () => {
                       type="date"
                       id="date"
                       name="date"
-                      className="w-full form-input-date  border border-gray-300 py-2 px-4 rounded-md leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
+                      className="w-full form-input-date  border border-gray-300 py-2 px-4 rounded leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
                       onChange={handleChange}
                     />
                   </div>
@@ -219,7 +215,7 @@ const FileUploadForm = () => {
                       required
                       id="FloorPlan"
                       name="FloorPlan"
-                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded-md leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
+                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
                       onChange={handleChange}
                       defaultValue="1 BHK"
                     >
@@ -240,7 +236,7 @@ const FileUploadForm = () => {
                       required
                       id="purpose"
                       name="purpose"
-                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded-md leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
+                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
                       onChange={handleChange}
                       defaultValue="Move In"
                     >
@@ -262,7 +258,7 @@ const FileUploadForm = () => {
                       required
                       id="requirements"
                       name="requirements"
-                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded-md leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
+                      className="w-full form-input-select border border-gray-300 py-[6px] px-4 rounded leading-5 transition duration-150 ease-in-out focus:outline-none focus:shadow-outline focus:border-blue-500"
                       onChange={handleChange}
                       defaultValue="Bedroom"
                     >

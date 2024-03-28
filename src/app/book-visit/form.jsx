@@ -1,5 +1,5 @@
 'use client'
-import Image from 'next/image';
+import Image from 'next/image'
 import React from 'react'
 
 const ContactFormSection = () => {
@@ -17,10 +17,13 @@ const ContactFormSection = () => {
     }
     try {
       setBtnText('Uploading...')
-      const response = await fetch('m.designindianhomes.com//upload-postfooter-form', {
-        method: 'POST',
-        body: formDataToSend,
-      })
+      const response = await fetch(
+        'm.designindianhomes.com//upload-postfooter-form',
+        {
+          method: 'POST',
+          body: formDataToSend,
+        }
+      )
 
       if (response.ok) {
         setBtnText('Done')
@@ -37,8 +40,7 @@ const ContactFormSection = () => {
       setBtnText('Something Went Wrong')
       console.error('Error during form data and file upload:', error)
     }
-  };
-
+  }
 
   return (
     <section className="py-12 bg-gray-100 md:px-28">
@@ -69,7 +71,7 @@ const ContactFormSection = () => {
                 <input
                   type="text"
                   id="name"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 />
               </div>
               <div>
@@ -79,7 +81,7 @@ const ContactFormSection = () => {
                 <input
                   id="number"
                   type="text"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 />
               </div>
               <div>
@@ -89,7 +91,7 @@ const ContactFormSection = () => {
                 <input
                   id="date"
                   type="date"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 />
               </div>
 
@@ -101,7 +103,7 @@ const ContactFormSection = () => {
                 <input
                   id="email"
                   type="email"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 />
               </div>
               <div>
@@ -110,44 +112,20 @@ const ContactFormSection = () => {
                 </label>
                 <select
                   id="requirement"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 >
-                  <option> Modular Kitchens
-                
-                 </option>
-                  <option> 
-                  Wardrobes
-                 </option>
-                  <option> 
-                  Vanities
-                  </option>
-                  <option> 
-                  Dressers
-                  </option>
-                  <option>
-                  TV Units
-                  </option>
-                  <option> 
-                  Crockery Units
-                 </option>
-                  <option> 
-                  Glass Partitions
-                  </option>
-                  <option> 
-                  Mandir
-                  </option>
-                  <option>
-                  Bar
-                 </option>
-                  <option> 
-                  Side Tables
-                  </option>
-                  <option>
-                    Home Office
-                 </option>
-                <option>
-                  Foyer Cabinets</option>
-                 
+                  <option> Modular Kitchens</option>
+                  <option>Wardrobes</option>
+                  <option>Vanities</option>
+                  <option>Dressers</option>
+                  <option>TV Units</option>
+                  <option>Crockery Units</option>
+                  <option>Glass Partitions</option>
+                  <option>Mandir</option>
+                  <option>Bar</option>
+                  <option>Side Tables</option>
+                  <option>Home Office</option>
+                  <option>Foyer Cabinets</option>
                 </select>
               </div>
               <div>
@@ -157,7 +135,7 @@ const ContactFormSection = () => {
                 <textarea
                   rows="1"
                   id="message"
-                  className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                  className="mt-1 p-2 w-full border rounded focus:outline-none focus:ring focus:border-blue-300"
                 ></textarea>
               </div>
             </div>

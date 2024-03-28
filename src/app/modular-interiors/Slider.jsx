@@ -213,7 +213,7 @@ const Gallery = ({
         </div>
 
         {/* Your card component or other content */}
-        <div className="h-full flex flex-col justify-between rounded-lg">
+        <div className="h-full flex flex-col justify-between rounded">
           {/* top section with slider and image */}
           <div className="h-full  w-full flex flex-col md:flex-row items-center justify-center rounded-t-lg ">
             {/* Image slider content */}
@@ -284,7 +284,7 @@ const Gallery = ({
                     </div>
                   ) : (
                     <form
-                      className="w-full max-w-md p-2 rounded-lg shadow-md overflow-y-auto"
+                      className="w-full max-w-md p-2 rounded shadow-md overflow-y-auto"
                       method="post"
                       onSubmit={handleSubmit}
                     >
@@ -299,7 +299,7 @@ const Gallery = ({
                         </h2>
                       </div>
                       {/* social share  */}
-                      <div className="border-t border-b rounded-lg -mx-2 my-4">
+                      <div className="border-t border-b rounded -mx-2 my-4">
                         <p className="mt-2 ml-2">Share this Design</p>
                         <div className="social-share my-4 flex gap-4 items-center ">
                           <button
@@ -402,7 +402,7 @@ const Gallery = ({
                           type="text"
                           id="name"
                           name="name"
-                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded-md"
+                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded"
                           placeholder="Enter your name"
                           required
                           onChange={handleChange}
@@ -413,7 +413,7 @@ const Gallery = ({
                           type="email"
                           id="email"
                           name="email"
-                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded-md"
+                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded"
                           placeholder="Enter your email"
                           required
                           onChange={handleChange}
@@ -424,7 +424,7 @@ const Gallery = ({
                           type="tel"
                           id="mobile"
                           name="mobile"
-                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded-md"
+                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded"
                           placeholder="Enter your mobile number"
                           required
                           onChange={handleChange}
@@ -435,7 +435,7 @@ const Gallery = ({
                           type="text"
                           id="address"
                           name="address"
-                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded-md"
+                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded"
                           placeholder="Enter your address"
                           required
                           onChange={handleChange}
@@ -445,7 +445,7 @@ const Gallery = ({
                         <select
                           id="Interest"
                           name="Interest"
-                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded-md"
+                          className="mt-1 p-2 w-full border-b border-gray-300 text-sm focus:outline-none rounded"
                           required
                           onChange={handleChange}
                         >
@@ -489,7 +489,7 @@ const Gallery = ({
 
                       <button
                         type="submit"
-                        className="mb-8 bg-green-500 hover:bg-green-600 hover:shadow-lg text-white py-3 px-6 rounded-md  w-full"
+                        className="mb-8 bg-green-500 hover:bg-green-600 hover:shadow-lg text-white py-3 px-6 rounded  w-full"
                       >
                         Book Design Session
                       </button>
@@ -498,7 +498,7 @@ const Gallery = ({
                         <Link href="/">
                           <button
                             type="button"
-                            className="border-[1px] border-black bg-white hover:bg-gray-200 hover:shadow-lg py-6  px-2 rounded-md  w-full text-gray-700 my-8 flex justify-between items-center"
+                            className="border-[1px] border-black bg-white hover:bg-gray-200 hover:shadow-lg py-6  px-2 rounded  w-full text-gray-700 my-8 flex justify-between items-center"
                           >
                             <Image
                               width={1000}

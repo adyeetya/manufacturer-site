@@ -164,14 +164,14 @@ const SectionForComponent = () => {
         <div className="flex flex-row gap-2">
           <div className="sm:absolute sm:top-48 sm:right-4 flex justify-between ">
             <img
-              src="/images/a1.jpg"
+              src="/images/a3.jpg"
               alt="Image 1"
               className="w-64 h-full object-cover rounded"
             />
           </div>
           <div className="sm:absolute sm:top-48 sm:left-4 flex justify-between ">
             <img
-              src="/images/a2.jpg"
+              src="/images/a4.jpg"
               alt="Image 1"
               className="w-64 h-full object-cover rounded"
             />
@@ -212,15 +212,15 @@ const TiltedCards = () => {
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
               <div className="flex flex-col justify-center items-center gap-8">
-                <Globe />
+                <Web />
                 <h2 className={`text-2xl font-extrabold ${lora.className}`}>
-                  Brand & <br className="hidden sm:block" /> Content
+                  Top Class <br className="hidden sm:block" /> Machinery
                 </h2>
               </div>
               <p className="text-xs">
-                Create authentic content and collateral (print and digital) from
-                a centralized design system easy to replicate and iterate as you
-                evolve.
+                All Are Modular Furniture Machines are German Made to give you
+                the top class precision and Premium Finishes of shutters and
+                cabinets.
               </p>
               <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
@@ -232,14 +232,13 @@ const TiltedCards = () => {
               <div className="flex flex-col justify-center items-center gap-8">
                 <Design />
                 <h2 className={`text-2xl font-extrabold ${lora.className}`}>
-                  Design
+                  Best in <br className="hidden sm:block" /> Quality
                 </h2>
               </div>
               <p className="text-xs">
-                From conversion-optimized landing pages to complex and scalable
-                design systems, our goal is beautifully fluid and flawlessly
-                functional websites that solve the right problems—and look{' '}
-                <em>really</em> good while they do it.
+                Our Brand Uses some of the finest materials available in the
+                Indian Markets, all our products are custom made as per design &
+                carry limited 8 warranty as per the components selected.
               </p>
               <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
@@ -250,16 +249,15 @@ const TiltedCards = () => {
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
               <div className="flex flex-col justify-center items-center gap-8">
-                <Web />
+                <Globe />
                 <h2 className={`text-2xl font-extrabold ${lora.className}`}>
-                  Web <br className="hidden sm:block" /> Technology
+                  Always on Time <br className="hidden sm:block" /> Delivery
                 </h2>
               </div>
               <p className="text-xs">
-                It could be a no-code solution like Webflow or an enterprise
-                publishing platform like WordPress VIP. We&apos;ll help you
-                choose and implement the right tech for your website and the
-                tools you need to make the most of it.
+                We ensure commitments are met, whether we work day in or day
+                out. We have multiple facilities & make sure that your
+                deliveries are always on time.
               </p>
               <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
@@ -428,7 +426,7 @@ const CardCarousel = () => {
                 }`}
               >
                 <div className="flex flex-col items-center">
-                  <div className="relative overflow-hidden rounded-md w-80 h-72 ">
+                  <div className="relative overflow-hidden rounded w-80 h-72 ">
                     {categoryData.image ? (
                       <Image
                         fill
@@ -529,15 +527,15 @@ const BrandsSection = () => {
 
   const variants = {
     initial: {
-      x: 10,
+      scale: 0.8,
       opacity: 0,
     },
     initialL: {
-      x: -10,
+      scale: 0.8,
       opacity: 0,
     },
     animate: {
-      x: 0,
+      scale: 1,
       opacity: 1,
       transition: {
         duration: 1,
@@ -758,10 +756,10 @@ export default function Home() {
           className="mx-auto pt-8 hidden sm:flex  items-center justify-center "
         >
           <h1
-            className={`sm:text-[10vw] tracking-tighter font-bold ${lora.className}`}
+            className={`sm:text-[7vw] tracking-tighter font-bold ${lora.className}`}
           >
-            <span className="italic">Conscious</span>{' '}
-            <span className=""> Creative</span>
+            <span className="">Modular Interior</span>{' '}
+            <span className="italic"> Manufacturers</span>
           </h1>
         </motion.div>
         {/* for mobile */}
@@ -770,14 +768,14 @@ export default function Home() {
           className="mx-2 py-4 pt-8 flex sm:hidden flex-col justify-center "
         >
           <h1
-            className={` inline text-6xl font-bold text-left ${lora.className}`}
+            className={` inline text-5xl font-bold text-left ${lora.className}`}
           >
-            <span className="italic">Conscious</span>
+            <span className="italic">Modular Interior</span>
           </h1>
           <h1
-            className={` inline text-6xl font-bold text-right ${lora.className}`}
+            className={` inline text-5xl font-bold text-left ${lora.className}`}
           >
-            Creative
+            <span className="italic">Manufacturers</span>
           </h1>
         </motion.div>
       </div>
@@ -790,15 +788,14 @@ export default function Home() {
             whileInView="animate"
             className="flex flex-wrap content-center"
           >
-            <p className="text-lg sm:text-2xl text-left">
+            <p className="text-lg sm:text-xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
-                Top Modular Interior Manufacturing Brand main heading - Design
-                Indian Homes/Kitchen is the Largest Modular Kitchens - Wardrobes
-                - Interiors manufacturing Brand, we are manufacturing extensive
-                range of modular interior projects & serving to our direct
-                customers, architects, interior designers, builders & project
-                developers across New Delhi - Gurgaon - Noida - NCR.
+                Design Indian Kitchen is the Largest Modular Kitchens -
+                Wardrobes - Interiors manufacturing Brand, we are manufacturing
+                extensive range of modular interior projects & serving to our
+                direct customers, architects, interior designers, builders &
+                project developers across New Delhi - Gurgaon - Noida - NCR.
               </span>
             </p>
           </motion.div>

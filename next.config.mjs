@@ -13,6 +13,9 @@ const nextConfig = {
       'img.freepik.com',
     ],
   },
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
 }
 
 export default nextConfig;

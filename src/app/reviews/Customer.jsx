@@ -111,7 +111,7 @@ const CustomerReviewSection = () => {
           {customerData.map((customer) => (
             <div
               key={customer.id}
-              className={`bg-white p-6 rounded-lg shadow-md ${
+              className={`bg-white p-6 rounded shadow-md ${
                 expandedReviews === customer.id
                   ? 'h-auto'
                   : 'h-auto md:h-[350px]'
