@@ -61,7 +61,7 @@ const SectionWithVideos = () => {
             <div
               className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
-              Modular Interiors
+              Modular Kitchens
             </div>
             <div className="absolute bottom-4 right-4">
               <Link
@@ -95,7 +95,7 @@ const SectionWithVideos = () => {
             <div
               className={`absolute bottom-4 left-4 text-amber-50 text-xl sm:text-3xl ${lora.className}`}
             >
-              Modular Kitchens
+              Modular Interiors
             </div>
             <div className="absolute bottom-4 right-4">
               <Link

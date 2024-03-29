@@ -275,7 +275,7 @@ const Contact = () => {
           <div>
             <Time />
           </div>
-          <div>
+          {/* <div>
             <ul>
               <li className="mb-2 font-bold">WORK</li>
               <li className="mb-2 font-bold">
@@ -286,7 +286,7 @@ const Contact = () => {
               </li>
               <li className="mb-2 font-bold">CAREERS</li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -304,32 +304,32 @@ const LetsConnectSection = () => {
               Renovation
             </Link>
           </li>
-          <Link href="https://designindianhomes.com/virtual-interior-designing-meeting">
+          <Link href="/schedule-videocall">
             <li className="mb-2">Book a Virtual Meeting</li>
           </Link>
-          <Link href="https://designindianhomes.com/about-best-interior-designers-architects">
+          <Link href="/about-us">
             <li> About Us</li>
           </Link>
           {/* <Link href="/largest-interior-designing-brand">
                       <li className="mb-2">The Team</li>
                     </Link> */}
-          <Link href="https://designindianhomes.com/collaborate-with-architects-interior-designers">
+          <Link href="/join-us">
             <li>Collaborate with Us</li>
           </Link>
-          <Link href="https://designindianhomes.com/customer-reviews-interior-designs">
+          <Link href="/reviews">
             {' '}
             <li className="mb-2">Reviews</li>
           </Link>
-          <Link href="https://designindianhomes.com/interior-designing-plans-for-residences">
-            <li className="mb-2"> Our Packages </li>
+          <Link href="/architects-speak">
+            <li className="mb-2"> Architects Speak </li>
           </Link>
-          <Link href="https://designindianhomes.com/why-choose-the-best-interior-designers">
+          <Link href="/why-choose-us">
             <li className="mb-2">Why Choose Us</li>
           </Link>
-          <Link href="https://designindianhomes.com/join-the-largest-interior-designing-brand">
+          <Link href="/join-us">
             <li className="mb-2">Join As a Designer</li>
           </Link>
-          <Link href="https://designindianhomes.com/book-with-top-interior-designers-architects">
+          <Link href="/book-visit">
             <li className="mb-2">Book a Design Visit</li>
           </Link>
         </ul>
@@ -337,16 +337,19 @@ const LetsConnectSection = () => {
       <div>
         <h1 className="text-4xl font-bold">COLLABORATE</h1>
         <ul className="text-lg font-bold mt-4">
-          <Link href="https://designindianhomes.com/join-us">
+          <Link href="/join-us">
             <li className="mb-2"> PARTNER WITH US</li>
           </Link>
-          <Link href="https://designindianhomes.com/offer">
+          <Link href="/refer-and-earn">
             <li className="mb-2">REFER FOR REWARDS</li>
           </Link>
-          <Link href="https://designindianhomes.com/join-us">
+          <Link href="/join-us">
             <li className="mb-2"> JOIN AS-A DESIGNER</li>
           </Link>
-          <Link href="#">
+          <Link href="/careers">
+            <li className="mb-2"> CAREERS</li>
+          </Link>
+          <Link href="/careers">
             <li className="mb-2">
               FOR - ARCHITECTS & <br /> INTERIOR DESIGNERS
             </li>
@@ -373,7 +376,7 @@ const Footer = () => {
             // href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
             // target="_blank"
             // rel="noopener noreferrer"
-            href='/calculator'
+            href="/calculator"
             className={`whitespace-nowrap text-xl sm:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
           >
             Calculate Your Estimates
@@ -478,9 +481,9 @@ const Footer = () => {
         </div>
         <div className="my-24 ">
           {' '}
-          <h1 className="text-4xl md:text font-semibold text-center  pt-16">
+          {/* <h1 className="text-4xl md:text font-semibold text-center  pt-16">
             Our Locations
-          </h1>
+          </h1> */}
           <LocationsTabs />
         </div>
         <div>
