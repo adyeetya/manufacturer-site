@@ -99,7 +99,7 @@ const LetsConnectForm = () => {
             name="name"
             required
             placeholder="Name"
-            className="w-full mb-4 border-b border-gray-300 focus:outline-none focus:border-blue-500 placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 bg-gradient-to-r from-teal-400 to-blue-500"
+            className="bg-inherit w-full mb-4 border-2 border-gray-900  placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 "
           />
 
           <br />
@@ -110,7 +110,7 @@ const LetsConnectForm = () => {
             placeholder="Email"
             required
             onChange={handleChange}
-            className="w-full mb-4 border-b border-gray-300 focus:outline-none focus:border-blue-500 placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 bg-gradient-to-r from-teal-400 to-blue-500"
+            className="bg-inherit w-full mb-4 border-2 border-gray-900  placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 "
           />
 
           <br />
@@ -121,7 +121,7 @@ const LetsConnectForm = () => {
             placeholder="Mobile Number"
             onChange={handleChange}
             required
-            className="w-full mb-4 border-b border-gray-300 focus:outline-none focus:border-blue-500 placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 bg-gradient-to-r from-teal-400 to-blue-500"
+            className="bg-inherit w-full mb-4 border-2 border-gray-900  placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 "
           />
 
           <br />
@@ -131,15 +131,13 @@ const LetsConnectForm = () => {
             placeholder="Message"
             onChange={handleChange}
             required
-            className="w-full mb-8 border-b border-gray-300 focus:outline-none focus:border-blue-500 placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 bg-gradient-to-r from-teal-400 to-blue-500"
+            className="bg-inherit w-full mb-8 border-2 border-gray-900  placeholder-gray-500 py-2 px-4 rounded transition-all duration-300 "
           />
 
           <br />
           <button
             type="submit"
-            // className="py-2 px-6 hover:text-white hover:bg-black"
-            // style={{ border: "1px solid black" }}
-            className="w-full rounded-full border-b border-gray-300 focus:outline-none focus:border-blue-500 placeholder-gray-500 py-2 px-4 transition-all duration-300 bg-gradient-to-r from-lime-300 to-green-400"
+            className="w-full rounded-full border-2 border-gray-900 py-2 px-4 transition-all duration-300 hover:bg-gray-900 hover:border-gray-700 text-gray-900 hover:text-white"
           >
             {btnText}
           </button>

@@ -45,9 +45,9 @@ const Links = () => {
       text: 'What we do.',
     },
     { name: 'Get Quotes', slug: '/get-quote', text: 'Get free estimates.' },
-    { name: 'Visit Us', slug: '/book-visit', text: 'Book an appointment.' },
+    { name: 'Collaborate', slug: '/join-us', text: 'Join us.' },
     { name: 'Our Story', slug: '/about-us', text: 'Know the brand.' },
-    { name: 'The Magazine', slug: '/magazine', text: 'See the latest blogs.' },
+    { name: 'The Magazine', slug: '/magazine', text: 'The latest blogs.' },
   ]
 
   return (

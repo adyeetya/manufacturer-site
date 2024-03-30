@@ -1,3 +1,4 @@
+import React from 'react'
 import ScrollToTopButton from '../components/ScrollToTop'
 import Link from 'next/link'
 import { Lora } from 'next/font/google'
@@ -15,6 +16,7 @@ import CallIcon from '@mui/icons-material/Call'
 import Image from 'next/image'
 import LetsConnectForm from './LetsConnect'
 import Time from './Clock'
+import Typed from 'typed.js'
 const TrinityBrand = () => {
   return (
     <div>
@@ -365,11 +367,25 @@ const LetsConnectSection = () => {
 }
 
 const Footer = () => {
+  const el = React.useRef(null)
+  React.useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: ['HOMES', 'KITCHEN', 'WARDROBE'],
+      typeSpeed: 100,
+      loop: true,
+      loopCount: Infinity,
+    })
+
+    return () => {
+      // Destroy Typed instance during cleanup to stop animation
+      typed.destroy()
+    }
+  }, [])
   return (
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
-        <h1 className="text-4xl tracking-tight  sm:text-7xl text-right sm:text-center font-extrabold my-4">
-          MODULAR INTERIOR MANUFACTURING
+        <h1 className="text-4xl tracking-tight  sm:text-[90px] text-right sm:text-center font-extrabold my-4">
+          DESIGN INDIAN <span ref={el} className="" />
         </h1>
         <div className="flex my-24 sm:my-48  w-full justify-center items-center">
           <Link
@@ -487,7 +503,7 @@ const Footer = () => {
           <LocationsTabs />
         </div>
         <div>
-          <div className="w-full text-center text-black text-sm  py-4 bg-white mt-16 sm:mb-0">
+          <div className="w-full text-center text-white text-sm  py-4 bg-black mt-16 sm:mb-0">
             <p>
               MODULAR KITCHEN MANUFACTURING | ALL RIGHTS RESERVED 2024-25
               CRAFTED WITH LOVE BY IN HOUSE BRAND -{' '}

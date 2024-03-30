@@ -155,8 +155,8 @@ export const Globe = () => {
 export const Design = () => {
   return (
     <svg
-      width="60"
-      height="60"
+      width="96"
+      height="96"
       viewBox="0 0 60 60"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

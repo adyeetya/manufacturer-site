@@ -30,6 +30,8 @@ import {
 } from '../components/ui/brandsCarousel'
 import Image from 'next/image'
 import axios from 'axios'
+import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
+import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 const lora = Lora({
   weight: '400',
   subsets: ['latin'],
@@ -130,6 +132,7 @@ const SectionForComponent = () => {
       },
     },
   }
+  const [isHovered, setIsHovered] = useState(false)
   return (
     <motion.div
       variants={variants}
@@ -150,26 +153,50 @@ const SectionForComponent = () => {
         </span>
       </motion.p>
       <div className="text-center flex justify-center flex-col items-center">
-        <h1 className={`text-7xl tracking-tighter font-bold ${lora.className}`}>
+        <h1
+          className={`sm:text-[7vw] text-4xl sm:leading-[5rem] tracking-tighter font-bold ${lora.className}`}
+        >
           {' '}
           <span className="italic">Some </span> <br />
           Exquisite Work
         </h1>
-        <div className="group -my-3 w-48 h-16 border border-black rounded-full flex items-center justify-center z-10 bg-[#f8ece4] hover:bg-black hover:text-white cursor-pointer">
-          <span className="group-hover:hidden">FOR</span>
-          <span className="hidden group-hover:block">
-            <Link href="/modular-interiors">VIEW OUR WORKS</Link>
+        {/* <div className="group -my-3 w-48 h-16 border border-black rounded-full flex items-center justify-center z-10 bg-[#f8ece4] hover:bg-[#f54e07] hover:text-white cursor-pointer"> */}
+        {/* <span className="group-hover:hidden transition-all duration-500 ease-in-out">
+            FOR
           </span>
+          <span className="hidden group-hover:block transition-all duration-500 ease-in-out">
+            <Link href="/modular-interiors">VIEW OUR WORKS</Link>
+          </span> */}
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="custom-oval relative group -my-16 sm:-my-28  sm:border-2 border-black hover:border-[#f54e07] py-36 flex items-center justify-center z-10 sm:bg-white sm:hover:bg-[#f54e07] hover:text-white cursor-pointer transition-all duration-300 ease-in-out"
+        >
+          <h1
+            className={`text-2xl whitespace-nowrap ${
+              isHovered ? 'sm:text-white' : 'sm:text-black'
+            }   cursor-pointer transition-all duration-300 ease-in-out -rotate-90`}
+          >
+            {isHovered ? (
+              <span className="">
+                <Link href="/modular-interiors">VIEW OUR WORKS</Link>
+              </span>
+            ) : (
+              <span className="">FOR</span>
+            )}
+          </h1>
         </div>
+
+        {/* </div> */}
         <div className="flex flex-row gap-2">
-          <div className="sm:absolute sm:top-48 sm:right-4 flex justify-between ">
+          <div className="sm:absolute sm:top-64 sm:right-4 flex justify-between ">
             <img
               src="/images/a3.jpg"
               alt="Image 1"
               className="w-64 h-full object-cover rounded"
             />
           </div>
-          <div className="sm:absolute sm:top-48 sm:left-4 flex justify-between ">
+          <div className="sm:absolute sm:top-36 sm:left-4 flex justify-between ">
             <img
               src="/images/a4.jpg"
               alt="Image 1"
@@ -177,7 +204,9 @@ const SectionForComponent = () => {
             />
           </div>
         </div>
-        <h1 className={`text-7xl font-bold tracking-tighter ${lora.className}`}>
+        <h1
+          className={`sm:text-[7vw] mt-4 sm:mt-0 text-4xl sm:leading-[5rem] font-bold tracking-tighter ${lora.className}`}
+        >
           <span className="italic">Some </span> <br />
           Exquisite People
         </h1>
@@ -207,13 +236,13 @@ const TiltedCards = () => {
           <Star />
         </span>
       </p>
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center  w-full">
-        <div className="relative w-full sm:w-64 h-64 sm:h-80 border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center w-full">
+        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8">
-                <Web />
-                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
+                <PrecisionManufacturingOutlinedIcon className="h-24 w-24" />
+                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
                   Top Class <br className="hidden sm:block" /> Machinery
                 </h2>
               </div>
@@ -226,12 +255,12 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="relative w-full sm:w-64 h-64 sm:h-80 border border-black overflow-hidden rounded sm:mb-16 sm:hover:h-[19rem] hover:shadow-2xl transition-all duration-500">
+        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[450px] hover:shadow-2xl transition-all duration-500">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8">
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
                 <Design />
-                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
                   Best in <br className="hidden sm:block" /> Quality
                 </h2>
               </div>
@@ -244,13 +273,13 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="relative w-full sm:w-64 h-64 sm:h-80 border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded">
+        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           {' '}
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8">
-                <Globe />
-                <h2 className={`text-2xl font-extrabold ${lora.className}`}>
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
+                <LocalShippingOutlinedIcon className="h-24 w-24" />
+                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
                   Always on Time <br className="hidden sm:block" /> Delivery
                 </h2>
               </div>
@@ -402,9 +431,10 @@ const CardCarousel = () => {
   return (
     <div className="w-full my-24 sm:px-8 px-4">
       <h1
-        className={`text-left text-4xl sm:text-5xl sm:ml-20 mb-4 font-bold ${lora.className}`}
+        className={`text-left tracking-tighter text-4xl sm:text-5xl sm:ml-20 mb-4 font-bold ${lora.className}`}
       >
-        <span className="italic">Our Complete Collection</span>
+        Our
+        <span className="italic"> Complete Collection</span>
       </h1>
       {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <Carousel
@@ -426,26 +456,30 @@ const CardCarousel = () => {
                 }`}
               >
                 <div className="flex flex-col items-center">
-                  <div className="relative overflow-hidden rounded w-80 h-72 ">
-                    {categoryData.image ? (
-                      <Image
-                        fill
-                        src={`https://api.designindianwardrobe.com/uploads/${categoryData.image.filename}`}
-                        alt={categoryData.image.filename}
-                        className="rounded-2xl"
-                      />
-                    ) : (
-                      <Image
-                        fill
-                        src="/images/error.jpg"
-                        alt="No image found"
-                        className="rounded-2xl"
-                      />
-                    )}
+                  <div>
+                    <div className="relative overflow-hidden rounded w-80 sm:w-96 h-80">
+                      {categoryData.image ? (
+                        <Image
+                          fill
+                          src={`https://api.designindianwardrobe.com/uploads/${categoryData.image.filename}`}
+                          alt={categoryData.image.filename}
+                          className="rounded-2xl"
+                        />
+                      ) : (
+                        <Image
+                          fill
+                          src="/images/error.jpg"
+                          alt="No image found"
+                          className="rounded-2xl"
+                        />
+                      )}
+                    </div>
+                    <h3
+                      className={`text-3xl text-left tracking-tighter mt-2 font-bold ${lora.className}`}
+                    >
+                      {categoryData.name}
+                    </h3>
                   </div>
-                  <h3 className={`text-3xl mt-2 font-bold ${lora.className}`}>
-                    {categoryData.name}
-                  </h3>
                 </div>
               </Link>
             </CarouselItem>
@@ -467,6 +501,205 @@ const CardCarousel = () => {
 }
 
 const BrandsSection = () => {
+  const news = [
+    {
+      id: 1,
+      imageUrl: '/images/news/bloomberg-1682401474-ArUs1.avif',
+    },
+    {
+      id: 2,
+      imageUrl: '/images/news/cnbc-1682401476-zldSU.avif',
+    },
+    {
+      id: 3,
+      imageUrl: '/images/news/entrpreneur-1682677467-7QjOd.avif',
+    },
+
+    {
+      id: 5,
+      imageUrl: '/images/news/et-1682401477-NjRCA.avif',
+    },
+    {
+      id: 6,
+      imageUrl: '/images/news/femina-1682401478-VMDBI.avif',
+    },
+    {
+      id: 7,
+      imageUrl: '/images/news/global-magazine-1682401479-ikbb6.avif',
+    },
+    {
+      id: 8,
+      imageUrl: '/images/news/gq-1682401480-K5jcJ.avif',
+    },
+    {
+      id: 9,
+      imageUrl: '/images/news/india-today-home-1682401481-kqBb2.avif',
+    },
+    {
+      id: 10,
+      imageUrl: '/images/news/mint-1682401482-d0I7g.avif',
+    },
+    {
+      id: 11,
+      imageUrl: '/images/news/toi-1682401483-unoIf.avif',
+    },
+    {
+      id: 12,
+      imageUrl: '/images/news/your-story-1682401484-Lg2DW.avif',
+    },
+
+    // Add more card data as needed
+  ]
+
+  const variants = {
+    initial: {
+      scale: 0.8,
+      opacity: 0,
+    },
+    initialL: {
+      scale: 0.8,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  return (
+    <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
+      <div className="max-w-screen-2xl  mx-auto">
+        {/* <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
+          Our Brands Collection
+        </h1>
+        <BrandsCarousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className=" bg-white  w-full overflow-hidden"
+        >
+          <BrandsCarouselContent>
+            {cardData.map((card) => (
+              <BrandsCarouselItem
+                key={card.id}
+                className="basis-1/2 lg:basis-1/5 "
+              >
+                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
+                  <img
+                    src={card.imageUrl}
+                    alt={card.heading}
+                    className="w-full h-auto rounded object-cover"
+                  />
+                </div>
+              </BrandsCarouselItem>
+            ))}
+          </BrandsCarouselContent>
+        </BrandsCarousel> */}
+        <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8">
+          <motion.div
+            variants={variants}
+            initial="initialL"
+            whileInView="animate"
+            className="flex flex-col items-center w-full sm:w-1/2 rounded"
+          >
+            <Image
+              src="/images/Review.png"
+              alt="Your Image"
+              className="max-w-full h-auto rounded"
+              height={1000}
+              width={1000}
+            />
+          </motion.div>
+          <motion.div
+            variants={variants}
+            initial="initial"
+            whileInView="animate"
+            className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded"
+          >
+            <div className="flex flex-col justify-center items-center">
+              <div className="mb-12">
+                {' '}
+                <Stars />
+              </div>
+              <h1
+                className={`text-left text-5xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
+              >
+                Right You an Architect, Interior Designer, Builder, Society
+                Developer, Township Developers or Showroom Vendor
+              </h1>
+            </div>
+            <div className="flex-grow"></div>
+            <div className="flex my-12 w-full justify-center items-center">
+              <Link
+                href="/contact-us"
+                className={`whitespace-nowrap text-lg sm:text-xl px-2 py-1 rounded border-2 border-[var(--text-color)] text-[var(--text-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+              >
+                Connect With Us Today
+              </Link>
+            </div>
+          </motion.div>
+        </section>
+        <div className="flex flex-col sm:flex-row px-8">
+          <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
+            <p className="text-lg sm:text-2xl">
+              Check How Much We are Loved 🥰
+            </p>
+          </div>
+          <div className="w-full sm:w-1/2 px-4">
+            <p className="text-lg sm:text-2xl text-left">
+              {<Stars />}{' '}
+              <span className="ml-8 sm:ml-16">
+                With Over 950+ architects, interior designers, builders, Brands
+                Associated with our Production Units, we assure you Top Notch
+                Materials at the Most Affordable Quotes across New Delhi -
+                Gurgaon - Noida - Faridabad - NCR - Pan India 
+              </span>
+            </p>
+          </div>
+        </div>
+        {/* news */}
+        <div className="my-16">
+          <h1
+            className={`text-left text-6xl mb-8 font-bold ${lora.className} `}
+          >
+            In The News
+          </h1>
+          <BrandsCarousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full overflow-hidden"
+          >
+            <BrandsCarouselContent>
+              {news.map((card) => (
+                <BrandsCarouselItem
+                  key={card.id}
+                  className="basis-1/2 lg:basis-1/5 "
+                >
+                  <div className="flex bg-white rounded flex-col justify-center items-start w-[250px] h-[100px] p-2 border-2 border-gray-400">
+                    <img
+                      src={card.imageUrl}
+                      alt={card.heading}
+                      className="w-full h-auto rounded object-cover"
+                    />
+                  </div>
+                </BrandsCarouselItem>
+              ))}
+            </BrandsCarouselContent>
+          </BrandsCarousel>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const WhiteStripSection = () => {
   const cardData = [
     {
       id: 1,
@@ -524,31 +757,69 @@ const BrandsSection = () => {
 
     // Add more card data as needed
   ]
+  const data = [
+    {
+      id: 1,
+      img: '/images/brands-nobg/c1.png',
+    },
+    {
+      id: 2,
+      img: '/images/brands-nobg/c2.png',
+    },
+    {
+      id: 3,
+      img: '/images/brands-nobg/c3.png',
+    },
+    {
+      id: 4,
+      img: '/images/brands-nobg/c4.png',
+    },
+    {
+      id: 5,
+      img: '/images/brands-nobg/c5.png',
+    },
+    {
+      id: 6,
+      img: '/images/brands-nobg/c6.png',
+    },
+    {
+      id: 7,
+      img: '/images/brands-nobg/c7.png',
+    },
+    {
+      id: 8,
+      img: '/images/brands-nobg/c8.png',
+    },
 
-  const variants = {
-    initial: {
-      scale: 0.8,
-      opacity: 0,
+    {
+      id: 10,
+      img: '/images/brands-nobg/c10.png',
     },
-    initialL: {
-      scale: 0.8,
-      opacity: 0,
+    {
+      id: 11,
+      img: '/images/brands-nobg/c1.png',
     },
-    animate: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.1,
-      },
+    {
+      id: 12,
+      img: '/images/brands-nobg/c2.png',
     },
-  }
 
+    {
+      id: 13,
+      img: '/images/brands-nobg/c3.png',
+    },
+    {
+      id: 14,
+      img: '/images/brands-nobg/c4.png',
+    },
+  ]
   return (
-    <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
-      <div className="max-w-screen-2xl  mx-auto">
-        <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
-          Our Brands Collection
+    <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl my-24 gap-32">
+      <div>
+        <h1
+          className={`text-left tracking-tighter text-6xl mb-8 font-bold ${lora.className} `}
+        >
+          Brands you will find in our products
         </h1>
         <BrandsCarousel
           opts={{
@@ -574,64 +845,37 @@ const BrandsSection = () => {
             ))}
           </BrandsCarouselContent>
         </BrandsCarousel>
-        <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8">
-          <motion.div
-            variants={variants}
-            initial="initialL"
-            whileInView="animate"
-            className="flex flex-col items-center w-full sm:w-1/2 rounded"
-          >
-            <Image
-              src="/images/temp.webp"
-              alt="Your Image"
-              className="max-w-full h-auto rounded"
-              height={1000}
-              width={1000}
-            />
-          </motion.div>
-          <motion.div
-            variants={variants}
-            initial="initial"
-            whileInView="animate"
-            className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded"
-          >
-            <div className="flex flex-col justify-center items-center">
-              <div className="mb-12">
-                {' '}
-                <Stars />
-              </div>
-              <h1
-                className={`text-left text-6xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
+      </div>
+      <div>
+        <h1
+          className={`text-left tracking-tighter text-6xl mb-8 font-bold ${lora.className} `}
+        >
+          Our Corporate Presence
+        </h1>
+        <BrandsCarousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className=" bg-white  w-full overflow-hidden"
+        >
+          <BrandsCarouselContent>
+            {data.map((card) => (
+              <BrandsCarouselItem
+                key={card.id}
+                className="basis-1/2 lg:basis-1/5 "
               >
-                We do work worth doing.
-              </h1>
-            </div>
-            <div className="flex-grow"></div>
-            <div className="flex my-12 w-full justify-center items-center">
-              <Link
-                href="/modular-interiors"
-                className={`whitespace-nowrap text-lg sm:text-xl px-2 py-1 rounded border-2 border-[var(--text-color)] text-[var(--text-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
-              >
-                Explore Our Works
-              </Link>
-            </div>
-          </motion.div>
-        </section>
-        <div className="flex flex-col sm:flex-row px-8">
-          <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
-            <p className="text-lg sm:text-2xl">Value exists on a spectrum.</p>
-          </div>
-          <div className="w-full sm:w-1/2 px-4">
-            <p className="text-lg sm:text-2xl text-left">
-              {<Stars />}{' '}
-              <span className="ml-8 sm:ml-16">
-                Drive engagement (i.e. conversions) with branding, content, and
-                websites that surpass loopy creativity to solve real problems
-                and resonate with your people.
-              </span>
-            </p>
-          </div>
-        </div>
+                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
+                  <img
+                    src={card.img}
+                    alt="{card.heading}"
+                    className="w-full h-auto rounded object-cover"
+                  />
+                </div>
+              </BrandsCarouselItem>
+            ))}
+          </BrandsCarouselContent>
+        </BrandsCarousel>
       </div>
     </div>
   )
@@ -661,14 +905,15 @@ const BlogsSection = () => {
     <div className="w-full my-24 px-4">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
         <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
-          The <span className="italic"> Latest</span>
+          Our Exclusive <span className="italic"> Interior Magazine</span>
         </h1>
         <p className="text-sm max-w-sm">
           {<Stars />}{' '}
           <span className="ml-8 sm:ml-16">
-            Drive engagement (i.e. conversions) with branding, content, and
-            websites that surpass loopy creativity to solve real problems and
-            resonate with your people.
+            Get some amazing insights about interiors, architectural services,
+            creating amazing modular kitchens & wardrobes with our experts who
+            will take you across some of the best thought 💭 ful advices
+            & methodologies.
           </span>
         </p>
       </div>
@@ -791,11 +1036,23 @@ export default function Home() {
             <p className="text-lg sm:text-xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
-                Design Indian Kitchen is the Largest Modular Kitchens -
-                Wardrobes - Interiors manufacturing Brand, we are manufacturing
-                extensive range of modular interior projects & serving to our
-                direct customers, architects, interior designers, builders &
-                project developers across New Delhi - Gurgaon - Noida - NCR.
+                Design Indian{' '}
+                <Link className="hover:underline" href="/">
+                  Homes
+                </Link>
+                /
+                <Link className="hover:underline" href="/">
+                  Kitchen
+                </Link>
+                /
+                <Link className="hover:underline" href="/">
+                  Wardrobe
+                </Link>{' '}
+                is the Largest Modular Kitchens - Wardrobes - Interiors
+                manufacturing Brand, we are manufacturing extensive range of
+                modular interior projects & serving to our direct customers,
+                architects, interior designers, builders & project developers
+                across New Delhi - Gurgaon - Noida - NCR.
               </span>
             </p>
           </motion.div>
@@ -825,6 +1082,8 @@ export default function Home() {
       <div className="">
         <CardCarousel />
       </div>
+      {/* --------------------------- */}
+      <WhiteStripSection />
       {/* --------------------------- */}
       <BrandsSection />
       {/* --------------------------- */}

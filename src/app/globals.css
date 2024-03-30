@@ -63,3 +63,21 @@ html {
   background-color: var(--theme-color);
   color: var(--text-color); /* Set the default text color */
 }
+
+.custom-oval {
+  /* clip-path: ellipse(50% 20% at 50% 50%); */
+  /* border: 1px solid #000; */
+  height: 200px;
+  width: 100px;
+  border-radius: 50%;
+  rotate: 85deg;
+  /* border-bottom-left-radius: 40% 50%;
+  border-bottom-right-radius: 40% 50%;
+  border-top-left-radius: 40% 50%;
+  border-top-right-radius: 40% 50%; */
+}
+@media (max-width: 640px) {
+  .custom-oval {
+    rotate: 90deg;
+  }
+}
