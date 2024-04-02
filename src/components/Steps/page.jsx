@@ -59,12 +59,10 @@ const Steps = () => {
                   {' '}
                   <HeartHandshake color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 1</div>
+                <div className="text-sm font-semibold uppercase">Step 1</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
-                  Finally Found Us
-                </h2>
+                <h2 className="text-xl  mb-2">Finally Found Us</h2>
                 <p className="text-sm text-gray-600">
                   After long searches, you finally reached the right
                   destination, where all works will be done from Source, right
@@ -80,12 +78,10 @@ const Steps = () => {
                   {' '}
                   <Gem color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 2</div>
+                <div className="text-sm font-semibold uppercase">Step 2</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
-                  Booking The First Visit
-                </h2>
+                <h2 className="text-xl  mb-2">Booking The First Visit</h2>
                 <p className="text-sm text-gray-600">
                   You Book a Visit with Our Modular Coordinator or Architect
                   Coordinator, very sorry we dont have field running staff to
@@ -102,12 +98,10 @@ const Steps = () => {
                   {' '}
                   <MousePointer2 color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 3</div>
+                <div className="text-sm font-semibold uppercase">Step 3</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
-                  Understanding Requirements
-                </h2>
+                <h2 className="text-xl  mb-2">Understanding Requirements</h2>
                 <p className="text-sm text-gray-600">
                   We Show you Concepts, understand requirements, & give our
                   expert advices followed by a thorough evaluation.
@@ -122,12 +116,10 @@ const Steps = () => {
                   {' '}
                   <Users color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 4</div>
+                <div className="text-sm font-semibold uppercase">Step 4</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
-                  Visit Our Boutique Office
-                </h2>
+                <h2 className="text-xl mb-2">Visit Our Boutique Office</h2>
                 <p className="text-sm text-gray-600">
                   You Visit Our Boutique Office, we show your the presentation
                   as per understanding of works, show tentative estimates & give
@@ -143,10 +135,10 @@ const Steps = () => {
                   {' '}
                   <Component color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 5</div>
+                <div className="text-sm font-semibold uppercase">Step 5</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
+                <h2 className="text-xl mb-2">
                   Initiating Designing & Planning
                 </h2>
                 <p className="text-sm text-gray-600">
@@ -165,10 +157,10 @@ const Steps = () => {
                   {' '}
                   <Wrench color="#ba8a35" className="h-8 w-8" />
                 </div>
-                <div className="text-lg font-semibold uppercase">Step 6</div>
+                <div className="text-sm font-semibold uppercase">Step 6</div>
               </div>
               <div className="flex flex-col justify-between my-2 w-full">
-                <h2 className="text-2xl font-semibold mb-2">
+                <h2 className="text-xl  mb-2">
                   Approvals & Initiating Execution as per Timelines
                 </h2>
                 <p className="text-sm text-gray-600">

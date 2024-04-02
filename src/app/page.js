@@ -240,7 +240,7 @@ const TiltedCards = () => {
         </span>
       </p>
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center w-full">
-        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
               <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
@@ -260,7 +260,7 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[420px] hover:shadow-2xl transition-all duration-500">
+        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[410px] hover:shadow-2xl transition-all duration-500">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
               <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
@@ -280,7 +280,7 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           {' '}
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
@@ -470,7 +470,7 @@ const CardCarousel = () => {
               >
                 <div className="flex flex-col items-center">
                   <div>
-                    <div className="relative overflow-hidden rounded w-80 sm:w-96 h-80">
+                    <div className="relative overflow-hidden rounded w-80 sm:w-[380px] h-72">
                       {categoryData.image ? (
                         <Image
                           fill
