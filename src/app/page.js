@@ -529,9 +529,9 @@ const Awards = () => {
     { name: 'Most Trusted Modular Brand', brand: 'Timber Association India' },
   ]
   return (
-    <div className="my-12">
+    <div className="my-12 ">
       <h1
-        className={`sm:w-1/2 text-left tracking-tighter text-4xl sm:text-6xl mb-4 font-bold ${lora.className}`}
+        className={`sm:w-1/2 text-left tracking-tighter text-4xl sm:text-6xl mb-4 mx-4 font-bold ${lora.className}`}
       >
         Hey There,<span className="italic"> Check Out </span>
         Something you dont know About Our <span className="italic">Brand </span>

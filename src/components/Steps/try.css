@@ -7,7 +7,7 @@
 @media (max-width: 640px) {
   :root {
     --cards: 6;
-    --cardHeight: 300px;
+    --cardHeight: 250px;
     --cardTopPadding: 1em;
     --cardMargin: 20px;
   }
