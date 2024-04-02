@@ -628,20 +628,10 @@ const LocationsTabs = () => {
           scrollButtons="auto"
           className="text-center w-fit"
         >
-          <StyledTab
-            label="WARDROBE DESIGN LOCATIONS"
-            // className="sm:text-xl text-xs font-[500] my-2"
-            style={{ fontSize: '24px' }}
-          />
+          <StyledTab label="WARDROBE DESIGNS" style={{ fontSize: '20px' }} />
 
-          <StyledTab
-            label="KITCHEN DESIGNS LOCATIONS"
-            style={{ fontSize: '24px' }}
-          />
-          <StyledTab
-            label="INTERIOR DESIGNS LOCATIONS"
-            style={{ fontSize: '24px' }}
-          />
+          <StyledTab label="KITCHEN DESIGNS" style={{ fontSize: '20px' }} />
+          <StyledTab label="INTERIOR DESIGNS" style={{ fontSize: '20px' }} />
         </Tabs>
       </div>
 

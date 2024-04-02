@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
           <Provider store={store}>
             <SpaceProvider>{children}</SpaceProvider>
           </Provider>
-          {/* <Assistance /> */}
+          <Assistance />
           <Footer />
         </body>
       </ThemeProvider>

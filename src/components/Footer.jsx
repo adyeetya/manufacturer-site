@@ -384,10 +384,10 @@ const Footer = () => {
   return (
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
-        <h1 className="text-4xl tracking-tight  sm:text-[90px] text-right sm:text-center font-extrabold my-4">
-          DESIGN INDIAN <span ref={el} className="" />
+        <h1 className="text-4xl tracking-tight sm:text-6xl text-right sm:text-center font-extrabold my-4">
+          DESIGN INDIAN <br className='sm:hidden' /> <span ref={el} className="" />
         </h1>
-        <div className="flex my-24 sm:my-48  w-full justify-center items-center">
+        <div className="flex my-12 sm:my-36 w-full justify-center items-center">
           <Link
             // href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
             // target="_blank"
@@ -466,10 +466,18 @@ const Footer = () => {
           </div>
           <div className="flex flex-row sm:gap-8 gap-2 justify-between sm:justify-center items-center p-4">
             {' '}
-            <CallIcon sx={{ fontSize: 40 }} />
-            <WhatsAppIcon sx={{ fontSize: 40 }} />
-            <InstagramIcon sx={{ fontSize: 40 }} />
-            <MailOutlineIcon sx={{ fontSize: 40 }} />
+            <a href="tel:+91 9899264978">
+              <CallIcon sx={{ fontSize: 40 }} />
+            </a>
+            <a href="https://wa.me/9899264978">
+              <WhatsAppIcon sx={{ fontSize: 40 }} />
+            </a>
+            <a href="https://www.instagram.com/designindiankitchen/">
+              <InstagramIcon sx={{ fontSize: 40 }} />
+            </a>
+            <a href="mailto:your-email-address">
+              <MailOutlineIcon sx={{ fontSize: 40 }} />
+            </a>
           </div>
         </div>
 

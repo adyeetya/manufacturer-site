@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import MaxWidthWrapper from '../components/MaxWidthWrapper'
-import { Lora } from 'next/font/google'
 import {
   Stars,
   Arrow,
@@ -10,6 +9,8 @@ import {
   Globe,
   Web,
   Design,
+  AwardLeft,
+  AwardRight,
 } from '../components/icons/Icons'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import EmblaCarousel from '../components/Carousel/EmblaCarousel'
@@ -32,6 +33,8 @@ import Image from 'next/image'
 import axios from 'axios'
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
+import Steps from '../components/Steps/page'
+import { Lora } from 'next/font/google'
 const lora = Lora({
   weight: '400',
   subsets: ['latin'],
@@ -193,14 +196,14 @@ const SectionForComponent = () => {
             <img
               src="/images/a3.jpg"
               alt="Image 1"
-              className="w-64 h-full object-cover rounded"
+              className="w-52 h-full object-cover rounded"
             />
           </div>
           <div className="sm:absolute sm:top-36 sm:left-4 flex justify-between ">
             <img
               src="/images/a4.jpg"
               alt="Image 1"
-              className="w-64 h-full object-cover rounded"
+              className="w-52 h-full object-cover rounded"
             />
           </div>
         </div>
@@ -237,12 +240,14 @@ const TiltedCards = () => {
         </span>
       </p>
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center w-full">
-        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
-                <PrecisionManufacturingOutlinedIcon className="h-24 w-24" />
-                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
+                <PrecisionManufacturingOutlinedIcon className="h-16 w-16" />
+                <h2
+                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                >
                   Top Class <br className="hidden sm:block" /> Machinery
                 </h2>
               </div>
@@ -255,12 +260,14 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[450px] hover:shadow-2xl transition-all duration-500">
+        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[420px] hover:shadow-2xl transition-all duration-500">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
                 <Design />
-                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
+                <h2
+                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                >
                   Best in <br className="hidden sm:block" /> Quality
                 </h2>
               </div>
@@ -273,13 +280,15 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-80 h-64 sm:h-[500px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+        <div className="p-32 relative w-full sm:w-72 h-64 sm:h-[450px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           {' '}
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-12">
-                <LocalShippingOutlinedIcon className="h-24 w-24" />
-                <h2 className={`text-4xl font-extrabold ${lora.className}`}>
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
+                <LocalShippingOutlinedIcon className="h-16 w-16" />
+                <h2
+                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                >
                   Always on Time <br className="hidden sm:block" /> Delivery
                 </h2>
               </div>
@@ -431,10 +440,14 @@ const CardCarousel = () => {
   return (
     <div className="w-full my-24 sm:px-8 px-4">
       <h1
-        className={`text-left tracking-tighter text-4xl sm:text-5xl sm:ml-20 mb-4 font-bold ${lora.className}`}
+        className={`text-left tracking-tighter text-4xl sm:text-6xl sm:ml-20 mb-4 font-bold ${lora.className}`}
       >
         Our
-        <span className="italic"> Complete Collection</span>
+        <span className="italic">
+          {' '}
+          Complete <br className="sm:hidden" />
+          Collection
+        </span>
       </h1>
       {/* <EmblaCarousel slides={SLIDES} options={OPTIONS} /> */}
       <Carousel
@@ -495,6 +508,57 @@ const CardCarousel = () => {
         >
           Explore Our Works
         </Link>
+      </div>
+    </div>
+  )
+}
+
+const Awards = () => {
+  const data = [
+    {
+      name: 'Best Interior Brand in Delhi - NCR',
+      brand: 'Architects Association India',
+    },
+    { name: 'Award for Best Home Design', brand: 'Times Global' },
+    { name: 'Largest Interior Brand in India 2023', brand: 'Jindal Group' },
+    { name: 'Top Designers and Architects', brand: 'Architect Digest' },
+    {
+      name: 'Amazing Minimalistic Designs',
+      brand: 'Design and Graphic Association',
+    },
+    { name: 'Most Trusted Modular Brand', brand: 'Timber Association India' },
+  ]
+  return (
+    <div className="my-12">
+      <h1
+        className={`sm:w-1/2 text-left tracking-tighter text-4xl sm:text-6xl mb-4 font-bold ${lora.className}`}
+      >
+        Hey There,<span className="italic"> Check Out </span>
+        Something you dont know About Our <span className="italic">Brand </span>
+        !
+      </h1>
+      <div className="flex flex-col sm:flex-row ">
+        <p className="text-xs sm:my-24 my-8 ml-8">
+          Awards & <br /> Recognition
+        </p>
+        <div className="grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 sm:my-24">
+          {data.map((award) => (
+            <div key={award.name} className="flex flex-col gap-2 w-[300px]">
+              <div className="flex justify-between items-center">
+                <div className="w-16">
+                  <AwardLeft />
+                </div>
+                <h1 className={`text-2xl text-center ${lora.className}`}>
+                  {award.brand}
+                </h1>
+                <div className="w-16">
+                  <AwardRight />
+                </div>
+              </div>
+              <h1 className="text-md text-center">{award.name}</h1>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
@@ -573,53 +637,33 @@ const BrandsSection = () => {
   return (
     <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
       <div className="max-w-screen-2xl  mx-auto">
-        {/* <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
-          Our Brands Collection
-        </h1>
-        <BrandsCarousel
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-          className=" bg-white  w-full overflow-hidden"
-        >
-          <BrandsCarouselContent>
-            {cardData.map((card) => (
-              <BrandsCarouselItem
-                key={card.id}
-                className="basis-1/2 lg:basis-1/5 "
-              >
-                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
-                  <img
-                    src={card.imageUrl}
-                    alt={card.heading}
-                    className="w-full h-auto rounded object-cover"
-                  />
-                </div>
-              </BrandsCarouselItem>
-            ))}
-          </BrandsCarouselContent>
-        </BrandsCarousel> */}
-        <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8">
+        {/* awards div */}
+        <div className="my-4">
+          <Awards />
+        </div>
+        {/* image section */}
+        <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8 px-4 ">
           <motion.div
             variants={variants}
             initial="initialL"
             whileInView="animate"
             className="flex flex-col items-center w-full sm:w-1/2 rounded"
           >
-            <Image
-              src="/images/Review.png"
-              alt="Your Image"
-              className="max-w-full h-auto rounded"
-              height={1000}
-              width={1000}
-            />
+            <Link href="/reviews">
+              <Image
+                src="/images/Review.png"
+                alt="Your Image"
+                className="max-w-full h-auto rounded"
+                height={1000}
+                width={1000}
+              />
+            </Link>
           </motion.div>
           <motion.div
             variants={variants}
             initial="initial"
             whileInView="animate"
-            className="flex flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded"
+            className="flex  flex-col justify-center items-center w-full sm:w-1/2 bg-[var(--theme-color)] p-4 rounded"
           >
             <div className="flex flex-col justify-center items-center">
               <div className="mb-12">
@@ -627,7 +671,7 @@ const BrandsSection = () => {
                 <Stars />
               </div>
               <h1
-                className={`text-left text-5xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
+                className={`text-left text-3xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
               >
                 Right You an Architect, Interior Designer, Builder, Society
                 Developer, Township Developers or Showroom Vendor
@@ -646,12 +690,12 @@ const BrandsSection = () => {
         </section>
         <div className="flex flex-col sm:flex-row px-8">
           <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
-            <p className="text-lg sm:text-2xl">
-              Check How Much We are Loved 🥰
+            <p className="text-md sm:text-xl">
+              <Link href="/reviews">Check How Much We are Loved 🥰</Link>
             </p>
           </div>
           <div className="w-full sm:w-1/2 px-4">
-            <p className="text-lg sm:text-2xl text-left">
+            <p className="text-md sm:text-xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
                 With Over 950+ architects, interior designers, builders, Brands
@@ -665,7 +709,7 @@ const BrandsSection = () => {
         {/* news */}
         <div className="my-16">
           <h1
-            className={`text-left text-6xl mb-8 font-bold ${lora.className} `}
+            className={`text-left text-4xl sm:text-6xl  mb-8 font-bold ${lora.className} `}
           >
             In The News
           </h1>
@@ -817,7 +861,7 @@ const WhiteStripSection = () => {
     <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl my-24 gap-32">
       <div>
         <h1
-          className={`text-left tracking-tighter text-6xl mb-8 font-bold ${lora.className} `}
+          className={`text-left tracking-tighter text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
         >
           Brands you will find in our products
         </h1>
@@ -848,7 +892,7 @@ const WhiteStripSection = () => {
       </div>
       <div>
         <h1
-          className={`text-left tracking-tighter text-6xl mb-8 font-bold ${lora.className} `}
+          className={`text-left tracking-tighter text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
         >
           Our Corporate Presence
         </h1>
@@ -904,7 +948,9 @@ const BlogsSection = () => {
   return (
     <div className="w-full my-24 px-4">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
-        <h1 className={`text-left text-6xl mb-8 font-bold ${lora.className} `}>
+        <h1
+          className={`text-left text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
+        >
           Our Exclusive <span className="italic"> Interior Magazine</span>
         </h1>
         <p className="text-sm max-w-sm">
@@ -1089,8 +1135,10 @@ export default function Home() {
       {/* --------------------------- */}
       <MaxWidthWrapper>
         <BlogsSection />
-        {/* --------------------------- */}
       </MaxWidthWrapper>
+      {/* --------------------------- */}
+      <Steps />
+      {/* --------------------------- */}
 
       {/* --------------------------- */}
     </>

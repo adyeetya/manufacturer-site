@@ -138,10 +138,18 @@ const Links = () => {
         animate="animate"
         className="flex justify-evenly items-center mb-16"
       >
-        <CallIcon sx={{ fontSize: 40 }} />
-        <WhatsAppIcon sx={{ fontSize: 40 }} />
-        <InstagramIcon sx={{ fontSize: 40 }} />
-        <MailOutlineIcon sx={{ fontSize: 40 }} />
+        <a href="tel:+91 9899264978">
+          <CallIcon sx={{ fontSize: 40 }} />
+        </a>
+        <a href="https://wa.me/9899264978">
+          <WhatsAppIcon sx={{ fontSize: 40 }} />
+        </a>
+        <a href="https://www.instagram.com/designindiankitchen/">
+          <InstagramIcon sx={{ fontSize: 40 }} />
+        </a>
+        <a href="mailto:your-email-address">
+          <MailOutlineIcon sx={{ fontSize: 40 }} />
+        </a>
       </motion.div>
     </motion.div>
   )
