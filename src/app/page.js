@@ -890,7 +890,7 @@ const WhiteStripSection = () => {
                 key={card.id}
                 className="basis-1/2 lg:basis-1/5 "
               >
-                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
+                <div className="flex flex-col justify-center items-start w-[150px] h-[75px] sm:w-[200px] sm:h-[100px] ">
                   <img
                     src={card.imageUrl}
                     alt={card.heading}
@@ -921,7 +921,7 @@ const WhiteStripSection = () => {
                 key={card.id}
                 className="basis-1/2 lg:basis-1/5 "
               >
-                <div className="flex flex-col justify-center items-start w-[200px] h-[100px] ">
+                <div className="flex flex-col justify-center items-start w-[150px] h-[75px] sm:w-[200px] sm:h-[100px] ">
                   <img
                     src={card.img}
                     alt="{card.heading}"
