@@ -26,8 +26,8 @@ const ScheduleChatSection = () => {
     >
       <div className="text-center mx-auto text-white">
         <h1 className="text-4xl">
-          We can build you the kitchen <br />
-          of your dreams
+          Get Custom Interiors / Modular Interiors/ Architectural Services at
+          Most Affordable Prices with Our Team.
         </h1>
         <br />
         <a
@@ -49,7 +49,7 @@ const FullWidthSection = () => {
         <h1
           className={`sm:text-[90px] drop-shadow-xl text-4xl font-[900] ${lora.className}`}
         >
-          Join Us
+          Collaborate With Us
         </h1>
         {/* You can add more content or customize styling here */}
       </div>
@@ -75,10 +75,12 @@ const page = () => {
           COLLABORATE WITH INDIA&apos;S TOP MODULAR BRAND
         </h1>
         <p className="uppercase text-md font-bold text-center mb-16">
-          We are Delhi-NCR&apos;s fastest growing Kitchen & Interior brand with
-          multiple designer&apos;s on our panel and looking for experienced and
-          fresher designers to join us as freelancers/Regular and also be a part
-          of our Team.
+          Collaborate with the Top End To End Interior, Modular Interior
+          Manufacturing, & Architectural Services Brand Across New Delhi - NCR -
+          India, Join us and Be A Part of Our Growing Team/Community. We Invite
+          Certified Architects, Professional Interior Designers, Builders to
+          Collaborate with Our Brand and Work Together to ensure smooth
+          coordinations and deliveries in Our Projects.
         </p>
       </div>
       <div className="bg-amber-50">

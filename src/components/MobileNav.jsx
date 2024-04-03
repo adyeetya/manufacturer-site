@@ -32,7 +32,7 @@ const MobileNav = () => {
 
   return (
     <motion.div
-      className="sm:hidden flex flex-col items-center justify-center overflow-y-auto"
+      className="sm:hidden flex flex-col items-center justify-center"
       animate={open ? 'open' : 'closed'}
     >
       <div className="flex justify-between w-full">
@@ -67,7 +67,7 @@ const MobileNav = () => {
 
       {open && (
         <motion.div
-          className="mb-16"
+          className="mb-16 h-[calc(100vh-3rem)] overflow-y-auto"
           variants={variants}
           initial="initial"
           animate="animate"

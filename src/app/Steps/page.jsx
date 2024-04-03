@@ -25,7 +25,7 @@ const tangerine = Tangerine({
 const Steps = () => {
   return (
     <div className="my-24">
-      <div className="flex flex-col sm:flex-row justify-between mx-auto p-4 sm:p-16 md:px-40 gap-x-16">
+      <div className="flex flex-col md:flex-row justify-between mx-auto p-4 sm:p-16 md:px-40 gap-x-16">
         <div>
           <div className="sticky top-[20%]">
             {' '}

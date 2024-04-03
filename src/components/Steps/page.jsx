@@ -25,7 +25,7 @@ const tangerine = Tangerine({
 const Steps = () => {
   return (
     <div className="my-24">
-      <div className="flex flex-col sm:flex-row justify-between mx-auto p-4 sm:p-16 md:px-20 gap-x-16">
+      <div className="flex flex-col md:flex-row justify-between mx-auto p-0 sm:p-16 md:px-20 gap-x-16">
         <div>
           <div className="sticky top-[20%]">
             {' '}
@@ -36,7 +36,7 @@ const Steps = () => {
                 Design Indian Homes
               </h1>
               <h1
-                className={`text-[7vw] text-gray-900 text-center font-extralight  ${tangerine.className}`}
+                className={`text-[7vw] text-center font-extralight  ${tangerine.className}`}
               >
                 Journey
               </h1>

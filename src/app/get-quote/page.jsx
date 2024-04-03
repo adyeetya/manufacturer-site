@@ -52,8 +52,8 @@ const ScheduleChatSection = () => {
     >
       <div className="text-center mx-auto text-white">
         <h1 className="text-4xl">
-          We can build you the kitchen <br />
-          of your dreams
+          Get Custom Interiors / Modular Interiors/ Architectural Services at
+          Most Affordable Prices with Our Team.
         </h1>
         <br />
         <a
@@ -75,7 +75,19 @@ const page = () => {
         <h1 className="text-4xl font-bold text-center">
           100% Guaranteed Quotes
         </h1>
+
         <p className=" text-center mb-8">Get Quotes</p>
+        <p className="sm:px-16 text-center mb-8">
+          Transform your living space with bespoke interior solutions tailored
+          to your unique style. At Design Indian Homes, we specialize in
+          crafting custom kitchen, bedroom, and wardrobe designs that elevate
+          the functionality and aesthetics of your home. Our team of experienced
+          designers meticulously curates modular interiors that seamlessly
+          integrate form and function, ensuring every corner of your space
+          reflects your individual taste and lifestyle. Contact us today to
+          receive 100% personalized quotes and embark on a journey to transform
+          your living space into a masterpiece of modern design.
+        </p>
         <Form />
       </div>
       <ScheduleChatSection />

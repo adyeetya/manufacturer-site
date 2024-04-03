@@ -20,7 +20,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ThemeProvider>
         <body
-          className={cn('min-h-screen font-sans antialiased', inter.className)}
+          className={cn(
+            'min-h-screen max-w-[100vw] overflow-x-hidden font-sans antialiased',
+            inter.className
+          )}
         >
           <Navbar />
           <Provider store={store}>

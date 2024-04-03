@@ -11,9 +11,15 @@ const MyForm = () => {
     number: '',
     pincode: '',
     agree: '',
+    Interest: '',
+    requirements: '',
+    file: '',
   })
-  const [btnText, setBtnText] = useState('Book free site Visit')
+  const [btnText, setBtnText] = useState('Book A Visit Today')
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0])
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target
@@ -196,6 +202,84 @@ const MyForm = () => {
                 onChange={handleChange}
                 className="mt-1 p-2 w-full bg-transparent border-b border-gray-500 focus:outline-none focus:border-blue-500"
                 required
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="Interest" className="block text-sm font-medium ">
+                Interested in
+              </label>
+              <select
+                id="Interest"
+                name="Interest"
+                className="mt-1 p-2 w-full border-b border-gray-500 text-sm focus:outline-none rounded bg-black"
+                required
+                onChange={handleChange}
+              >
+                {/* <option className="" value="" disabled selected>
+                  Interested in
+                </option> */}
+                <option value="Complete Modular Interiors">
+                  Complete Modular Interiors
+                </option>
+                <option value="End to End Interiors">
+                  End to End Interiors
+                </option>
+                <option value="Architectural Consultancy">
+                  Architectural Consultancy
+                </option>
+                <option value="Modular Kitchens">Modular Kitchens</option>
+                <option value="Wardrobes">Wardrobes</option>
+                <option value="Living or Bedroom Renovation">
+                  Living or Bedroom Renovation
+                </option>
+                <option value="Bathroom or Balcony Renovation">
+                  Bathroom or Balcony Renovation
+                </option>
+                <option value="Commercial Interiors">
+                  Commercial Interiors
+                </option>
+                <option value="Luxury Interiors">Luxury Interiors</option>
+
+                {/* Add more options as needed */}
+              </select>
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="requirements"
+                className="block text-sm font-medium "
+              >
+                Are you
+              </label>
+              <select
+                required
+                id="requirements"
+                name="requirements"
+                className="mt-1 p-2 w-full  border-b border-gray-500 text-sm focus:outline-none rounded bg-black"
+                onChange={handleChange}
+                defaultValue="Architect"
+              >
+                <option value="Architect" selected>
+                  an Architect
+                </option>
+                <option value="Designer">an Interior Designer</option>
+                <option value="Builder">a Builder</option>
+                <option value="Company">a Company</option>
+                <option value="Freelancer ">a Freelancer </option>
+              </select>
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="file"
+                className="block text-sm font-medium "
+              >
+                Attach Your Project
+              </label>
+              <input
+                type="file"
+                id="file"
+                name="file"
+                className="mt-1 p-2 w-full bg-transparent border-b border-gray-500 focus:outline-none focus:border-blue-500"
+                onChange={handleFileChange}
               />
             </div>
 

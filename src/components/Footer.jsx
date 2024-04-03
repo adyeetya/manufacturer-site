@@ -385,7 +385,8 @@ const Footer = () => {
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
         <h1 className="text-4xl tracking-tight sm:text-6xl text-right sm:text-center font-extrabold my-4">
-          DESIGN INDIAN <br className='sm:hidden' /> <span ref={el} className="" />
+          DESIGN INDIAN <br className="sm:hidden" />{' '}
+          <span ref={el} className="" />
         </h1>
         <div className="flex my-12 sm:my-36 w-full justify-center items-center">
           <Link
@@ -393,58 +394,58 @@ const Footer = () => {
             // target="_blank"
             // rel="noopener noreferrer"
             href="/calculator"
-            className={`whitespace-nowrap text-xl sm:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+            className={`whitespace-nowrap text-md md:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
           >
             Calculate Your Estimates
           </Link>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 sm:justify-evenly my-24">
-          <div className=" font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
+          <div className=" font-bold text-xs sm:text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>What we&apos;re good at</p>
             <Link href="/modular-interiors" className="">
               <h1
-                className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
+                className={`text-left text-xl sm:text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
                 Modular Interiors
               </h1>
             </Link>
           </div>
-          <div className="font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
+          <div className="font-bold text-xs sm:text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>What we do</p>
             <Link href="/get-quote" className="">
               <h1
-                className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
+                className={`text-left text-xl sm:text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
                 Get Quotes
               </h1>
             </Link>
           </div>
-          <div className="font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
+          <div className="font-bold text-xs sm:text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>How we deliver</p>
             <Link href="/book-visit" className="">
               <h1
-                className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
+                className={`text-left text-xl sm:text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
                 Visit Us
               </h1>
             </Link>
           </div>
-          <div className="font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
+          <div className="font-bold text-xs sm:text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>Who we are</p>
             <Link href="/about-us" className="">
               <h1
-                className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
+                className={`text-left text-xl sm:text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
                 Our Story
               </h1>
             </Link>
           </div>
-          <div className="font-bold text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
+          <div className="font-bold text-xs sm:text-sm flex sm:flex-col flex-row sm:gap-4 justify-between items-center sm:items-start w-full sm:w-fit">
             <p>The blog</p>
             <Link href="/magazine" className="">
               <h1
-                className={`text-left text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
+                className={`text-left text-xl sm:text-2xl font-bold ${lora.className} hover:drop-shadow-lg text-[var(--text-color)] hover:text-black`}
               >
                 The Magazine
               </h1>

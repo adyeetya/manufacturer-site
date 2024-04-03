@@ -266,6 +266,8 @@ const FileUploadForm = () => {
                         Bedroom
                       </option>
                       <option value="Kitchen">Kitchen</option>
+                      <option value="Wardrobe">Wardrobe</option>
+                      <option value="Modular Interior">Modular Interior</option>
                     </select>
                   </div>
                 </div>

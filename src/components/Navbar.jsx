@@ -110,7 +110,9 @@ const Navbar = () => {
           <Switch />
         </div>
       </div>
-      <MobileNav />
+      <div className="">
+        <MobileNav />
+      </div>
     </nav>
   )
 }

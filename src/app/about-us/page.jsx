@@ -51,8 +51,8 @@ const ScheduleChatSection = () => {
     >
       <div className="text-center mx-auto text-white">
         <h1 className="text-4xl">
-          We can build you the kitchen <br />
-          of your dreams
+          Get Custom Interiors / Modular Interiors/ Architectural Services at
+          Most Affordable Prices with Our Team.
         </h1>
         <br />
         <a
@@ -75,7 +75,11 @@ const page = () => {
           India’s No.1 Modular Interior Brand
         </h1>
         <h1 className="sm:text-5xl text-3xl font-bold text-center mb-16 ">
-          THE DESIGN INDIAN HOMES WAY
+          THE{' '}
+          <span className="bg-red-500 px-4 py-2 rounded">
+            DESIGN INDIAN HOMES
+          </span>{' '}
+          WAY
         </h1>
         <h2 className="sm:text-3xl text-2xl font-bold my-8">
           More than a Decade

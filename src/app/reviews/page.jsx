@@ -25,8 +25,8 @@ const ScheduleChatSection = () => {
     >
       <div className="text-center mx-auto text-white">
         <h1 className="text-4xl">
-          We can build you the kitchen <br />
-          of your dreams
+          Get Custom Interiors / Modular Interiors/ Architectural Services at
+          Most Affordable Prices with Our Team.
         </h1>
         <br />
         <a

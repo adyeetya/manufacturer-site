@@ -75,7 +75,7 @@ const Links = () => {
                 variants={itemVariants}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-[7.66vw] flex-1"
+                className="text-xl flex-1"
               >
                 {item.name}
               </motion.a>
@@ -108,7 +108,7 @@ const Links = () => {
             animate="animate"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="text-[12vw] flex-1"
+            className="text-2xl flex-1"
           >
             Get In Touch
           </motion.a>

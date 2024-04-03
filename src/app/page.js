@@ -42,6 +42,14 @@ const lora = Lora({
 })
 
 const SectionWithVideos = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    const video = document.querySelector('video')
+    video.addEventListener('load', () => {
+      setIsPlaying(true)
+    })
+  }, [])
   return (
     <section className="bg-gray-900 my-12 w-full rounded-xl">
       <div className="mx-auto p-3">
@@ -56,10 +64,12 @@ const SectionWithVideos = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <video
                 className="w-[90%] object-cover object-center rounded-xl"
-                autoPlay
                 loop
-                muted
+                autoPlay
                 playsInline
+                muted
+                controls={isPlaying}
+                preload="metadata"
                 src="/videos/vid3.mp4"
               ></video>
             </div>
@@ -90,10 +100,12 @@ const SectionWithVideos = () => {
             <div className="absolute inset-0 flex items-center justify-center">
               <video
                 className="w-[90%] object-cover object-center rounded-xl"
-                autoPlay
                 loop
-                muted
+                autoPlay
                 playsInline
+                muted
+                controls={isPlaying}
+                preload="metadata"
                 src="/videos/vid2.mp4"
               ></video>
             </div>
@@ -1047,7 +1059,7 @@ export default function Home() {
           className="mx-auto pt-8 hidden sm:flex  items-center justify-center "
         >
           <h1
-            className={`sm:text-[7vw] tracking-tighter font-bold ${lora.className}`}
+            className={` sm:text-[7vw] tracking-tighter font-bold ${lora.className}`}
           >
             <span className="">Modular Interior</span>{' '}
             <span className="italic"> Manufacturers</span>
@@ -1059,12 +1071,12 @@ export default function Home() {
           className="mx-2 py-4 pt-8 flex sm:hidden flex-col justify-center "
         >
           <h1
-            className={` inline text-5xl font-bold text-left ${lora.className}`}
+            className={` inline text-3xl font-bold text-left ${lora.className}`}
           >
             <span className="italic">Modular Interior</span>
           </h1>
           <h1
-            className={` inline text-5xl font-bold text-left ${lora.className}`}
+            className={` inline text-3xl font-bold text-left ${lora.className}`}
           >
             <span className="italic">Manufacturers</span>
           </h1>

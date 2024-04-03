@@ -12,6 +12,14 @@
     --cardMargin: 20px;
   }
 }
+@media (max-width: 360px) {
+  :root {
+    --cards: 6;
+    --cardHeight: 300px;
+    --cardTopPadding: 1em;
+    --cardMargin: 0px;
+  }
+}
 
 .container {
   width: 90%;
@@ -92,5 +100,12 @@ h2 {
 @media (max-width: 640px) {
   .card-body {
     width: 350px;
+  }
+}
+@media (max-width: 360px) {
+  .card-body {
+    width: 280px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
