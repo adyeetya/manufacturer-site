@@ -33,6 +33,8 @@ import Image from 'next/image'
 import axios from 'axios'
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
+import AddTaskRoundedIcon from '@mui/icons-material/AddTaskRounded'
+
 import Steps from '../components/Steps/page'
 import { Lora } from 'next/font/google'
 const lora = Lora({
@@ -276,7 +278,7 @@ const TiltedCards = () => {
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
               <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
-                <Design />
+                <AddTaskRoundedIcon className="h-16 w-16" />
                 <h2
                   className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
                 >
@@ -553,7 +555,7 @@ const Awards = () => {
         <p className="text-xs sm:my-24 my-8 ml-8">
           Awards & <br /> Recognition
         </p>
-        <div className="grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 sm:my-24">
+        <div className="hidden sm:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 sm:my-24">
           {data.map((award) => (
             <div key={award.name} className="flex flex-col gap-2 w-[300px]">
               <div className="flex justify-between items-center">
@@ -571,60 +573,131 @@ const Awards = () => {
             </div>
           ))}
         </div>
+        {/* only show in mob */}
+        <div className="sm:hidden block">
+          <BrandsCarousel
+            opts={{
+              align: 'start',
+              loop: true,
+            }}
+            className="w-full overflow-hidden"
+          >
+            <BrandsCarouselContent>
+              {data.map((award) => (
+                <BrandsCarouselItem key={award.id} className="">
+                  <div className="flex flex-col gap-2 w-[300px]">
+                    <div className="flex justify-between items-center">
+                      <div className="w-16">
+                        <AwardLeft />
+                      </div>
+                      <h1 className={`text-2xl text-center ${lora.className}`}>
+                        {award.brand}
+                      </h1>
+                      <div className="w-16">
+                        <AwardRight />
+                      </div>
+                    </div>
+                    <h1 className="text-md text-center">{award.name}</h1>
+                  </div>
+                </BrandsCarouselItem>
+              ))}
+            </BrandsCarouselContent>
+          </BrandsCarousel>
+        </div>
       </div>
     </div>
   )
 }
 
 const BrandsSection = () => {
+  // const news = [
+  //   {
+  //     id: 1,
+  //     imageUrl: '/images/news/bloomberg-1682401474-ArUs1.avif',
+  //   },
+  //   {
+  //     id: 2,
+  //     imageUrl: '/images/news/cnbc-1682401476-zldSU.avif',
+  //   },
+  //   {
+  //     id: 3,
+  //     imageUrl: '/images/news/entrpreneur-1682677467-7QjOd.avif',
+  //   },
+
+  //   {
+  //     id: 5,
+  //     imageUrl: '/images/news/et-1682401477-NjRCA.avif',
+  //   },
+  //   {
+  //     id: 6,
+  //     imageUrl: '/images/news/femina-1682401478-VMDBI.avif',
+  //   },
+  //   {
+  //     id: 7,
+  //     imageUrl: '/images/news/global-magazine-1682401479-ikbb6.avif',
+  //   },
+  //   {
+  //     id: 8,
+  //     imageUrl: '/images/news/gq-1682401480-K5jcJ.avif',
+  //   },
+  //   {
+  //     id: 9,
+  //     imageUrl: '/images/news/india-today-home-1682401481-kqBb2.avif',
+  //   },
+  //   {
+  //     id: 10,
+  //     imageUrl: '/images/news/mint-1682401482-d0I7g.avif',
+  //   },
+  //   {
+  //     id: 11,
+  //     imageUrl: '/images/news/toi-1682401483-unoIf.avif',
+  //   },
+  //   {
+  //     id: 12,
+  //     imageUrl: '/images/news/your-story-1682401484-Lg2DW.avif',
+  //   },
+
+  //
+  // ]
+
   const news = [
     {
       id: 1,
-      imageUrl: '/images/news/bloomberg-1682401474-ArUs1.avif',
+      imageUrl: '/images/newsnobg/ad.png',
     },
     {
       id: 2,
-      imageUrl: '/images/news/cnbc-1682401476-zldSU.avif',
+      imageUrl: '/images/newsnobg/bb.png',
     },
     {
       id: 3,
-      imageUrl: '/images/news/entrpreneur-1682677467-7QjOd.avif',
+      imageUrl: '/images/newsnobg/bf.png',
     },
-
+    {
+      id: 4,
+      imageUrl: '/images/newsnobg/cnbc.png',
+    },
     {
       id: 5,
-      imageUrl: '/images/news/et-1682401477-NjRCA.avif',
+      imageUrl: '/images/newsnobg/elle.png',
     },
     {
       id: 6,
-      imageUrl: '/images/news/femina-1682401478-VMDBI.avif',
+      imageUrl: '/images/newsnobg/et.png',
     },
     {
       id: 7,
-      imageUrl: '/images/news/global-magazine-1682401479-ikbb6.avif',
+      imageUrl: '/images/newsnobg/gq.png',
     },
+
     {
       id: 8,
-      imageUrl: '/images/news/gq-1682401480-K5jcJ.avif',
+      imageUrl: '/images/newsnobg/vg.png',
     },
     {
       id: 9,
-      imageUrl: '/images/news/india-today-home-1682401481-kqBb2.avif',
+      imageUrl: '/images/newsnobg/ys.png',
     },
-    {
-      id: 10,
-      imageUrl: '/images/news/mint-1682401482-d0I7g.avif',
-    },
-    {
-      id: 11,
-      imageUrl: '/images/news/toi-1682401483-unoIf.avif',
-    },
-    {
-      id: 12,
-      imageUrl: '/images/news/your-story-1682401484-Lg2DW.avif',
-    },
-
-    // Add more card data as needed
   ]
 
   const variants = {
@@ -738,11 +811,11 @@ const BrandsSection = () => {
                   key={card.id}
                   className="basis-1/2 lg:basis-1/5 "
                 >
-                  <div className="flex bg-white rounded flex-col justify-center items-start w-[250px] h-[100px] p-2 border-2 border-gray-400">
+                  <div className="flex p-4 rounded justify-center items-center w-[150px] h-[75px] sm:w-[220px] sm:h-[110px] border-2 border-gray-400">
                     <img
                       src={card.imageUrl}
                       alt={card.heading}
-                      className="w-full h-auto rounded object-cover"
+                      className="rounded object-cover  max-h-[70px] sm:max-h-[100px]"
                     />
                   </div>
                 </BrandsCarouselItem>
