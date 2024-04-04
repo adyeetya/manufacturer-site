@@ -465,7 +465,7 @@ const Footer = () => {
               GET IN TOUCH
             </Link>
           </div>
-          <div className="flex flex-row sm:gap-8 gap-2 justify-between sm:justify-center items-center p-4">
+          <div className="flex flex-row sm:gap-8 gap-2 justify-between sm:justify-center items-center p-4 border-black border-2 w-fit mx-auto rounded-full">
             {' '}
             <a href="tel:+91 9899264978">
               <CallIcon sx={{ fontSize: 40 }} />

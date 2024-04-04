@@ -30,6 +30,7 @@ import {
   BrandsCarouselNext,
 } from '../components/ui/brandsCarousel'
 import Image from 'next/image'
+import Head from 'next/head'
 import axios from 'axios'
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
@@ -727,16 +728,21 @@ const BrandsSection = () => {
           <Awards />
         </div>
         {/* image section */}
+        <h1
+          className={`text-center text-2xl sm:text-4xl bold ${lora.className}`}
+        >
+          Most Loved Brand
+        </h1>
         <section className="flex flex-col sm:flex-row gap-4 mt-24 mb-8 px-4 ">
           <motion.div
             variants={variants}
             initial="initialL"
             whileInView="animate"
-            className="flex flex-col items-center w-full sm:w-1/2 rounded"
+            className="flex-col items-center hidden sm:flex sm:w-1/2 rounded"
           >
             <Link href="/reviews">
               <Image
-                src="/images/Review.png"
+                src="/images/undraw_feedback_re_urmj.svg"
                 alt="Your Image"
                 className="max-w-full h-auto rounded"
                 height={1000}
@@ -758,8 +764,8 @@ const BrandsSection = () => {
               <h1
                 className={`text-left text-3xl mb-8 font-bold text-[var(--text-color)] ${lora.className} `}
               >
-                Right You an Architect, Interior Designer, Builder, Society
-                Developer, Township Developers or Showroom Vendor
+                Are You an Architect, Interior Designer, Builder, Society
+                Developer, Township Developers or Showroom Vendor ???
               </h1>
             </div>
             <div className="flex-grow"></div>
@@ -943,13 +949,15 @@ const WhiteStripSection = () => {
     },
   ]
   return (
-    <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl my-24 gap-32">
+    <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl mt-24 gap-32">
       <div>
         <h1
-          className={`text-left tracking-tighter text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
+          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-8 sm:mb-16 font-bold relative ${lora.className}`}
         >
           Brands you will find in our products
+          <span className="absolute bottom-0 left-24 w-full h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
+
         <BrandsCarousel
           opts={{
             align: 'start',
@@ -977,9 +985,10 @@ const WhiteStripSection = () => {
       </div>
       <div>
         <h1
-          className={`text-left tracking-tighter text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
+          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-8 sm:mb-16 font-bold relative ${lora.className} `}
         >
           Our Corporate Presence
+          <span className="absolute bottom-0 left-24 w-[100%] h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
         <BrandsCarousel
           opts={{
@@ -1087,7 +1096,7 @@ const BlogsSection = () => {
           href="/magazine"
           className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
         >
-          The Latest Blogs
+          Check Latest Edition
         </Link>
       </div>
     </div>
@@ -1122,9 +1131,58 @@ export default function Home() {
       },
     },
   }
+  const [title, setTitle] = useState(
+    `Modular Kitchen Manufacturer | Top Modular Interior Company in India - Design Indian Homes`
+  )
 
+  useEffect(() => {
+    // Update the document title on mount
+    document.title = title
+  }, [title])
   return (
     <>
+      <Head>
+        <meta
+          name="description"
+          content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
+        />
+
+        <meta name="Author" content="Modular Kitchen Manufacturer" />
+        <meta name="Generator" content="www.modularkitchenmanufacturer.com" />
+        <meta name="Language" content="en" />
+        <meta name="robots" content="index, follow" />
+        <meta name="Copyright" content="©www.modularkitchenmanufacturer.com" />
+        <meta name="Designer" content="Modular Kitchen Manufacturer Unit" />
+        <meta name="Publisher" content="www.modularkitchenmanufacturer.com" />
+        <meta name="Distribution" content="Global" />
+        <meta name="Rating" content="general" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="canonical"
+          href={`https://www.modularkitchenmanufacturer.com/`}
+        />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="Yahoobot" content="index, follow" />
+        <meta name="MSNbot" content="Index, Follow" />
+        <meta name="allow-search" content="yes" />
+        <meta name="country" content="India" />
+        <meta name="contactNumber" content="+91-98-99-26-49-78" />
+        <meta name="dc.language" content="english" />
+        <meta name="geo.region" content="IN-DL" />
+        <meta name="geo.placename" content="Delhi" />
+        <meta
+          property="og:url"
+          content={`https://www.modularkitchenmanufacturer.com/`}
+        />
+        <meta
+          property="og:title"
+          content={`Top Interior Designers & Architects - Delhi - Gurgaon - India`}
+        />
+        <meta
+          property="og:description"
+          content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
+        />
+      </Head>
       <div ref={ref}>
         {/* /for larger */}
         <motion.div

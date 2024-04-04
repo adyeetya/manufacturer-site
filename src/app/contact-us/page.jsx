@@ -701,6 +701,48 @@ const page = () => {
   }
   return (
     <>
+      <head>
+        <meta
+          name="description"
+          content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
+        />
+
+        <meta name="Author" content="Modular Kitchen Manufacturer" />
+        <meta name="Generator" content="www.modularkitchenmanufacturer.com" />
+        <meta name="Language" content="en" />
+        <meta name="robots" content="index, follow" />
+        <meta name="Copyright" content="©www.modularkitchenmanufacturer.com" />
+        <meta name="Designer" content="Modular Kitchen Manufacturer Unit" />
+        <meta name="Publisher" content="www.modularkitchenmanufacturer.com" />
+        <meta name="Distribution" content="Global" />
+        <meta name="Rating" content="general" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="canonical"
+          href={`https://www.modularkitchenmanufacturer.com/contact-us`}
+        />
+        <meta name="googlebot" content="index, follow" />
+        <meta name="Yahoobot" content="index, follow" />
+        <meta name="MSNbot" content="Index, Follow" />
+        <meta name="allow-search" content="yes" />
+        <meta name="country" content="India" />
+        <meta name="contactNumber" content="+91-98-99-26-49-78" />
+        <meta name="dc.language" content="english" />
+        <meta name="geo.region" content="IN-DL" />
+        <meta name="geo.placename" content="Delhi" />
+        <meta
+          property="og:url"
+          content={`https://www.modularkitchenmanufacturer.com/contact-us`}
+        />
+        <meta
+          property="og:title"
+          content={`Top Interior Designers & Architects - Delhi - Gurgaon - India`}
+        />
+        <meta
+          property="og:description"
+          content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
+        />
+      </head>
       <div className=" my-12 mx-auto sm:mx-16">
         {/* breadcrumb */}
         <div className="px-4  ">

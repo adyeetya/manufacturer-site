@@ -8,7 +8,12 @@ import axios from 'axios'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import Customer from '../../reviews/Customer'
-import Head from 'next/head'
+import { Lora } from 'next/font/google'
+const lora = Lora({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 const ContactSection = ({ location, text, city }) => {
   const handleSubmit = async (event) => {
@@ -18,7 +23,7 @@ const ContactSection = ({ location, text, city }) => {
       name: document.getElementById('name').value,
       email: document.getElementById('email').value,
       phone: document.getElementById('phone').value,
-      property: document.getElementById('property-name').value,
+      message: document.getElementById('message').value,
       updates: document.getElementById('whatsappUpdates').value,
     }
 
@@ -62,8 +67,9 @@ const ContactSection = ({ location, text, city }) => {
         </div>
 
         {/* Form Below the Texts */}
-        <div className="max-w-sm mx-4 flex-shrink-0 rounded bg-white text-black p-4 sm:p-8 w-full md:w-auto">
+        <div className="max-w-sm mx-4 flex-shrink-0 rounded bg-white text-black p-2 sm:p-4 w-full md:w-auto">
           <form method="post" onSubmit={handleSubmit}>
+            <h2 className="text-center text-xl mb-2">Contact Us</h2>
             <input
               type="text"
               name="name"
@@ -88,12 +94,12 @@ const ContactSection = ({ location, text, city }) => {
               placeholder="Phone Number"
             />
 
-            <input
+            <textarea
               type="text"
-              name="property-name"
-              id="property-name"
+              name="message"
+              id="message"
               className="w-full p-2 mb-8 border rounded"
-              placeholder="Property Name"
+              placeholder="Your Message"
             />
 
             <label className="flex items-center mb-4 text-sm">
@@ -108,7 +114,7 @@ const ContactSection = ({ location, text, city }) => {
 
             <button
               type="submit"
-              className="w-full bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-700"
+              className="w-full bg-[#f54e07] text-white px-4 py-2 rounded-full hover:bg-black"
             >
               GET FREE QUOTE
             </button>
@@ -271,6 +277,9 @@ const Projects = ({}) => {
   return (
     <>
       <div className="w-full flex flex-col justify-content items-center">
+        <h1 className="mt-16 text-center text-2xl sm:text-4xl font-bold">
+          Homes by Design Indian Homes
+        </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 my-16 justify-center items-center">
           {projects.map((project) => (
             <Link
@@ -297,7 +306,7 @@ const Projects = ({}) => {
 
 const ThreeColumnSection = ({ location }) => {
   return (
-    <section className="flex flex-col items-center justify-center my-12 bg-green-600 p-12">
+    <section className="flex flex-col items-center justify-center my-12 bg-[#f54e07] p-12">
       <div className="max-w-6xl flex justify-around sm:gap-16 gap-8">
         {/* Column 1 */}
         <div className="flex flex-col items-center">
@@ -524,7 +533,10 @@ const slugToLocation = (slug) => {
 }
 
 const Page = ({ params }) => {
-  const { location } = params
+  let { location } = params
+  location = decodeURIComponent(location)
+  console.log('location', location)
+
   const locationParts = location.split('-in-')
   const extractedLocation = locationParts[1]
   const type = locationParts[0]
@@ -569,22 +581,22 @@ const Page = ({ params }) => {
       <head>
         <meta
           name="description"
-          content={`Our brand is the largest manufacturer of ${desc}, we are top dealers and suppliers for ${desc} across Delhi, gurgaon, noida & India.`}
+          content={`Our brand is the best manufacturer of ${desc}, Connect with the best interior and architect brand in ${area} - ${city} & India. We serve most affordable modular interiors & architectural works.`}
         />
 
-        <meta name="Author" content="Design Indian Homes" />
-        <meta name="Generator" content="www.designindianhomes.com" />
+        <meta name="Author" content="Modular Kitchen Manufacturer" />
+        <meta name="Generator" content="www.modularkitchenmanufacturer.com" />
         <meta name="Language" content="en" />
         <meta name="robots" content="index, follow" />
-        <meta name="Copyright" content="©www.designindianhomes.com" />
-        <meta name="Designer" content="Design Indian Homes Unit" />
-        <meta name="Publisher" content="www.designindianhomes.com" />
+        <meta name="Copyright" content="©www.modularkitchenmanufacturer.com" />
+        <meta name="Designer" content="Modular Kitchen Manufacturer Unit" />
+        <meta name="Publisher" content="www.modularkitchenmanufacturer.com" />
         <meta name="Distribution" content="Global" />
         <meta name="Rating" content="general" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           rel="canonical"
-          href="https://designindianhomes.com/dressers-designs/"
+          href={`https://www.modularkitchenmanufacturer.com/locations/${location}`}
         />
         <meta name="googlebot" content="index, follow" />
         <meta name="Yahoobot" content="index, follow" />
@@ -597,15 +609,15 @@ const Page = ({ params }) => {
         <meta name="geo.placename" content="Delhi" />
         <meta
           property="og:url"
-          content="https://designindianhomes.com/dressers-designs/"
+          content={`https://www.modularkitchenmanufacturer.com/locations/${location}`}
         />
         <meta
           property="og:title"
-          content="Dresser Designs | Top Dresser Manufacturing Company India"
+          content={`${text} | Top ${desc} Company in India - Design Indian Homes`}
         />
         <meta
           property="og:description"
-          content={`Our brand is the largest manufacturer of ${desc}, we are top dealers and suppliers for ${desc} across Delhi, gurgaon, noida & India.`}
+          content={`Our brand is the best manufacturer of ${desc}, Connect with the best interior and architect brand in ${area} - ${city} & India. We serve most affordable modular interiors & architectural works.`}
         />
       </head>
 
@@ -614,6 +626,14 @@ const Page = ({ params }) => {
       <Projects />
       <ThreeColumnSection location={area} city={city} />
       <CardCarousel />
+      <div className="flex my-12 sm:my-36 w-full justify-center items-center">
+        <Link
+          href="/calculator"
+          className={`whitespace-nowrap text-md md:text-5xl px-2 py-1 sm:px-8 sm:py-8 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+        >
+          Calculate Your Estimates
+        </Link>
+      </div>
       <SocialReviews />
       <Customer />
       <div className="pb-24 flex justify-center items-center bg-gray-100">

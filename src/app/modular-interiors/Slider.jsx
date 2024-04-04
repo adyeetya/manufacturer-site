@@ -294,7 +294,7 @@ const Gallery = ({
                       </h2>
 
                       <div className="flex items-center my-2">
-                        <h2 className="flex-1 text-md py-2 text-center text-black uppercase">
+                        <h2 className="flex-1 text py-2 text-center text-black uppercase">
                           Book a Visit Today
                         </h2>
                       </div>
