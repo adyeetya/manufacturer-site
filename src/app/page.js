@@ -952,10 +952,10 @@ const WhiteStripSection = () => {
     <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl mt-24 gap-32">
       <div>
         <h1
-          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-8 sm:mb-16 font-bold relative ${lora.className}`}
+          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-16 font-bold relative ${lora.className}`}
         >
           Brands you will find in our products
-          <span className="absolute bottom-0 left-24 w-full h-[2px] bg-gray-700 transform translate-x-1"></span>
+          <span className="hidden sm:block absolute bottom-0 left-24 w-full h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
 
         <BrandsCarousel
@@ -985,10 +985,10 @@ const WhiteStripSection = () => {
       </div>
       <div>
         <h1
-          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-8 sm:mb-16 font-bold relative ${lora.className} `}
+          className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-16 font-bold relative ${lora.className} `}
         >
           Our Corporate Presence
-          <span className="absolute bottom-0 left-24 w-[100%] h-[2px] bg-gray-700 transform translate-x-1"></span>
+          <span className="hidden sm:block absolute bottom-0 left-24 w-[100%] h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
         <BrandsCarousel
           opts={{

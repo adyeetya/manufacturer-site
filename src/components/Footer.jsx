@@ -384,10 +384,14 @@ const Footer = () => {
   return (
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
-        <h1 className="text-4xl tracking-tight sm:text-6xl text-right sm:text-center font-extrabold my-4">
+        {/* <div className="w-full flex  "> */}
+        <h1 className="sm:ml-48 sm:inline text-4xl tracking-tight sm:text-6xl text-right sm:text-center font-extrabold my-4">
           DESIGN INDIAN <br className="sm:hidden" />{' '}
+        </h1>
+        <h1 className="sm:inline text-4xl tracking-tight sm:text-6xl text-right sm:text-center font-extrabold my-4">
           <span ref={el} className="" />
         </h1>
+        {/* </div> */}
         <div className="flex my-12 sm:my-36 w-full justify-center items-center">
           <Link
             // href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
