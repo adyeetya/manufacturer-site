@@ -16,7 +16,7 @@ const cinzel = Cinzel({
   subsets: ['latin'],
   display: 'swap',
 })
-import Link from 'next/link'
+import Image from 'next/image'
 import { Tangerine } from 'next/font/google'
 const tangerine = Tangerine({
   weight: '400',
