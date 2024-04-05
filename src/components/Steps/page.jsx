@@ -304,7 +304,7 @@ const Steps = () => {
                   </p>
                   <Image
                     alt="thank you image"
-                    src={'/thank-you.png'}
+                    src={'/images/thankyou.png'}
                     width={400}
                     height={300}
                   />

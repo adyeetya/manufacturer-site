@@ -129,8 +129,8 @@ const MyForm = () => {
                 Thank you for your submission!
               </p>
               <Image
-                alt="thank you image"
-                src={'/thank-you.png'}
+                alt="thankyou"
+                src={'/images/thankyou.png'}
                 width={400}
                 height={300}
               />
