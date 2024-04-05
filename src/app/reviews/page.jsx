@@ -188,7 +188,7 @@ const page = () => {
         />
       </head>
       <div className=" mt-16 lg:mt-36 mb-16 sm:mx-8">
-        <h1 className="text-5xl font-extrabold text-center mb-8 mx-auto uppercase">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-8 mx-auto uppercase">
           Design Indian kitchen reviews
         </h1>
         <p className="uppercase text-md font-bold text-center mb-16">

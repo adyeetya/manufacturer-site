@@ -73,7 +73,8 @@ const SectionWithVideos = () => {
                 muted
                 controls={isPlaying}
                 preload="metadata"
-                src="/videos/vid3.mp4"
+                // src="/videos/vid3.mp4"
+                src="https://cdn.designindiankitchen.com/factory.mp4"
               ></video>
             </div>
             <div

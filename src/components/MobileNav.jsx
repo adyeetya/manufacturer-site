@@ -17,7 +17,7 @@ const variants = {
     transition: {
       type: 'spring',
       stiffness: 50,
-      duration: 1,
+      duration: 0.1,
       staggerChildren: 0.1,
     },
 
@@ -62,21 +62,28 @@ const MobileNav = () => {
             </div>
           </Link>
         </div>
-        <ToggleButton setOpen={setOpen} />
+        <div className="m-2 border-2 border-gray-800 rounded-[10px] flex justify-center items-center">
+          <ToggleButton setOpen={setOpen} />
+        </div>
       </div>
 
       {open && (
-        <motion.div
-          className="mb-16 h-[calc(100vh-3rem)] overflow-y-auto"
-          variants={variants}
-          initial="initial"
-          animate="animate"
-        >
+        <div className="h-[calc(100vh-3rem)] overflow-y-auto scroll-smooth">
           <Links />
-        </motion.div>
+        </div>
       )}
     </motion.div>
   )
 }
 
 export default MobileNav
+{
+  /* <motion.div
+          className="h-[calc(100vh-3rem)] overflow-y-auto scroll-smooth"
+          variants={variants}
+          initial="initial"
+          animate="animate"
+        >
+          <Links />
+        </motion.div> */
+}

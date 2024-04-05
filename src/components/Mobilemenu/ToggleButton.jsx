@@ -3,7 +3,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 const ToggleButton = ({ setOpen }) => {
   return (
-    <button onClick={() => setOpen((prev) => !prev)} className='z-50 w-14 h-14 flex justify-center items-center'>
+    <button
+      onClick={() => setOpen((prev) => !prev)}
+      className="z-50 w-12 -mb-[3px] -mr-[3px] h-10 flex justify-center items-center"
+    >
       <svg width="23" height="23" viewBox="0 0 23 23">
         <motion.path
           strokeWidth="3"

@@ -14,12 +14,12 @@ const variants = {
   },
   animate: {
     opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-      type: 'spring',
-      stiffness: 50,
-    },
+    // transition: {
+    //   duration: 1,
+    //   staggerChildren: 0.1,
+    //   type: 'spring',
+    //   stiffness: 50,
+    // },
   },
 }
 const itemVariants = {
@@ -28,12 +28,12 @@ const itemVariants = {
   },
   animate: {
     opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildren: 0.1,
-      type: 'spring',
-      stiffness: 50,
-    },
+    // transition: {
+    //   duration: 1,
+    //   staggerChildren: 0.1,
+    //   type: 'spring',
+    //   stiffness: 50,
+    // },
   },
 }
 const Links = () => {
@@ -51,65 +51,34 @@ const Links = () => {
   ]
 
   return (
-    <motion.div
-      className="w-[100vw] min-h-[100vh] z-50 flex flex-col bg-[var(--theme-color)] gap-8 px-4 pt-4"
-      variants={variants}
-      initial="initial"
-      animate="animate"
-    >
+    <div className="w-[100vw] min-h-[100vh] z-50 flex flex-col bg-[var(--theme-color)] gap-8 px-4 pt-4 pb-40">
       {links.map((item) => (
         <>
-          <motion.div
-            key={item}
-            variants={itemVariants}
-            initial="initial"
-            animate="animate"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block relative py-2"
-          >
+          <div key={item} className="inline-block relative py-2">
             <div className=" flex ">
-              <motion.a
-                href={item.slug}
-                key={item}
-                variants={itemVariants}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-xl flex-1"
-              >
+              <a href={item.slug} key={item} className="text-xl flex-1">
                 {item.name}
-              </motion.a>
+              </a>
               <p className="flex justify-center items-end pb-1">{item.text}</p>
             </div>
             <span className="absolute bottom-0 left-0 w-full h-[2px] rounded-full bg-gray-900 origin-lef"></span>
-          </motion.div>
+          </div>
         </>
       ))}
       {/* for theme changer */}
-      <motion.div className="flex" variants={itemVariants}>
+      <div className="flex">
         <div className="flex-1">
           {/* theme changer */}
 
           <SwitchMobile />
         </div>
         <p className="flex justify-center items-end pb-1">Change Theme</p>
-      </motion.div>
+      </div>
 
       {/* get in touch */}
-      <motion.div
-        className="inline-block relative py-2"
-        variants={itemVariants}
-      >
+      <div className="inline-block relative py-2">
         <div className="flex">
-          <motion.a
-            href="/contact-us"
-            variants={itemVariants}
-            initial="initial"
-            animate="animate"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-2xl flex-1"
-          >
+          <motion.a href="/contact-us" className="text-2xl flex-1">
             Get In Touch
           </motion.a>
           <div className="flex justify-center items-center px-4">
@@ -130,14 +99,9 @@ const Links = () => {
           </div>
           <span className="absolute bottom-0 left-0 w-full h-[2px] rounded-full bg-gray-300 origin-lef"></span>
         </div>
-      </motion.div>
+      </div>
       {/* social links */}
-      <motion.div
-        variants={itemVariants}
-        initial="initial"
-        animate="animate"
-        className="flex justify-evenly items-center mb-16"
-      >
+      <div className="flex justify-evenly items-center ">
         <a href="tel:+91 9899264978">
           <CallIcon sx={{ fontSize: 40 }} />
         </a>
@@ -150,8 +114,33 @@ const Links = () => {
         <a href="mailto:your-email-address">
           <MailOutlineIcon sx={{ fontSize: 40 }} />
         </a>
-      </motion.div>
-    </motion.div>
+      </div>
+      <div className="py-2 text-center text-[10px] flex flex-col sm:flex-row justify-between mb-8">
+        <p>
+          © 2024 MODULAR KITCHEN MANUFACTURING. CRAFTED WITH LOVE BY IN HOUSE
+          BRAND -{' '}
+          <a
+            href="https://www.designerlounge.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#f54e07] font-bold underline"
+          >
+            THE DESIGNER LOUNGE
+          </a>{' '}
+          <br className="sm:hidden" />
+          <span className="text-blue-500 underline ml-4">
+            <Link href="/privacy">PRIVACY</Link>
+          </span>{' '}
+          |{' '}
+          <span className="text-blue-500 underline">
+            <Link href="/privacy#legal">LEGAL</Link>
+          </span>{' '}
+        </p>
+
+        <p className="mt-4">All rights reserved. All wrongs reversed.</p>
+        <p className="mt-4">Love All Serve All</p>
+      </div>
+    </div>
   )
 }
 

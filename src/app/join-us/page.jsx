@@ -113,7 +113,7 @@ const page = () => {
       </head>
       <FullWidthSection />
       <div className="pt-8 sm:pt-16 pb-8">
-        <h1 className="text-5xl font-extrabold text-center mb-8 mx-auto">
+        <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-8 mx-auto">
           COLLABORATE WITH INDIA&apos;S TOP MODULAR BRAND
         </h1>
         <p className="uppercase text-md font-bold text-center mb-16">

@@ -516,7 +516,7 @@ const Footer = () => {
           <LocationsTabs />
         </div>
         <div>
-          <div className="w-full text-center text-white text-sm  py-4 bg-black mt-16 sm:mb-0">
+          {/* <div className="w-full text-center text-white text-sm  py-4 bg-black mt-16 sm:mb-0">
             <p>
               MODULAR KITCHEN MANUFACTURING | ALL RIGHTS RESERVED 2024-25
               CRAFTED WITH LOVE BY IN HOUSE BRAND -{' '}
@@ -536,6 +536,81 @@ const Footer = () => {
               <span className="text-blue-500 underline">
                 <Link href="/privacy#legal">LEGAL</Link>
               </span>{' '}
+            </p>
+          </div> */}
+          <div className="sm:flex sm:justify-between sm:items-center p-4 w-full">
+            {/* Left Side */}
+            <div className="flex flex-col sm:flex-row justify-between items-center my-4 sm:my-0">
+              {/* First Link */}
+              <div className="bg-white p-2 w-full flex justify-center items-center rounded my-4 sm:mr-4">
+                <img src="/images/Sulekha.jpg" alt="Image 1" className="h-14" />
+              </div>
+              {/* Second Link */}
+              <div className="bg-white w-full flex justify-center items-center p-2 rounded my-4 sm:mr-4">
+                <img
+                  src="/images/facebookReview.jpg"
+                  alt="Image 2"
+                  className="h-14"
+                />
+              </div>
+              {/* Third Link */}
+              <div className="bg-white p-2 w-full flex justify-center items-center rounded my-4">
+                <img
+                  src="/images/justDail.jpg"
+                  alt="Image 3"
+                  className="h-14"
+                />
+              </div>
+            </div>
+
+            {/* Right Side */}
+            <div className="mt-4 sm:mt-0">
+              <Link
+                href="/contact-us"
+                className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+              >
+                GET IN TOUCH
+              </Link>
+            </div>
+          </div>
+          <div className="text-center text-[10px] mt-12 flex flex-col sm:flex-row justify-between mb-8 sm:mb-0">
+            <p>
+              © 2024 MODULAR KITCHEN MANUFACTURING. CRAFTED WITH LOVE BY IN
+              HOUSE BRAND -{' '}
+              <a
+                href="https://www.designerlounge.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#f54e07] font-bold underline"
+              >
+                THE DESIGNER LOUNGE
+              </a>{' '}
+              <br className="sm:hidden" />
+              <span className="text-blue-500 underline ml-4">
+                <Link href="/privacy">PRIVACY</Link>
+              </span>{' '}
+              |{' '}
+              <span className="text-blue-500 underline">
+                <Link href="/privacy#legal">LEGAL</Link>
+              </span>{' '}
+            </p>
+            <div className="mt-4 sm:mt-0 flex flex-row sm:gap-8 gap-2 justify-between sm:justify-center items-center w-fit mx-auto ">
+              {' '}
+              <a href="tel:+91 9899264978">
+                <CallIcon sx={{ fontSize: 20 }} />
+              </a>
+              <a href="https://wa.me/9899264978">
+                <WhatsAppIcon sx={{ fontSize: 20 }} />
+              </a>
+              <a href="https://www.instagram.com/designindiankitchen/">
+                <InstagramIcon sx={{ fontSize: 20 }} />
+              </a>
+              <a href="mailto:your-email-address">
+                <MailOutlineIcon sx={{ fontSize: 20 }} />
+              </a>
+            </div>
+            <p className="mt-4 sm:mt-0">
+              All rights reserved. All wrongs reversed.
             </p>
           </div>
         </div>

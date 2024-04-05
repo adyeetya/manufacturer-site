@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="sm:fixed sm:bottom-8 sm:left-8 sm:bg-black sm:text-white sm:px-3 py-2 rounded sm:shadow-md flex justify-center items-center font-bold"
+          className="sm:fixed sm:bottom-8 sm:left-8  sm:px-3 py-2 rounded  flex justify-center items-center font-bold"
         >
           Back To Top
           <ArrowUp className="ml-4" />
@@ -43,5 +43,5 @@ const ScrollToTopButton = () => {
     </div>
   )
 }
-
+// sm:bg-black sm:text-white
 export default ScrollToTopButton
