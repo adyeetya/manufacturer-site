@@ -142,7 +142,7 @@ const MyForm = () => {
 
               <button
                 onClick={handleClose}
-                className=" text-white py-2 px-4 mt-4 rounded-full hover:bg-gray-700 hover:shadow"
+                className=" text-white py-2 px-4 mt-4 rounded hover:bg-gray-700 hover:shadow"
               >
                 Close
               </button>
