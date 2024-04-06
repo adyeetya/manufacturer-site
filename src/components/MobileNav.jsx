@@ -15,10 +15,11 @@ const variants = {
   animate: {
     // clipPath: 'circle(1200px at 50px 50px)',
     transition: {
-      type: 'spring',
+      ease: 'linear',
+
       stiffness: 50,
-      duration: 0.1,
-      staggerChildren: 0.1,
+      duration: 0.4,
+      // staggerChildren: 0.1,
     },
 
     y: 0,
@@ -68,9 +69,14 @@ const MobileNav = () => {
       </div>
 
       {open && (
-        <div className="h-[calc(100vh-3rem)] overflow-y-auto scroll-smooth">
+        <motion.div
+          className="h-[calc(100vh-3rem)] overflow-y-auto scroll-smooth"
+          variants={variants}
+          initial="initial"
+          animate="animate"
+        >
           <Links />
-        </div>
+        </motion.div>
       )}
     </motion.div>
   )
@@ -85,5 +91,9 @@ export default MobileNav
           animate="animate"
         >
           <Links />
-        </motion.div> */
+        </motion.div>
+         <div className="h-[calc(100vh-3rem)] overflow-y-auto scroll-smooth">
+          <Links />
+        </div>
+        */
 }

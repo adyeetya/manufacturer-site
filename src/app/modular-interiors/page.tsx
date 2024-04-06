@@ -128,7 +128,7 @@ const Page = ({}) => {
               }`}
             >
               <div className="bg-white rounded shadow-md p-6 hover:shadow-lg transition duration-300 ease-in-out hover:scale-105">
-                <div className="relative overflow-hidden rounded h-96 w-full ">
+                <div className="relative overflow-hidden rounded h-64 w-full ">
                   {categoryData.image ? (
                     <Image
                       fill

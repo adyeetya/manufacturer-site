@@ -47,7 +47,7 @@ const FullWidthSection = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="absolute z-10 text-white text-center">
         <h1
-          className={`sm:text-[90px] drop-shadow-xl text-4xl font-[900] ${lora.className}`}
+          className={`sm:text-7xl drop-shadow-xl xs:text-4xl 2xs:text-2xl font-[900] ${lora.className}`}
         >
           Collaborate With Us
         </h1>
@@ -112,11 +112,11 @@ const page = () => {
         />
       </head>
       <FullWidthSection />
-      <div className="pt-8 sm:pt-16 pb-8">
+      <div className="pt-8 sm:pt-16 pb-8 px-4">
         <h1 className="text-3xl sm:text-5xl font-extrabold text-center mb-8 mx-auto">
           COLLABORATE WITH INDIA&apos;S TOP MODULAR BRAND
         </h1>
-        <p className="uppercase text-md font-bold text-center mb-16">
+        <p className="uppercase text-sm text-center mb-16">
           Collaborate with the Top End To End Interior, Modular Interior
           Manufacturing, & Architectural Services Brand Across New Delhi - NCR -
           India, Join us and Be A Part of Our Growing Team/Community. We Invite
@@ -124,6 +124,9 @@ const page = () => {
           Collaborate with Our Brand and Work Together to ensure smooth
           coordinations and deliveries in Our Projects.
         </p>
+        <h1 className="text-3xl sm:text-5xl text-center mb-8 mx-auto">
+          COLLABORATE WITH US
+        </h1>
       </div>
       <div className="bg-amber-50">
         <Form />

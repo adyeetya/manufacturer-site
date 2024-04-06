@@ -484,9 +484,9 @@ const CardCarousel = () => {
                   categoryFolderMapping[categoryData.id]
                 }`}
               >
-                <div className="flex flex-col items-center">
-                  <div>
-                    <div className="relative overflow-hidden rounded w-80 sm:w-[380px] h-72">
+                <div className="flex flex-col items-start pl-0 ">
+                  <div className="">
+                    <div className="relative overflow-hidden rounded w-48 2xs:w-56 xs:w-[250px] sm:w-[380px] h-64">
                       {categoryData.image ? (
                         <Image
                           fill
@@ -559,12 +559,12 @@ const Awards = () => {
         </p>
         <div className="hidden sm:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 sm:my-24">
           {data.map((award) => (
-            <div key={award.name} className="flex flex-col gap-2 w-[300px]">
+            <div key={award.name} className="flex flex-col gap-2 w-[250px]">
               <div className="flex justify-between items-center">
                 <div className="w-16">
                   <AwardLeft />
                 </div>
-                <h1 className={`text-2xl text-center ${lora.className}`}>
+                <h1 className={`text-lg text-center ${lora.className}`}>
                   {award.brand}
                 </h1>
                 <div className="w-16">
@@ -782,7 +782,7 @@ const BrandsSection = () => {
         </section>
         <div className="flex flex-col sm:flex-row px-8">
           <div className="w-full sm:w-1/2 text-center px-4 my-8 sm:my-0">
-            <p className="text-md sm:text-xl">
+            <p className="text-lg 2xs:text-xl xs:text-2xl sm:text-4xl">
               <Link href="/reviews">Check How Much We are Loved 🥰</Link>
             </p>
           </div>

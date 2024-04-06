@@ -4,7 +4,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-
 import { cn } from '../../lib/utils'
 import { Button } from '../../components/ui/button'
 
@@ -39,7 +38,7 @@ const BrandsCarousel = React.forwardRef(
         axis: orientation === 'horizontal' ? 'x' : 'y',
       },
 
-      [AutoScroll({ playOnInit: true })]
+      [AutoScroll({ playOnInit: true, stopOnInteraction: false })]
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
@@ -126,23 +125,25 @@ const BrandsCarousel = React.forwardRef(
 )
 BrandsCarousel.displayName = 'Carousel'
 
-const BrandsCarouselContent = React.forwardRef(({ className, ...props }, ref) => {
-  const { carouselRef, orientation } = useCarousel()
+const BrandsCarouselContent = React.forwardRef(
+  ({ className, ...props }, ref) => {
+    const { carouselRef, orientation } = useCarousel()
 
-  return (
-    <div ref={carouselRef} className="overflow-hidden">
-      <div
-        ref={ref}
-        className={cn(
-          'flex',
-          orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
-          className
-        )}
-        {...props}
-      />
-    </div>
-  )
-})
+    return (
+      <div ref={carouselRef} className="overflow-hidden">
+        <div
+          ref={ref}
+          className={cn(
+            'flex',
+            orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col',
+            className
+          )}
+          {...props}
+        />
+      </div>
+    )
+  }
+)
 BrandsCarouselContent.displayName = 'CarouselContent'
 
 const BrandsCarouselItem = React.forwardRef(({ className, ...props }, ref) => {

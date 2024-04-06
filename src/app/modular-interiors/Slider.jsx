@@ -224,7 +224,7 @@ const Gallery = ({
                   {images.map((image, index) => (
                     <div
                       key={index}
-                      className="h-[45vh] md:h-[100vh] overflow-hidden"
+                      className="h-full md:h-[100vh] overflow-hidden"
                     >
                       <Image
                         src={`https://api.designindianwardrobe.com/uploads/${image.filename}`}
@@ -253,7 +253,7 @@ const Gallery = ({
 
             {/* Form content */}
             <div className="md:w-2/5 w-full h-full overflow-auto flex justify-center">
-              <div className="h-auto  md:mx-4">
+              <div className="h-auto md:mx-4">
                 {/* This div will enable scrolling if the content exceeds the modal height */}
                 <div className="h-auto overflow-y-auto">
                   {formSubmitted ? (
@@ -284,7 +284,7 @@ const Gallery = ({
                     </div>
                   ) : (
                     <form
-                      className="w-full max-w-md p-2 rounded shadow-md overflow-y-auto"
+                      className="grid grid-cols-1 justify-items-center rounded shadow-md overflow-y-auto"
                       method="post"
                       onSubmit={handleSubmit}
                     >
@@ -299,7 +299,7 @@ const Gallery = ({
                         </h2>
                       </div>
                       {/* social share  */}
-                      <div className="border-t border-b rounded -mx-2 my-4">
+                      <div className="border-t border-b rounded -mx-2 my-4 w-full">
                         <p className="mt-2 ml-2">Share this Design</p>
                         <div className="social-share my-4 flex gap-4 items-center ">
                           <button
@@ -344,8 +344,8 @@ const Gallery = ({
                         </div>
                       </div>
 
-                      <div className="flex justify-evenly my-4 mt-6">
-                        <div className="flex flex-col w-20 rounded-3xl border-[1px] p-2 border-gray-600">
+                      <div className="flex flex-row gap-2 justify-evenly my-4 mt-6">
+                        <div className="flex flex-col w-14 rounded-3xl ">
                           <Image
                             width={1000}
                             height={1000}
@@ -359,7 +359,7 @@ const Gallery = ({
                           </p>
                         </div>
 
-                        <div className="flex justify-content-center flex-col w-20 rounded-3xl border-[1px] p-2 border-gray-600">
+                        <div className="flex justify-content-center flex-col w-20 rounded-3xl ">
                           <Image
                             width={1000}
                             height={1000}
@@ -371,7 +371,7 @@ const Gallery = ({
                             7 year <br /> warranty
                           </p>
                         </div>
-                        <div className="flex flex-col w-20 rounded-3xl border-[1px] p-2 border-gray-600">
+                        <div className="flex flex-col w-20 rounded-3xl ">
                           <Image
                             width={1000}
                             height={1000}
@@ -383,7 +383,7 @@ const Gallery = ({
                             Affordable Prices
                           </p>
                         </div>
-                        <div className="flex flex-col w-20 rounded-3xl border-[1px] p-2 border-gray-600">
+                        <div className="flex flex-col w-20 rounded-3xl ">
                           <Image
                             width={1000}
                             height={1000}
@@ -397,7 +397,7 @@ const Gallery = ({
                           </p>
                         </div>
                       </div>
-                      <div className="my-8">
+                      <div className="my-8 w-full">
                         <input
                           type="text"
                           id="name"
@@ -408,7 +408,7 @@ const Gallery = ({
                           onChange={handleChange}
                         />
                       </div>
-                      <div className="my-8">
+                      <div className="my-8 w-full">
                         <input
                           type="email"
                           id="email"
@@ -419,7 +419,7 @@ const Gallery = ({
                           onChange={handleChange}
                         />
                       </div>
-                      <div className="my-8">
+                      <div className="my-8 w-full">
                         <input
                           type="tel"
                           id="mobile"
@@ -430,7 +430,7 @@ const Gallery = ({
                           onChange={handleChange}
                         />
                       </div>
-                      <div className="my-8">
+                      <div className="my-8 w-full">
                         <input
                           type="text"
                           id="address"
@@ -441,7 +441,7 @@ const Gallery = ({
                           onChange={handleChange}
                         />
                       </div>
-                      <div className="my-8">
+                      <div className="my-8 w-full">
                         <select
                           id="Interest"
                           name="Interest"

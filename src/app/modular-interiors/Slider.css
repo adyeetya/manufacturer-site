@@ -31,9 +31,9 @@
 }
 @media (max-width: 640px) {
   .Modal {
-    top: 120px;
+    top: 100px;
     left: 1%;
     right: 1%; /* Change top position for smaller screens */
-    bottom: 10%; /* Change top position for smaller screens */
+    bottom: 5%; /* Change top position for smaller screens */
   }
 }

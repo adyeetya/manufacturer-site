@@ -13,7 +13,7 @@ const FullWidthSection = () => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="absolute z-10 text-white text-center">
         <h1
-          className={`sm:text-[90px] drop-shadow-xl text-4xl font-[900] ${lora.className}`}
+          className={`sm:text-7xl drop-shadow-xl xs:text-4xl 2xs:text-2xl font-[900] ${lora.className}`}
         >
           Get Quotes
         </h1>

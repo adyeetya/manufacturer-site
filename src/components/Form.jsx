@@ -103,7 +103,7 @@ const MyForm = () => {
   return (
     <div className="lg:mx-16 bg-[var(--text-color)] text-[var(--theme-color)] rounded-xl p-8 ">
       <h1 className="text-center text-2xl sm:text-4xl my-8 font-bold">
-        Connect With Us Today
+        Connect With Us <span className='text-red-500'>Today</span>
       </h1>
       <div className="flex flex-col sm:flex-row ">
         {/* Left side with heading and paragraph */}
