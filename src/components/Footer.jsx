@@ -300,7 +300,7 @@ const Contact = () => {
 
 const LetsConnectSection = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-36 mt-16 ">
+    <div className="flex flex-col md:flex-row justify-center gap-8 lg:gap-36 mt-16 ">
       <div>
         <h1 className="text-4xl font-bold ">THE BRAND</h1>
         <ul className="text-lg font-bold mt-4">
@@ -387,14 +387,14 @@ const Footer = () => {
   return (
     <div className="w-full  mt-24 px-1 sm:px-4">
       <div className=" border-gray-300 border-2 border-b-0 rounded-t-xl h-full sm:p-4">
-        {/* <div className="w-full flex  "> */}
-        <h1 className="sm:ml-48 sm:inline text-4xl tracking-tight sm:text-6xl text-center font-extrabold my-4">
-          DESIGN INDIAN <br className="sm:hidden" />{' '}
-        </h1>
-        <h1 className="sm:inline text-4xl tracking-tight sm:text-6xl text-center font-extrabold my-4">
-          <span ref={el} className="" />
-        </h1>
-        {/* </div> */}
+        <div className="mx-auto sm:ml-8 my-8">
+          <h1 className=" sm:inline text-4xl tracking-tight sm:text-[6.5vw] text-center font-extrabold my-4">
+            DESIGN INDIAN <br className="sm:hidden" />{' '}
+          </h1>
+          <h1 className="sm:inline text-4xl tracking-tight sm:text-[6.5vw] text-center font-extrabold my-4">
+            <span ref={el} className="" />
+          </h1>
+        </div>
         <div className="flex my-12 sm:my-36 w-full justify-center items-center">
           <Link
             // href="https://designindianhomes.com/get-free-estimate-by-top-interior-brand-in-dehli-gurgaon-noida-india"
@@ -541,29 +541,61 @@ const Footer = () => {
               </span>{' '}
             </p>
           </div> */}
-          <div className="sm:flex sm:justify-between sm:items-center p-4 w-full">
+          <div className="flex flex-col lg:flex-row sm:justify-between sm:items-center p-4 w-full">
             {/* Left Side */}
             <div className="flex flex-col sm:flex-row justify-between items-center my-4 sm:my-0">
               {/* First Link */}
-              <div className="bg-white p-2 w-full flex justify-center items-center rounded my-4 sm:mr-4">
-                <img src="/images/Sulekha.jpg" alt="Image 1" className="h-14" />
-              </div>
+              <Link
+                href="https://www.sulekha.com/design-indian-kitchen-connaught-place-delhi-contact-address"
+                className="bg-white w-full flex justify-center items-center p-2 rounded my-4 sm:mr-4"
+              >
+                <div className="">
+                  <img
+                    src="/images/Sulekha.jpg"
+                    alt="Image 1"
+                    className="h-14"
+                  />
+                </div>
+              </Link>
               {/* Second Link */}
-              <div className="bg-white w-full flex justify-center items-center p-2 rounded my-4 sm:mr-4">
-                <img
-                  src="/images/facebookReview.jpg"
-                  alt="Image 2"
-                  className="h-14"
-                />
-              </div>
+              <Link
+                href="https://www.facebook.com/designindiankitchen"
+                className="bg-white w-full flex justify-center items-center p-2 rounded my-4 sm:mr-4"
+              >
+                <div className="">
+                  <img
+                    src="/images/facebookReview.jpg"
+                    alt="Image 2"
+                    className="h-14"
+                  />
+                </div>
+              </Link>
               {/* Third Link */}
-              <div className="bg-white p-2 w-full flex justify-center items-center rounded my-4">
-                <img
-                  src="/images/justDail.jpg"
-                  alt="Image 3"
-                  className="h-14"
-                />
-              </div>
+              <Link
+                href="https://www.mouthshut.com/product-reviews/Design-Indian-Kitchen-reviews-925732060"
+                className="bg-white w-full flex justify-center items-center p-2 rounded my-4 sm:mr-4"
+              >
+                <div className="">
+                  <img
+                    src="/images/reviews-mouthshut.jpg"
+                    alt="Image 2"
+                    className="h-14"
+                  />
+                </div>
+              </Link>
+              {/* Fourth Link */}
+              <Link
+                href="https://www.justdial.com/Delhi/Design-Indian-Kitchen-Near-Dwarka-Sector-10-Metro-Station-Palam/011PXX11-XX11-141108151600-E1L5_BZDET/reviews"
+                className="bg-white w-full flex justify-center items-center p-2 rounded my-4 "
+              >
+                <div className="">
+                  <img
+                    src="/images/justDail.jpg"
+                    alt="Image 3"
+                    className="h-14"
+                  />
+                </div>
+              </Link>
             </div>
 
             {/* Right Side */}

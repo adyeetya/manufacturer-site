@@ -115,7 +115,7 @@ const Links = () => {
           <MailOutlineIcon sx={{ fontSize: 40 }} />
         </a>
       </div>
-      <div className="py-2 text-center text-[10px] flex flex-col sm:flex-row justify-between mb-8">
+      <div className="py-2 text-center text-[10px] flex flex-col justify-between mb-8">
         <p>
           © 2024 MODULAR KITCHEN MANUFACTURING. CRAFTED WITH LOVE BY IN HOUSE
           BRAND -{' '}

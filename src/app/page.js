@@ -212,14 +212,14 @@ const SectionForComponent = () => {
             <img
               src="/images/a3.jpg"
               alt="Image 1"
-              className="w-52 h-full object-cover rounded"
+              className="w-52 h-full object-cover rounded -z-10"
             />
           </div>
           <div className="sm:absolute sm:top-36 sm:left-4 flex justify-between ">
             <img
               src="/images/a4.jpg"
               alt="Image 1"
-              className="w-52 h-full object-cover rounded"
+              className="w-52 h-full object-cover rounded -z-10"
             />
           </div>
         </div>
@@ -245,7 +245,7 @@ const SectionForComponent = () => {
 
 const TiltedCards = () => {
   return (
-    <div className="flex my-6 flex-col justify-center items-center w-full">
+    <div className="flex my-6 flex-col justify-center items-center w-full overflow-hidden">
       <p className="text-sm my-12 font-semibold flex justify-center items-center">
         <span className="mx-2">
           <Star />
@@ -255,16 +255,16 @@ const TiltedCards = () => {
           <Star />
         </span>
       </p>
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-24 items-center justify-center w-full">
-        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border sm:-rotate-12 sm:hover:-rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+      <div className="flex flex-col md:flex-row gap-4 sm:gap-24 items-center justify-center w-full py-8">
+        <div className="p-32 relative sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] md:-rotate-[16deg] md:hover:-rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
-                <PrecisionManufacturingOutlinedIcon className="h-16 w-16" />
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                <PrecisionManufacturingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
                 <h2
-                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
                 >
-                  Top Class <br className="hidden sm:block" /> Machinery
+                  Top Class <br className="hidden md:block" /> Machinery
                 </h2>
               </div>
               <p className="text-xs">
@@ -276,34 +276,34 @@ const TiltedCards = () => {
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border border-black overflow-hidden rounded-xl sm:mb-16 sm:hover:h-[410px] hover:shadow-2xl transition-all duration-500">
+        <div className="p-32 relative sm:ml-auto md:ml-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] border-black overflow-hidden rounded-xl md:mb-32 md:hover:h-[310px] xl:hover:h-[410px] hover:shadow-2xl transition-all duration-500">
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
-                <AddTaskRoundedIcon className="h-16 w-16" />
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                <AddTaskRoundedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
                 <h2
-                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
                 >
                   Best in <br className="hidden sm:block" /> Quality
                 </h2>
               </div>
               <p className="text-xs">
-                Our Brand Uses some of the finest materials available in the
-                Indian Markets, all our products are custom made as per design &
-                carry limited 8 warranty as per the components selected.
+                We use the best materials available in the market, all our
+                products are custom made as per design & carry limited 8
+                warranty as per the components.
               </p>
               <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
           </div>
         </div>
-        <div className="p-32 relative w-full sm:w-[250px] h-64 sm:h-[430px] border sm:rotate-12 sm:hover:rotate-6 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
+        <div className="p-32 relative sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] md:rotate-[16deg] md:hover:rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
           {' '}
           <div className="absolute inset-0 transform">
             <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-8">
-                <LocalShippingOutlinedIcon className="h-16 w-16" />
+              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                <LocalShippingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
                 <h2
-                  className={`text-2xl sm:text-4xl font-extrabold ${lora.className}`}
+                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
                 >
                   Always on Time <br className="hidden sm:block" /> Delivery
                 </h2>
@@ -456,12 +456,12 @@ const CardCarousel = () => {
   return (
     <div className="w-full my-24 sm:px-8 px-4">
       <h1
-        className={`text-left tracking-tighter text-4xl sm:text-6xl sm:ml-20 mb-4 font-bold ${lora.className}`}
+        className={`text-left tracking-tighter text-4xl sm:text-5xl md:text-6xl sm:ml-20 mb-4 font-bold ${lora.className}`}
       >
         Our
         <span className="italic">
           {' '}
-          Complete <br className="sm:hidden" />
+          Complete <br className="xl:hidden" />
           Collection
         </span>
       </h1>
@@ -486,7 +486,7 @@ const CardCarousel = () => {
               >
                 <div className="flex flex-col items-start pl-0 ">
                   <div className="">
-                    <div className="relative overflow-hidden rounded w-48 2xs:w-56 xs:w-[250px] sm:w-[380px] h-64">
+                    <div className="relative overflow-hidden rounded w-48 2xs:w-56 xs:w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[28vw] h-64">
                       {categoryData.image ? (
                         <Image
                           fill
@@ -553,11 +553,11 @@ const Awards = () => {
         Something you dont know About Our <span className="italic">Brand </span>
         !
       </h1>
-      <div className="flex flex-col sm:flex-row ">
-        <p className="text-xs sm:my-24 my-8 ml-8">
+      <div className="flex flex-col xl:flex-row ">
+        <p className="text-xs xl:my-24 my-8 ml-8">
           Awards & <br /> Recognition
         </p>
-        <div className="hidden sm:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 sm:my-24">
+        <div className="hidden sm:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 xl:my-24">
           {data.map((award) => (
             <div key={award.name} className="flex flex-col gap-2 w-[250px]">
               <div className="flex justify-between items-center">
@@ -956,7 +956,7 @@ const WhiteStripSection = () => {
           className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-16 font-bold relative ${lora.className}`}
         >
           Brands you will find in our products
-          <span className="hidden sm:block absolute bottom-0 left-24 w-full h-[2px] bg-gray-700 transform translate-x-1"></span>
+          <span className="hidden sm:block absolute bottom-0 left-24 w-3/4 h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
 
         <BrandsCarousel
@@ -989,7 +989,7 @@ const WhiteStripSection = () => {
           className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-16 font-bold relative ${lora.className} `}
         >
           Our Corporate Presence
-          <span className="hidden sm:block absolute bottom-0 left-24 w-[100%] h-[2px] bg-gray-700 transform translate-x-1"></span>
+          <span className="hidden sm:block absolute bottom-0 left-24 w-3/4 h-[2px] bg-gray-700 transform translate-x-1"></span>
         </h1>
         <BrandsCarousel
           opts={{
@@ -1217,12 +1217,7 @@ export default function Home() {
 
       <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
         <div className="mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
-          <motion.div
-            variants={variants}
-            initial="initialL"
-            whileInView="animate"
-            className="flex flex-wrap content-center"
-          >
+          <motion.div className="flex flex-wrap content-center">
             <p className="text-lg sm:text-xl text-left">
               {<Stars />}{' '}
               <span className="ml-8 sm:ml-16">
@@ -1247,12 +1242,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div
-            variants={variants}
-            initial="initial"
-            whileInView="animate"
-            className="flex w-full justify-end"
-          >
+          <motion.div className="flex w-full justify-end">
             <Link
               href="/contact-us"
               className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
@@ -1261,8 +1251,11 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
-        {/* --------------------------- */}
-        <SectionWithVideos />
+      </MaxWidthWrapper>
+      {/* --------------------------- */}
+      <SectionWithVideos />
+      {/* --------------------------- */}
+      <MaxWidthWrapper>
         {/* --------------------------- */}
         <SectionForComponent />
         {/* --------------------------- */}

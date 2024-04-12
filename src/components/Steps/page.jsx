@@ -119,7 +119,7 @@ const Steps = () => {
   }
   return (
     <div className="my-24">
-      <div className="flex flex-col md:flex-row justify-between mx-auto p-0 sm:p-16 md:px-20 gap-x-16">
+      <div className="flex flex-col lg:flex-row justify-between mx-auto p-0 sm:p-16 md:px-20 gap-x-16">
         <div>
           <div className="sticky top-[20%]">
             {' '}
