@@ -467,7 +467,7 @@ const Footer = () => {
           <div className="flex my-12 w-full justify-end items-center">
             <Link
               href="/contact-us"
-              className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+              className={`whitespace-nowrap text-lg sm:text-xl md:text-2xl lg:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
             >
               GET IN TOUCH
             </Link>

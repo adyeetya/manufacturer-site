@@ -173,7 +173,7 @@ const SectionForComponent = () => {
       </motion.p>
       <div className="text-center flex justify-center flex-col items-center">
         <h1
-          className={`sm:text-[7vw] text-4xl sm:leading-[5rem] tracking-tighter font-bold ${lora.className}`}
+          className={`sm:text-[6rem] text-4xl sm:leading-[5rem] tracking-tighter font-bold ${lora.className}`}
         >
           {' '}
           <span className="italic">Some </span> <br />
@@ -224,7 +224,7 @@ const SectionForComponent = () => {
           </div>
         </div>
         <h1
-          className={`sm:text-[7vw] mt-4 sm:mt-0 text-4xl sm:leading-[5rem] font-bold tracking-tighter ${lora.className}`}
+          className={`sm:text-[6rem] mt-4 sm:mt-0 text-4xl sm:leading-[5rem] font-bold tracking-tighter ${lora.className}`}
         >
           <span className="italic">Some </span> <br />
           Exquisite People
@@ -255,65 +255,67 @@ const TiltedCards = () => {
           <Star />
         </span>
       </p>
-      <div className="flex flex-col md:flex-row gap-4 sm:gap-24 items-center justify-center w-full py-8">
-        <div className="p-32 relative sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] md:-rotate-[16deg] md:hover:-rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
-          <div className="absolute inset-0 transform">
-            <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                <PrecisionManufacturingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
-                <h2
-                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
-                >
-                  Top Class <br className="hidden md:block" /> Machinery
-                </h2>
+      <div className="w-full ">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-32 items-center justify-center py-8 w-full ">
+          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] md:-rotate-[16deg] md:hover:-rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
+            <div className="transform h-full">
+              <div className="flex flex-col justify-between items-center h-full">
+                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                  <PrecisionManufacturingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                  <h2
+                    className={`text-2xl sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                  >
+                    Top Class <br className="hidden md:block" /> Machinery
+                  </h2>
+                </div>
+                <p className="text-xs md:text-md ">
+                  All Are Modular Furniture Machines are German Made to give you
+                  the top class precision and Premium Finishes of shutters and
+                  cabinets.
+                </p>
+                <div className="w-full h-[2px] bg-gray-300 rounded"></div>
               </div>
-              <p className="text-xs">
-                All Are Modular Furniture Machines are German Made to give you
-                the top class precision and Premium Finishes of shutters and
-                cabinets.
-              </p>
-              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
           </div>
-        </div>
-        <div className="p-32 relative sm:ml-auto md:ml-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] border-black overflow-hidden rounded-xl md:mb-32 md:hover:h-[310px] xl:hover:h-[410px] hover:shadow-2xl transition-all duration-500">
-          <div className="absolute inset-0 transform">
-            <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                <AddTaskRoundedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
-                <h2
-                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
-                >
-                  Best in <br className="hidden sm:block" /> Quality
-                </h2>
+          <div className="p-4 flex justify-center items-center sm:ml-auto md:ml-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] border-black overflow-hidden rounded-xl md:mb-32 md:hover:h-[350px] lg:hover:h-[390px] xl:hover:h-[580px] hover:shadow-2xl transition-all duration-500">
+            <div className="transform h-full">
+              <div className="flex flex-col justify-between items-center h-full">
+                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                  <AddTaskRoundedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                  <h2
+                    className={`text-2xl sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                  >
+                    Best in <br className="hidden sm:block" /> Quality
+                  </h2>
+                </div>
+                <p className="text-xs md:text-md ">
+                  We use the best materials available in the market, all our
+                  products are custom made as per design & carry limited 8
+                  warranty as per the components.
+                </p>
+                <div className="w-full h-[2px] bg-gray-300 rounded"></div>
               </div>
-              <p className="text-xs">
-                We use the best materials available in the market, all our
-                products are custom made as per design & carry limited 8
-                warranty as per the components.
-              </p>
-              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
           </div>
-        </div>
-        <div className="p-32 relative sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[150px] lg:w-[350px] h-64 sm:h-[300px] md:h-[380px] lg:h-[450px] border border-[var(--contact-bg-color)] md:rotate-[16deg] md:hover:rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black overflow-hidden rounded-xl">
-          {' '}
-          <div className="absolute inset-0 transform">
-            <div className="p-4 flex flex-col justify-between items-center h-full">
-              <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                <LocalShippingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20" />
-                <h2
-                  className={`text-2xl sm:text-3xl xl:text-4xl font-extrabold ${lora.className}`}
-                >
-                  Always on Time <br className="hidden sm:block" /> Delivery
-                </h2>
+          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] md:rotate-[16deg] md:hover:rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
+            {' '}
+            <div className="transform h-full">
+              <div className="flex flex-col justify-between items-center h-full">
+                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
+                  <LocalShippingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                  <h2
+                    className={`text-2xl text-center sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                  >
+                    On Time <br className="hidden sm:block" /> Delivery
+                  </h2>
+                </div>
+                <p className="text-xs md:text-md ">
+                  We ensure commitments are met, whether we work day in or day
+                  out. We have multiple facilities & make sure that your
+                  deliveries are always on time.
+                </p>
+                <div className="w-full h-[2px] bg-gray-300 rounded"></div>
               </div>
-              <p className="text-xs">
-                We ensure commitments are met, whether we work day in or day
-                out. We have multiple facilities & make sure that your
-                deliveries are always on time.
-              </p>
-              <div className="w-full h-[2px] bg-gray-300 rounded"></div>
             </div>
           </div>
         </div>
@@ -413,46 +415,6 @@ const CardCarousel = () => {
     fetchCategoryData()
   }, [])
 
-  // const cardData = [
-  //   {
-  //     id: 1,
-  //     imageUrl:
-  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
-  //     heading: 'Card 1 Heading',
-  //     content: 'Content for card 1',
-  //   },
-  //   {
-  //     id: 2,
-  //     imageUrl:
-  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
-  //     heading: 'Card 2 Heading',
-  //     content: 'Content for card 2',
-  //   },
-  //   {
-  //     id: 3,
-  //     imageUrl:
-  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
-  //     heading: 'Card 3 Heading',
-  //     content: 'Content for card 3',
-  //   },
-  //   {
-  //     id: 4,
-  //     imageUrl:
-  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
-  //     heading: 'Card 4 Heading',
-  //     content: 'Content for card 4',
-  //   },
-  //   {
-  //     id: 5,
-  //     imageUrl:
-  //       'https://assets-global.website-files.com/6511c52c9873b5ce4d47a9c9/652ef5753c6165256c8f0c0b_egglife-thumb-p-1080.webp',
-  //     heading: 'Card 5 Heading',
-  //     content: 'Content for card 5',
-  //   },
-  //   // Add more card data as needed
-  // ]
-  // const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
-
   return (
     <div className="w-full my-24 sm:px-8 px-4">
       <h1
@@ -486,13 +448,13 @@ const CardCarousel = () => {
               >
                 <div className="flex flex-col items-start pl-0 ">
                   <div className="">
-                    <div className="relative overflow-hidden rounded w-48 2xs:w-56 xs:w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[28vw] h-64">
+                    <div className="relative overflow-hidden rounded w-48 2xs:w-56 xs:w-[70vw] sm:w-[60vw] md:w-[40vw] lg:w-[28vw] h-60 lg:h-[20vw] ">
                       {categoryData.image ? (
                         <Image
                           fill
                           src={`https://api.designindianwardrobe.com/uploads/${categoryData.image.filename}`}
                           alt={categoryData.image.filename}
-                          className="rounded-2xl"
+                          className="rounded-2xl object-cover"
                         />
                       ) : (
                         <Image
@@ -557,7 +519,7 @@ const Awards = () => {
         <p className="text-xs xl:my-24 my-8 ml-8">
           Awards & <br /> Recognition
         </p>
-        <div className="hidden sm:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 xl:my-24">
+        <div className="hidden lg:grid mx-auto justify-items-center grid-cols-1 md:grid-cols-3 gap-16 my-8 xl:my-24">
           {data.map((award) => (
             <div key={award.name} className="flex flex-col gap-2 w-[250px]">
               <div className="flex justify-between items-center">
@@ -576,7 +538,7 @@ const Awards = () => {
           ))}
         </div>
         {/* only show in mob */}
-        <div className="sm:hidden block">
+        <div className="lg:hidden block">
           <BrandsCarousel
             opts={{
               align: 'start',
@@ -586,7 +548,7 @@ const Awards = () => {
           >
             <BrandsCarouselContent>
               {data.map((award) => (
-                <BrandsCarouselItem key={award.id} className="">
+                <BrandsCarouselItem key={award.id} className="sm:basis-1/2">
                   <div className="flex flex-col gap-2 w-[300px]">
                     <div className="flex justify-between items-center">
                       <div className="w-16">
@@ -1068,7 +1030,7 @@ const BlogsSection = () => {
                   height={1000}
                   src={card._embedded['wp:featuredmedia'][0].source_url}
                   alt={card._embedded['wp:featuredmedia'][0].alt_text}
-                  className="mb-2 w-full h-52 object-cover rounded-t"
+                  className="mb-2 w-full aspect-square object-cover rounded-t"
                 />
               )}
               <div className="my-4">

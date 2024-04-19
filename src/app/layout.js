@@ -18,7 +18,7 @@ import Head from 'next/head'
 // }
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>

@@ -12,8 +12,8 @@ const lora = Lora({
   display: 'swap',
 })
 const Navbar = () => {
-  return (
-    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full bg-[var(--theme-color)] transition-all">
+  return (<nav className="sticky h-14 inset-x-0 top-0 z-30 w-full bg-[var(--theme-color)] transition-all">
+    
       <div className="hidden lg:flex h-14 items-center justify-between xl:px-0">
         {/* for left margin */}
         <div className="w-16 h-16"></div>

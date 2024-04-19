@@ -295,7 +295,9 @@ const Steps = () => {
             </button>
           </div>
           <div className="p-4 h-[400px] overflow-y-auto">
-            <h1 className="text-2xl sm:text-3xl text-center">Contact Us</h1>
+            <h1 className="text-2xl sm:text-3xl text-center text-[#f54e07] font-extrabold">
+              Contact Us
+            </h1>
             <div className="p-4 flex overflow-y-auto">
               {formSubmitted ? (
                 <div className="grid grid-cols-1 justify-items-center">
