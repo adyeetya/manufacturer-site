@@ -12,8 +12,7 @@ import Footer from '../components/Footer'
 import store from '../components/redux/store'
 import Assistance from '../components/Assistance'
 import Head from 'next/head'
-import LocomotiveScroll from 'locomotive-scroll'
-import { useRouter } from 'next/navigation'
+
 
 // export const metadata = {
 //   title: 'Create Next App',
