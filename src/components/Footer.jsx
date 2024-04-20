@@ -401,7 +401,7 @@ const Footer = () => {
             // target="_blank"
             // rel="noopener noreferrer"
             href="/calculator"
-            className={`whitespace-nowrap text-md md:text-5xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+            className={`whitespace-nowrap text-md md:text-4xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
           >
             Calculate Your Estimates
           </Link>

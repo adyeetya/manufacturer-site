@@ -54,19 +54,19 @@ const SectionWithVideos = () => {
     })
   }, [])
   return (
-    <section className="bg-gray-900 my-12 w-full rounded-xl">
+    <section className="bg-gray-900 my-12 w-full rounded-xl ">
       <div className="mx-auto p-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* Image column 1 */}
           <div className="relative group rounded-xl overflow-hidden aspect-square">
             <img
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center grayscale"
               src="/images/img-1.jpg"
               alt="Modular Interiors"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <video
-                className="w-[90%] object-cover object-center rounded-xl"
+                className="w-[90%] object-cover object-center rounded border-2 border-white"
                 loop
                 autoPlay
                 playsInline
@@ -97,13 +97,13 @@ const SectionWithVideos = () => {
           {/* Image column 2 */}
           <div className="relative group rounded-xl overflow-hidden aspect-square">
             <img
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center grayscale"
               src="/images/img-2.jpg"
               alt="Modular Kitchen"
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <video
-                className="w-[90%] object-cover object-center rounded-xl"
+                className="w-[90%] object-cover object-center rounded border-2 border-white"
                 loop
                 autoPlay
                 playsInline
@@ -256,19 +256,19 @@ const TiltedCards = () => {
         </span>
       </p>
       <div className="w-full ">
-        <div className="flex flex-col md:flex-row gap-4 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-32 items-center justify-center py-8 w-full ">
-          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] md:-rotate-[16deg] md:hover:-rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-12 lg:gap-16 xl:gap-20 items-center justify-center py-8 w-full ">
+          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[13rem] lg:w-[15rem] xl:w-[17rem] h-64 sm:h-[300px] md:h-[350px] lg:h-[390px] xl:h-[440px] 2xl:h-[540px] border border-[var(--contact-bg-color)] md:-rotate-[16deg] 2xl:-rotate-[16deg] md:hover:-rotate-[12deg] 2xl:hover:-rotate-[12deg] sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
             <div className="transform h-full">
               <div className="flex flex-col justify-between items-center h-full">
-                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                  <PrecisionManufacturingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                <div className="flex flex-col justify-center items-center gap-2 sm:mt-4 xl:mt-8">
+                  <PrecisionManufacturingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28" />
                   <h2
-                    className={`text-2xl sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                    className={`text-xl text-center sm:text-2xl xl:text-3xl 2xl:text-5xl font-extrabold ${lora.className}`}
                   >
                     Top Class <br className="hidden md:block" /> Machinery
                   </h2>
                 </div>
-                <p className="text-xs md:text-md ">
+                <p className="text-xs xl:text-md ">
                   All Are Modular Furniture Machines are German Made to give you
                   the top class precision and Premium Finishes of shutters and
                   cabinets.
@@ -277,18 +277,18 @@ const TiltedCards = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 flex justify-center items-center sm:ml-auto md:ml-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] border-black overflow-hidden rounded-xl md:mb-32 md:hover:h-[350px] lg:hover:h-[390px] xl:hover:h-[580px] hover:shadow-2xl transition-all duration-500">
+          <div className="p-4 flex justify-center items-center sm:ml-auto md:ml-0 w-full sm:w-[500px] md:w-[13rem] lg:w-[15rem] xl:w-[17rem] h-64 sm:h-[300px] md:h-[350px] lg:h-[390px] xl:h-[440px] 2xl:h-[540px] md:hover:h-[330px] lg:hover:h-[370px] xl:hover:h-[420px] 2xl:hover:h-[520px] border border-[var(--contact-bg-color)] border-black overflow-hidden rounded-xl md:mb-32 hover:shadow-2xl transition-all duration-500">
             <div className="transform h-full">
               <div className="flex flex-col justify-between items-center h-full">
-                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                  <AddTaskRoundedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                <div className="flex flex-col justify-center items-center gap-2 sm:mt-4 xl:mt-8">
+                  <AddTaskRoundedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 " />
                   <h2
-                    className={`text-2xl sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                    className={`text-xl text-center sm:text-2xl xl:text-3xl 2xl:text-5xl font-extrabold ${lora.className}`}
                   >
-                    Best in <br className="hidden sm:block" /> Quality
+                    Best in <br className="hidden md:block" /> Quality
                   </h2>
                 </div>
-                <p className="text-xs md:text-md ">
+                <p className="text-xs  xl:text-md">
                   We use the best materials available in the market, all our
                   products are custom made as per design & carry limited 8
                   warranty as per the components.
@@ -297,19 +297,19 @@ const TiltedCards = () => {
               </div>
             </div>
           </div>
-          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[256px] lg:w-[320px] xl:w-[384px] h-64 sm:h-[300px] md:h-[380px] lg:h-[420px] xl:h-[500px] 2xl:h-[600px] border border-[var(--contact-bg-color)] md:rotate-[16deg] md:hover:rotate-12 sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
+          <div className="p-4 flex justify-center items-center sm:mr-auto md:mr-0 w-full sm:w-[500px] md:w-[13rem] lg:w-[15rem] xl:w-[17rem] h-64 sm:h-[300px] md:h-[350px] lg:h-[390px] xl:h-[440px] 2xl:h-[540px] border border-[var(--contact-bg-color)]  md:rotate-[16deg] 2xl:rotate-[16deg] md:hover:rotate-[12deg] 2xl:hover:rotate-[12deg] sm:hover:shadow-lg transition-transform duration-1000 ease-in-out border-black rounded-xl">
             {' '}
             <div className="transform h-full">
               <div className="flex flex-col justify-between items-center h-full">
-                <div className="flex flex-col justify-center items-center gap-8 sm:mt-4 xl:mt-8">
-                  <LocalShippingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-32 xl:h-32" />
+                <div className="flex flex-col justify-center items-center gap-2 sm:mt-4 xl:mt-8">
+                  <LocalShippingOutlinedIcon className="h-16 w-16 lg:h-20 lg:w-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28" />
                   <h2
-                    className={`text-2xl text-center sm:text-3xl xl:text-4xl 2xl:text-6xl font-extrabold ${lora.className}`}
+                    className={`text-xl text-center sm:text-2xl xl:text-3xl 2xl:text-5xl font-extrabold ${lora.className}`}
                   >
-                    On Time <br className="hidden sm:block" /> Delivery
+                    On Time <br className="hidden md:block" /> Delivery
                   </h2>
                 </div>
-                <p className="text-xs md:text-md ">
+                <p className="text-xs  xl:text-md ">
                   We ensure commitments are met, whether we work day in or day
                   out. We have multiple facilities & make sure that your
                   deliveries are always on time.
@@ -1146,100 +1146,127 @@ export default function Home() {
           content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
         />
       </Head>
-      <div ref={ref}>
-        {/* /for larger */}
-        <motion.div
-          style={{ scale: scaleD }}
-          className="mx-auto pt-8 hidden sm:flex  items-center justify-center "
-        >
-          <h1
-            className={` sm:text-[7vw] tracking-tighter font-bold ${lora.className}`}
+      <div className="snap-y snap-mandatory">
+        <div ref={ref} className="snap-start">
+          {/* /for larger */}
+          <motion.div
+            style={{ scale: scaleD }}
+            className="mx-auto pt-8 hidden sm:flex  items-center justify-center "
           >
-            <span className="">Modular Interior</span>{' '}
-            <span className="italic"> Manufacturers</span>
-          </h1>
-        </motion.div>
-        {/* for mobile */}
-        <motion.div
-          style={{ scale: scaleM }}
-          className="mx-2 py-4 pt-8 flex sm:hidden flex-col justify-center "
-        >
-          <h1
-            className={` inline text-3xl font-bold text-left ${lora.className}`}
-          >
-            <span className="italic">Modular Interior</span>
-          </h1>
-          <h1
-            className={` inline text-3xl font-bold text-left ${lora.className}`}
-          >
-            <span className="italic">Manufacturers</span>
-          </h1>
-        </motion.div>
-      </div>
-
-      <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
-        <div className="mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
-          <motion.div className="flex flex-wrap content-center">
-            <p className="text-lg sm:text-xl text-left">
-              {<Stars />}{' '}
-              <span className="ml-8 sm:ml-16">
-                Design Indian{' '}
-                <Link className="hover:underline" href="/">
-                  Homes
-                </Link>
-                /
-                <Link className="hover:underline" href="/">
-                  Kitchen
-                </Link>
-                /
-                <Link className="hover:underline" href="/">
-                  Wardrobe
-                </Link>{' '}
-                is the Largest Modular Kitchens - Wardrobes - Interiors
-                manufacturing Brand, we are manufacturing extensive range of
-                modular interior projects & serving to our direct customers,
-                architects, interior designers, builders & project developers
-                across New Delhi - Gurgaon - Noida - NCR.
-              </span>
-            </p>
-          </motion.div>
-
-          <motion.div className="flex w-full justify-end">
-            <Link
-              href="/contact-us"
-              className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+            <h1
+              className={` sm:text-[7vw] tracking-tighter font-bold ${lora.className}`}
             >
-              Get Started
-            </Link>
+              <span className="">Modular Interior</span>{' '}
+              <span className="italic"> Manufacturers</span>
+            </h1>
+          </motion.div>
+          {/* for mobile */}
+          <motion.div
+            style={{ scale: scaleM }}
+            className="mx-2 py-4 pt-8 flex sm:hidden flex-col justify-center "
+          >
+            <h1
+              className={` inline text-3xl font-bold text-left ${lora.className}`}
+            >
+              <span className="italic">Modular Interior</span>
+            </h1>
+            <h1
+              className={` inline text-3xl font-bold text-left ${lora.className}`}
+            >
+              <span className="italic">Manufacturers</span>
+            </h1>
           </motion.div>
         </div>
-      </MaxWidthWrapper>
-      {/* --------------------------- */}
-      <SectionWithVideos />
-      {/* --------------------------- */}
-      <MaxWidthWrapper>
-        {/* --------------------------- */}
-        <SectionForComponent />
-        {/* --------------------------- */}
-        <TiltedCards />
-        {/* --------------------------- */}
-      </MaxWidthWrapper>
-      <div className="">
-        <CardCarousel />
-      </div>
-      {/* --------------------------- */}
-      <WhiteStripSection />
-      {/* --------------------------- */}
-      <BrandsSection />
-      {/* --------------------------- */}
-      <MaxWidthWrapper>
-        <BlogsSection />
-      </MaxWidthWrapper>
-      {/* --------------------------- */}
-      <Steps />
-      {/* --------------------------- */}
+        <div className="snap-start">
+          <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
+            <div className=" mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
+              <motion.div className="flex flex-wrap content-center">
+                <p className="text-lg sm:text-xl text-left">
+                  {<Stars />}{' '}
+                  <span className="ml-8 sm:ml-16">
+                    Design Indian{' '}
+                    <Link className="hover:underline" href="/">
+                      Homes
+                    </Link>
+                    /
+                    <Link className="hover:underline" href="/">
+                      Kitchen
+                    </Link>
+                    /
+                    <Link className="hover:underline" href="/">
+                      Wardrobe
+                    </Link>{' '}
+                    is the Largest Modular Kitchens - Wardrobes - Interiors
+                    manufacturing Brand, we are manufacturing extensive range of
+                    modular interior projects & serving to our direct customers,
+                    architects, interior designers, builders & project
+                    developers across New Delhi - Gurgaon - Noida - NCR.
+                  </span>
+                </p>
+              </motion.div>
 
-      {/* --------------------------- */}
+              <motion.div className="flex w-full justify-end">
+                <Link
+                  href="/contact-us"
+                  className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+            </div>
+          </MaxWidthWrapper>
+        </div>
+        {/* --------------------------- */}
+        <div className="snap-start">
+          <SectionWithVideos />
+        </div>
+
+        {/* --------------------------- */}
+        <MaxWidthWrapper>
+          {/* --------------------------- */}
+          <div className="snap-start">
+            {' '}
+            <SectionForComponent />
+          </div>
+
+          {/* --------------------------- */}
+          <div className="snap-start">
+            {' '}
+            <TiltedCards />
+          </div>
+
+          {/* --------------------------- */}
+        </MaxWidthWrapper>
+        <div className="snap-start">
+          <CardCarousel />
+        </div>
+        {/* --------------------------- */}
+        <div className="snap-start">
+          <WhiteStripSection />
+        </div>
+
+        {/* --------------------------- */}
+        <div className="snap-start">
+          {' '}
+          <BrandsSection />
+        </div>
+
+        {/* --------------------------- */}
+        <div className="snap-start">
+          {' '}
+          <MaxWidthWrapper>
+            <BlogsSection />
+          </MaxWidthWrapper>
+        </div>
+
+        {/* --------------------------- */}
+        <div className="snap-start">
+          {' '}
+          <Steps />
+        </div>
+
+        {/* --------------------------- */}
+      </div>
     </>
   )
 }
