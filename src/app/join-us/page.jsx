@@ -125,7 +125,7 @@ const page = () => {
           coordinations and deliveries in Our Projects.
         </p>
         <h1 className="text-3xl sm:text-5xl text-center mb-8 mx-auto">
-          COLLABORATE WITH US
+          Collaborate With Us
         </h1>
       </div>
       <div className="bg-amber-50">

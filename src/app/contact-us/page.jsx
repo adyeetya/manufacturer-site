@@ -278,7 +278,7 @@ const MiddleInfoSection = () => {
           {/* card1 */}
           <div className="rounded shadow-md overflow-hidden h-48">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
-              <h2 className="text-white text-md font-semibold">
+              <h2 className="text-white text-sm font-semibold">
                 Here to Serve - Hi.. !
               </h2>
             </div>
@@ -296,7 +296,7 @@ const MiddleInfoSection = () => {
           {/* card2 */}
           <div className="rounded shadow-md overflow-hidden h-48 my-4">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
-              <h2 className="text-white text-md font-semibold">
+              <h2 className="text-white text-sm font-semibold">
                 Someone From Boutique Office
               </h2>
             </div>
@@ -314,7 +314,7 @@ const MiddleInfoSection = () => {
           {/* card3 */}
           <div className="rounded shadow-md overflow-hidden h-48 my-4">
             <div className="bg-gray-900 h-1/4 flex items-center justify-center">
-              <h2 className="text-white text-md font-semibold">
+              <h2 className="text-white text-sm font-semibold">
                 Someone from Industrial Office
               </h2>
             </div>
@@ -566,7 +566,7 @@ const FullScreenImage = () => {
 const ScheduleChatSection = () => {
   return (
     <section
-      className="my-2 relative rounded"
+      className="relative"
       style={{
         backgroundImage: 'url("images/footer_BG_01.jpg")',
         backgroundPosition: 'center top',
@@ -578,7 +578,6 @@ const ScheduleChatSection = () => {
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.51)',
         backgroundBlendMode: 'darken',
-        marginTop: '50px',
       }}
     >
       <div className="text-center mx-auto text-white">

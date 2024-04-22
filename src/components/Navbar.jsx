@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Switch from './ColorSwitch/Switch'
 import MobileNav from './MobileNav'
 import MidNavbar from './MidNavbar'
+import { useTheme } from '../app/themeContext'
 import { Lora } from 'next/font/google'
 const lora = Lora({
   weight: '400',
@@ -12,8 +13,10 @@ const lora = Lora({
   display: 'swap',
 })
 const Navbar = () => {
-  return (<nav className="sticky h-14 inset-x-0 top-0 z-30 w-full bg-[var(--theme-color)] transition-all">
-    
+  const { theme } = useTheme()
+  // console.log('theme from nav', theme)
+  return (
+    <nav className="sticky h-14 inset-x-0 top-0 z-30 w-full bg-[var(--theme-color)] transition-all">
       <div className="hidden lg:flex h-14 items-center justify-between xl:px-0">
         {/* for left margin */}
         <div className="w-16 h-16"></div>
@@ -72,14 +75,23 @@ const Navbar = () => {
                   Modular Manufacturing
                 </span>
               </h1> */}
-
-              <Image
-                src="/images/dik-logo.png"
-                alt=""
-                width={1000}
-                height={1000}
-                className="w-16 h-16"
-              />
+              {theme === '#151617' ? (
+                <Image
+                  src="/images/orange-logo-dik.png"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="w-16 h-16"
+                />
+              ) : (
+                <Image
+                  src="/images/dik-logo.png"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="w-16 h-16"
+                />
+              )}
             </div>
           </Link>
         </div>

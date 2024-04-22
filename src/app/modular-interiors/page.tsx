@@ -11,6 +11,8 @@ const Page = ({}) => {
   const [categoryDataArray, setCategoryDataArray] = useState<any[]>([])
   const categoryFolderMapping: Record<number, string> = {
     106: 'mandir',
+    65: 'wardrobe',
+    68: 'tv-unit-designs',
     107: 'chest-of-drawers',
     108: 'bar-units',
     109: 'side-tables',
@@ -20,17 +22,18 @@ const Page = ({}) => {
     69: 'crockery-units',
     70: 'glass-partiton',
     67: 'dressers',
-    65: 'wardrobe',
-    68: 'tv-unit-designs',
+
+    64: 'kitchen-designs',
+    66: 'vanities',
+    102: 'shoes-rack',
   }
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {
         const timestamp = Date.now()
         const categoryIds = [
-          106, 107, 108, 109, 110, 111, 112, 69, 70, 67, 65, 68,
-        ] // Add the category IDs you want to fetch
-
+          64, 65, 68, 106, 107, 102, 66, 108, 109, 110, 111, 112, 69, 70, 67,
+        ]
         // Fetch category data
         const categoryPromises = categoryIds.map(async (categoryId) => {
           const response = await fetch(

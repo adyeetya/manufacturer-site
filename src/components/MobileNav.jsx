@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ToggleButton from './Mobilemenu/ToggleButton'
 import { Lora } from 'next/font/google'
-
+import { useTheme } from '../app/themeContext'
 const lora = Lora({
   weight: '400',
   subsets: ['latin'],
@@ -15,7 +15,7 @@ const lora = Lora({
 
 const MobileNav = () => {
   const [open, setOpen] = useState(false)
-
+  const { theme } = useTheme()
   return (
     <motion.div
       className="sm:hidden flex flex-col items-center justify-center"
@@ -25,13 +25,23 @@ const MobileNav = () => {
         <div className=" h-14 flex justify-start p-4 items-center">
           <Link href="/">
             <div className="flex flex-row h-14 justify-center items-center">
-              <Image
-                src="/images/dik-logo.png"
-                alt=""
-                width={1000}
-                height={1000}
-                className="w-14 h-14"
-              />
+              {theme === '#151617' ? (
+                <Image
+                  src="/images/orange-logo-dik.png"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="w-16 h-16"
+                />
+              ) : (
+                <Image
+                  src="/images/dik-logo.png"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  className="w-16 h-16"
+                />
+              )}
             </div>
           </Link>
         </div>

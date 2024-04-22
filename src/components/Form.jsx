@@ -12,7 +12,6 @@ const MyForm = () => {
     pincode: '',
     agree: '',
     Interest: '',
-    requirements: '',
     file: '',
   })
   const [btnText, setBtnText] = useState('Book A Visit Today')
@@ -103,7 +102,7 @@ const MyForm = () => {
   return (
     <div className="lg:mx-16 bg-[var(--text-color)] text-[var(--theme-color)] rounded-xl p-8 ">
       <h1 className="text-center text-2xl sm:text-4xl my-8 font-bold">
-        Connect With Us <span className='text-red-500'>Today</span>
+        Connect With Us <span className="text-red-500">Today</span>
       </h1>
       <div className="flex flex-col sm:flex-row ">
         {/* Left side with heading and paragraph */}
@@ -116,7 +115,7 @@ const MyForm = () => {
             Leave your information and we will call you to book your preferred
             consultation slot
           </p>
-          <div className="hidden sm:block sm:my-16 p-8">
+          <div className="hidden sm:block sm:my-16 p-8 ">
             <img src="/images/undraw_working_late_re_0c3y.svg" alt="" />
           </div>
         </div>
@@ -256,31 +255,7 @@ const MyForm = () => {
                   {/* Add more options as needed */}
                 </select>
               </div>
-              <div className="mb-6">
-                <label
-                  htmlFor="requirements"
-                  className="block text-sm font-medium "
-                >
-                  Are you
-                </label>
-                <select
-                  required
-                  id="requirements"
-                  name="requirements"
-                  className="mt-1 p-2 w-full  border-b border-gray-500 text-sm focus:outline-none rounded bg-black"
-                  onChange={handleChange}
-                  defaultValue="Architect"
-                >
-                  <option value="Architect" selected>
-                    an Architect
-                  </option>
-                  <option value="Client">a Direct Client</option>
-                  <option value="Designer">an Interior Designer</option>
-                  <option value="Builder">a Builder</option>
-                  <option value="Company">a Company</option>
-                  <option value="Freelancer ">a Freelancer </option>
-                </select>
-              </div>
+
               <div className="mb-6">
                 <label htmlFor="file" className="block text-sm font-medium ">
                   Attach Your Project

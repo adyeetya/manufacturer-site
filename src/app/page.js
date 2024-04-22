@@ -35,7 +35,7 @@ import axios from 'axios'
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import AddTaskRoundedIcon from '@mui/icons-material/AddTaskRounded'
-
+import useLocoScroll from '../hooks/useLocoScroll'
 import Steps from '../components/Steps/page'
 import { Lora } from 'next/font/google'
 const lora = Lora({
@@ -54,7 +54,10 @@ const SectionWithVideos = () => {
     })
   }, [])
   return (
-    <section className="bg-gray-900 my-12 w-full rounded-xl ">
+    <section
+      className="bg-gray-900 my-12 w-full rounded-xl "
+      data-scroll-section
+    >
       <div className="mx-auto p-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {/* Image column 1 */}
@@ -158,6 +161,7 @@ const SectionForComponent = () => {
       initial="initial"
       whileInView="animate"
       className="relative flex my-6 flex-col items-center justify-center w-full"
+      data-scroll-section
     >
       <motion.p
         variants={variants}
@@ -245,7 +249,10 @@ const SectionForComponent = () => {
 
 const TiltedCards = () => {
   return (
-    <div className="flex my-6 flex-col justify-center items-center w-full overflow-hidden">
+    <div
+      className="flex my-6 flex-col justify-center items-center w-full overflow-hidden"
+      data-scroll-section
+    >
       <p className="text-sm my-12 font-semibold flex justify-center items-center">
         <span className="mx-2">
           <Star />
@@ -416,7 +423,7 @@ const CardCarousel = () => {
   }, [])
 
   return (
-    <div className="w-full my-24 sm:px-8 px-4">
+    <div className="w-full my-24 sm:px-8 px-4" data-scroll-section>
       <h1
         className={`text-left tracking-tighter text-4xl sm:text-5xl md:text-6xl sm:ml-20 mb-4 font-bold ${lora.className}`}
       >
@@ -507,7 +514,7 @@ const Awards = () => {
     { name: 'Most Trusted Modular Brand', brand: 'Timber Association India' },
   ]
   return (
-    <div className="my-12 ">
+    <div className="my-12 " data-scroll-section>
       <h1
         className={`sm:w-1/2 text-left tracking-tighter text-4xl sm:text-6xl mb-4 mx-4 font-bold ${lora.className}`}
       >
@@ -574,56 +581,6 @@ const Awards = () => {
 }
 
 const BrandsSection = () => {
-  // const news = [
-  //   {
-  //     id: 1,
-  //     imageUrl: '/images/news/bloomberg-1682401474-ArUs1.avif',
-  //   },
-  //   {
-  //     id: 2,
-  //     imageUrl: '/images/news/cnbc-1682401476-zldSU.avif',
-  //   },
-  //   {
-  //     id: 3,
-  //     imageUrl: '/images/news/entrpreneur-1682677467-7QjOd.avif',
-  //   },
-
-  //   {
-  //     id: 5,
-  //     imageUrl: '/images/news/et-1682401477-NjRCA.avif',
-  //   },
-  //   {
-  //     id: 6,
-  //     imageUrl: '/images/news/femina-1682401478-VMDBI.avif',
-  //   },
-  //   {
-  //     id: 7,
-  //     imageUrl: '/images/news/global-magazine-1682401479-ikbb6.avif',
-  //   },
-  //   {
-  //     id: 8,
-  //     imageUrl: '/images/news/gq-1682401480-K5jcJ.avif',
-  //   },
-  //   {
-  //     id: 9,
-  //     imageUrl: '/images/news/india-today-home-1682401481-kqBb2.avif',
-  //   },
-  //   {
-  //     id: 10,
-  //     imageUrl: '/images/news/mint-1682401482-d0I7g.avif',
-  //   },
-  //   {
-  //     id: 11,
-  //     imageUrl: '/images/news/toi-1682401483-unoIf.avif',
-  //   },
-  //   {
-  //     id: 12,
-  //     imageUrl: '/images/news/your-story-1682401484-Lg2DW.avif',
-  //   },
-
-  //
-  // ]
-
   const news = [
     {
       id: 1,
@@ -684,7 +641,10 @@ const BrandsSection = () => {
   }
 
   return (
-    <div className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl">
+    <div
+      className="w-full bg-[var(--text-color)] text-[var(--theme-color)] py-24 rounded-xl"
+      data-scroll-section
+    >
       <div className="max-w-screen-2xl  mx-auto">
         {/* awards div */}
         <div className="my-4">
@@ -912,7 +872,10 @@ const WhiteStripSection = () => {
     },
   ]
   return (
-    <div className="w-full flex flex-col bg-white py-24 px-4 rounded-xl mt-24 gap-32">
+    <div
+      className="w-full flex flex-col bg-white py-24 px-4 rounded-xl mt-24 gap-32"
+      data-scroll-section
+    >
       <div>
         <h1
           className={`w-fit text-left tracking-tighter text-4xl sm:text-6xl mb-16 font-bold relative ${lora.className}`}
@@ -1003,7 +966,7 @@ const BlogsSection = () => {
   }, [])
   console.log(posts)
   return (
-    <div className="w-full my-24 px-4">
+    <div className="w-full my-24 px-4" data-scroll-section>
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
         <h1
           className={`text-left text-4xl sm:text-6xl mb-8 font-bold ${lora.className} `}
@@ -1102,6 +1065,9 @@ export default function Home() {
     // Update the document title on mount
     document.title = title
   }, [title])
+
+  useLocoScroll()
+
   return (
     <>
       <Head>
@@ -1146,8 +1112,13 @@ export default function Home() {
           content={`Connect with the best interior and architect brand in Delhi, gurgaon, noida & India. we serve most affordable modular interiors & architectural works.`}
         />
       </Head>
-      <div className="snap-y snap-mandatory">
-        <div ref={ref} className="snap-start">
+      <div
+        className="main-container"
+        id="main-container"
+        data-scroll-container
+        data-scroll-speed="2"
+      >
+        <div ref={ref} className="" data-scroll-section>
           {/* /for larger */}
           <motion.div
             style={{ scale: scaleD }}
@@ -1177,93 +1148,81 @@ export default function Home() {
             </h1>
           </motion.div>
         </div>
-        <div className="snap-start">
-          <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
-            <div className=" mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
-              <motion.div className="flex flex-wrap content-center">
-                <p className="text-lg sm:text-xl text-left">
-                  {<Stars />}{' '}
-                  <span className="ml-8 sm:ml-16">
-                    Design Indian{' '}
-                    <Link className="hover:underline" href="/">
-                      Homes
-                    </Link>
-                    /
-                    <Link className="hover:underline" href="/">
-                      Kitchen
-                    </Link>
-                    /
-                    <Link className="hover:underline" href="/">
-                      Wardrobe
-                    </Link>{' '}
-                    is the Largest Modular Kitchens - Wardrobes - Interiors
-                    manufacturing Brand, we are manufacturing extensive range of
-                    modular interior projects & serving to our direct customers,
-                    architects, interior designers, builders & project
-                    developers across New Delhi - Gurgaon - Noida - NCR.
-                  </span>
-                </p>
-              </motion.div>
 
-              <motion.div className="flex w-full justify-end">
-                <Link
-                  href="/contact-us"
-                  className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
-                >
-                  Get Started
-                </Link>
-              </motion.div>
-            </div>
-          </MaxWidthWrapper>
-        </div>
+        <MaxWidthWrapper className="mb-12 mt-12 sm:mt-16 flex flex-col items-center justify-center text-center">
+          <div className=" mb-12 flex flex-col sm:flex-row justify-between items-center gap-4 md:gap-20 lg:gap-48">
+            <motion.div className="flex flex-wrap content-center">
+              <p className="text-lg sm:text-xl text-left">
+                {<Stars />}{' '}
+                <span className="ml-8 sm:ml-16">
+                  Design Indian{' '}
+                  <Link className="hover:underline" href="/">
+                    Homes
+                  </Link>
+                  /
+                  <Link className="hover:underline" href="/">
+                    Kitchen
+                  </Link>
+                  /
+                  <Link className="hover:underline" href="/">
+                    Wardrobe
+                  </Link>{' '}
+                  is the Largest Modular Kitchens - Wardrobes - Interiors
+                  manufacturing Brand, we are manufacturing extensive range of
+                  modular interior projects & serving to our direct customers,
+                  architects, interior designers, builders & project developers
+                  across New Delhi - Gurgaon - Noida - NCR.
+                </span>
+              </p>
+            </motion.div>
+
+            <motion.div className="flex w-full justify-end">
+              <Link
+                href="/contact-us"
+                className={`whitespace-nowrap text-lg sm:text-3xl px-2 py-1 rounded text-[var(--button-text-color)] bg-[var(--button-bg-color)] font-semibold uppercase hover:bg-black hover:text-white ${lora.className}`}
+              >
+                Get Started
+              </Link>
+            </motion.div>
+          </div>
+        </MaxWidthWrapper>
+
         {/* --------------------------- */}
-        <div className="snap-start">
-          <SectionWithVideos />
-        </div>
+
+        <SectionWithVideos />
 
         {/* --------------------------- */}
         <MaxWidthWrapper>
           {/* --------------------------- */}
-          <div className="snap-start">
-            {' '}
-            <SectionForComponent />
-          </div>
+
+          <SectionForComponent />
 
           {/* --------------------------- */}
-          <div className="snap-start">
-            {' '}
-            <TiltedCards />
-          </div>
+
+          <TiltedCards />
 
           {/* --------------------------- */}
         </MaxWidthWrapper>
-        <div className="snap-start">
+        <div>
           <CardCarousel />
         </div>
         {/* --------------------------- */}
-        <div className="snap-start">
-          <WhiteStripSection />
-        </div>
+
+        <WhiteStripSection />
 
         {/* --------------------------- */}
-        <div className="snap-start">
-          {' '}
-          <BrandsSection />
-        </div>
+
+        <BrandsSection />
 
         {/* --------------------------- */}
-        <div className="snap-start">
-          {' '}
-          <MaxWidthWrapper>
-            <BlogsSection />
-          </MaxWidthWrapper>
-        </div>
+
+        <MaxWidthWrapper>
+          <BlogsSection />
+        </MaxWidthWrapper>
 
         {/* --------------------------- */}
-        <div className="snap-start">
-          {' '}
-          <Steps />
-        </div>
+
+        <Steps />
 
         {/* --------------------------- */}
       </div>

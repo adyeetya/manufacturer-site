@@ -32,11 +32,19 @@ const TrinityBrand = () => {
           rel="noopener noreferrer"
         >
           <div className="text-center flex flex-col items-center justify-center">
-            <Image
+            {/* <Image
               src="/images/Footer/dkilogo.png"
               alt=""
               width={200}
               height={80}
+            /> */}
+            <video
+              src="/videos/kitchen-vid.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-40 rounded"
             />
             <p className=" text-2xl font-medium">Design Indian Kitchen</p>
           </div>
@@ -475,16 +483,22 @@ const Footer = () => {
           <div className="flex flex-row sm:gap-8 gap-2 justify-between sm:justify-center items-center p-4 border-black border-2 w-fit mx-auto rounded-full">
             {' '}
             <a href="tel:+91 9899264978">
-              <CallIcon sx={{ fontSize: 40 }} />
+              <CallIcon sx={{ fontSize: 40 }} className="hover:scale-105" />
             </a>
             <a href="https://wa.me/9899264978">
-              <WhatsAppIcon sx={{ fontSize: 40 }} />
+              <WhatsAppIcon sx={{ fontSize: 40 }} className="hover:scale-105" />
             </a>
             <a href="https://www.instagram.com/designindiankitchen/">
-              <InstagramIcon sx={{ fontSize: 40 }} />
+              <InstagramIcon
+                sx={{ fontSize: 40 }}
+                className="hover:scale-105"
+              />
             </a>
             <a href="mailto:your-email-address">
-              <MailOutlineIcon sx={{ fontSize: 40 }} />
+              <MailOutlineIcon
+                sx={{ fontSize: 40 }}
+                className="hover:scale-105"
+              />
             </a>
           </div>
         </div>
