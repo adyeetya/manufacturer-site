@@ -35,7 +35,7 @@ import axios from 'axios'
 import PrecisionManufacturingOutlinedIcon from '@mui/icons-material/PrecisionManufacturingOutlined'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import AddTaskRoundedIcon from '@mui/icons-material/AddTaskRounded'
-import useLocoScroll from '../hooks/useLocoScroll'
+
 import Steps from '../components/Steps/page'
 import { Lora } from 'next/font/google'
 const lora = Lora({
@@ -1066,7 +1066,7 @@ export default function Home() {
     document.title = title
   }, [title])
 
-  useLocoScroll()
+
 
   return (
     <>

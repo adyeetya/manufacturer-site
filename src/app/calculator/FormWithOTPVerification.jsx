@@ -11,6 +11,39 @@ const FormWithOTPVerification = ({ handleDownloadPDF }) => {
   const ind = +91
   const inputRefs = useRef(Array.from({ length: 4 }, () => React.createRef()))
 
+  const [formData, setFormData] = useState({
+    name: '',
+    address: '',
+    email: '',
+    interestedIn: '',
+    mobileNumber: '',
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      // Send an API request to your server to handle form submission
+      const response = await axios.post(
+        'https://m.designindianhomes.com/submitForm',
+        formData
+      )
+
+      // Assuming the server responds with a success message
+      console.log(response.data)
+
+      // Set the state to indicate successful download
+      setDownloaded(true)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      // Handle form submission error
+    }
+  }
+
   const handleOTPInputChange = (index, value) => {
     setOtp((prevOtp) => {
       const newOtp = [...prevOtp]
@@ -101,7 +134,7 @@ const FormWithOTPVerification = ({ handleDownloadPDF }) => {
 
   return (
     <div>
-      <form className="space-y-4 " onSubmit={handleDownloadPDF}>
+      <form className="space-y-4 w-[500px]" onSubmit={handleDownloadPDF}>
         <div>
           <input
             type="text"

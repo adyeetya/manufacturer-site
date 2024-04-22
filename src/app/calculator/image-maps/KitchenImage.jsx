@@ -43,7 +43,83 @@ const SvgMap = ({ data, name }) => {
       Flooring: { pricePerSqFt: 499 },
     },
   }
-
+  const descriptions = {
+    premium: {
+      KitchenCabinets:
+        'Premium Emulsion with basic putty repairing and one highlight wall Paint (Asian Paints or similar)',
+      falseCeiling:
+        'Gypsum board ceiling with heavy duty channel Boards (USG Boral) | Wires (KEI or similar) | Lights (Orient or similar)',
+      CenterTable:
+        'Designer furniture element - Ready made Price range upto Rs.15,000/-',
+      Sofa: 'Marandi wood and Fabric sofa Foam (High Density - 35GSM) | Faric (upto Rs. 450 per mtr)',
+      diningTableSet:
+        '6 seater dining table with chairs Sheesham wood | Wooden counter top',
+      crockeryUnit:
+        'Crockery unit with laminate finish on carcass & Shutters and frosted glass HDHMR (Japaness MDH-MR  or similar) | Hardware (Stylus or equivalent) | 0.8 Laminate (Skydecor or similar) | 1mm Laminate (Merino or similar)',
+      tvpanel:
+        'Standard HDHMR TV panel including hardware, laminates on carcass and shutters Carcass (Cross Bond or similar) | Hardware (Stylus or equivalent) | 0.7mm Laminate (Skydecor or similar) | 1mm Laminate (Merino or similar)',
+      upvcWindow: 'Premium UPVC windows UPVC (Deceuninck or Veka or similar)',
+      electrical:
+        'Electrical work including point relocation excluding switches Wires (Havells or Polycab)',
+      Mandir: '3 x 4 SqFt. Mandir MDF finished with Laminate',
+      Console:
+        'Designer furniture element - Ready made Price range upto Rs.15,000/-',
+      flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 24"X48" (Price range Rs. 55-65/-)',
+    },
+    luxury: {
+      walls:
+        'Premium Emulsion with 2 primer coats, putty repairing and one highlight wall Paint (Asian Paints or similar)',
+      falseCeiling:
+        'POP ceiling with heavy duty channel POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      CenterTable:
+        'Designer furniture element - Ready made Price range upto Rs.30,000/-',
+      Sofa: 'Marandi wood and Fabric sofa Foam (High Density - 40 GSM) | Faric (upto Rs. 650 per mtr)',
+      diningTableSet:
+        '6 seater dining table with chairs Sheesham wood | Stone counter top',
+      crockeryUnit:
+        'Crockery unit with laminate finish on carcass & Acrylic / plain membrane finish on shutters and tinted glass HDHMR (Japaness MDH-MR  or similar) | Hardware (Hettich or similar) | 0.8 Laminate (Skydecor or similar)',
+      tvpanel:
+        'Standard HDHMR TV panel including hardware, laminates on carcass, Acrylic or plain membrane on shutters Carcass (Action Tess or similar) | Hardware (Hettich or similar) | 0.8mm Laminate (Skydecor or similar)',
+      upvcWindow:
+        'Premium UPVC windows with 74mm shutter frame and 8mm toughened glass, and single wool pile UPVC (Fenesta or similar)',
+      electrical:
+        'Electrical work with point relocation including switches & boards Wires (Havells or Polycab) | Switches (Anchor Penta or similar) | Lights (Orient or Similar)',
+      Mandir:
+        '4 x 4 SqFt. Mandir finished With HDHMR/Veneer with PU Polish & Jali cutting on sides',
+      Console:
+        'Designer furniture element - Ready made Price range upto Rs.25,000/-',
+      flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 32"X64" (Price range Rs. 80-100/-)',
+      // Add descriptions for luxury package components...
+    },
+    ultraLuxury: {
+      walls:
+        'Premium paint with POP finish and one rustic / textured wall POP 3-5 mm (Sakarni) | Paint (Asian Paint Royale or similar)',
+      falseCeiling:
+        'POP Ceiling with cove, heavy duty channel & wooden design element POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      CenterTable:
+        'Designer furniture element - Ready made Price range upto Rs.50,000/-',
+      Sofa: 'Marandi wood and Fabric sofa Foam (High Density - 40 GSM) | Faric (upto Rs. 750 per mtr)',
+      diningTableSet:
+        '6 seater luxury dining table with chairs Sheesham wood | Italian counter top',
+      crockeryUnit:
+        'Crockery unit (HDHMR or plywood) with laminate finish on carcass & Veneer / PU polish on shutters and tinted glass HDHMR (Japaness MDH-MR  or similar) | Hardware (Hettich or similar) | 0.8 Laminate (Skydecor or similar)',
+      tvpanel:
+        'Standard TV Panel including hardware, laminates on carcass, veneer / PU polish on shutters Carcass (Action Tesa or Local plywood) | Hardware (Hettich or Hafele) | 0.8 mm Laminate (Skydecor or similar)',
+      upvcWindow:
+        'Premium UPVC windows with 90mm shutter frame and 12.5mm toughened glass, key locking and single wool pile UPVC (Fenesta or similar)',
+      electrical:
+        'Electrical work with new points, relocation including switches & boards Wires (Havells or Polycab) | Switches (Legrand or Crabtree or similar) | Lights (Orient or Similar)',
+      Mandir: '4 x 5 SqFt. Corian stone Mandir',
+      Console:
+        'Designer furniture element - Ready made Price range upto Rs.40,000/-',
+      flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 32"X64" (Price range Rs. 80-100/-)',
+      // Add descriptions for ultra luxury package components...
+    },
+    // Add descriptions for other packages...
+  }
   const initialSquareFootage = {
     falseCeiling: 80,
     Electrical: 1,
@@ -58,6 +134,7 @@ const SvgMap = ({ data, name }) => {
   console.log('data: ', data)
   console.log('name: ', name)
   const [selectedPolygon, setSelectedPolygon] = useState([])
+  const [selectedPolygonArea, setSelectedPolygonArea] = useState([])
   const [selectedPackage, setSelectedPackage] = useState('premium') // Default to premium
   const [spaceSquareFootage, setSpaceSquareFootage] = useState({}) // New state for square footage
 
@@ -81,42 +158,6 @@ const SvgMap = ({ data, name }) => {
   const [editableSquareFootage, setEditableSquareFootage] =
     useState(initialSquareFootage)
 
-  const handlePolygonClick = (polygonId) => {
-    const isSelected = selectedPolygon.includes(polygonId)
-
-    // Check if the polygon is already selected
-    if (isSelected) {
-      // Polygon is already selected, remove it from the selected polygons
-      setSelectedPolygon((prevSelected) =>
-        prevSelected.filter((id) => id !== polygonId)
-      )
-
-      // Subtract the price of the deselected polygon from the room price
-      const priceOfDeselectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
-      )
-    } else {
-      // Polygon is not selected, add it to the selected polygons
-      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
-
-      // Add the price of the selected polygon to the room price
-      const priceOfSelectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
-      )
-    }
-
-    // Update the data
-    updateData()
-  }
-
   const calculateSpacePrice = (polygonId, selectedPackage) => {
     const component = pricing[selectedPackage]?.[polygonId]
     if (!component) return 0 // Return 0 if the component doesn't exist
@@ -132,6 +173,53 @@ const SvgMap = ({ data, name }) => {
     }
   }
 
+  const handlePolygonClick = (polygonId) => {
+    const isSelected = selectedPolygon.includes(polygonId)
+
+    // Check if the polygon is already selected
+    if (isSelected) {
+      // Polygon is already selected, remove it from the selected polygons
+      setSelectedPolygon((prevSelected) =>
+        prevSelected.filter((id) => id !== polygonId)
+      )
+
+      // Remove the polygon's area from selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.filter((item) => Object.keys(item)[0] !== polygonId)
+      )
+
+      // Subtract the price of the deselected polygon from the room price
+      const priceOfDeselectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
+      )
+    } else {
+      // Polygon is not selected, add it to the selected polygons
+      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
+
+      // Add the polygon's area to selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) => [
+        ...prevSelectedArea,
+        { [polygonId]: initialSquareFootage[polygonId] || '' },
+      ])
+
+      // Add the price of the selected polygon to the room price
+      const priceOfSelectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
+      )
+    }
+
+    // Update the data
+    updateData()
+  }
+
   const handleEditSquareFootage = (polygonId) => {
     const newSquareFootage = prompt(
       `Enter new square footage for ${polygonId}:`,
@@ -144,6 +232,15 @@ const SvgMap = ({ data, name }) => {
         [polygonId]: parseFloat(newSquareFootage),
       }
       setEditableSquareFootage(updatedSquareFootage)
+
+      // Update selectedPolygonArea with edited area
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.map((item) =>
+          Object.keys(item)[0] === polygonId
+            ? { [polygonId]: parseFloat(newSquareFootage) }
+            : item
+        )
+      )
 
       // Recalculate room price
       const priceOfSelectedPolygon = calculateSpacePrice(
@@ -160,6 +257,44 @@ const SvgMap = ({ data, name }) => {
       updateData() // Update the data after room price is updated
     }
   }
+
+  const handleSave = () => {
+    // Retrieve existing spaceData from localStorage
+    const localStorageSpaceData = localStorage.getItem('spaceData')
+
+    // Check if there is existing spaceData in localStorage
+    if (localStorageSpaceData) {
+      // Parse the existing spaceData
+      const parsedSpaceData = JSON.parse(localStorageSpaceData)
+
+      // Find the index of the item with the same name as the current page
+      const index = parsedSpaceData.findIndex((item) => item.name === name)
+
+      // If an item with the same name exists, update its data
+      if (index !== -1) {
+        parsedSpaceData[index] = {
+          ...parsedSpaceData[index],
+          selectedPolygonArea,
+          selectedPackage,
+          roomPrice,
+        }
+
+        // Update the localStorage with the updated spaceData
+        localStorage.setItem('newSpaceData', JSON.stringify(parsedSpaceData))
+        // localStorage.setItem('areaDetails', JSON.stringify(selectedPolygonArea))
+        alert('Space data updated successfully!')
+      } else {
+        // If no item with the same name exists, show an alert
+        alert(`No data found for ${name} in localStorage`)
+      }
+    } else {
+      // If no spaceData exists in localStorage, set it with the current data
+      localStorage.setItem('newSpaceData', JSON.stringify(spaceData))
+      alert('Space data saved successfully!')
+    }
+    router.push('/calculator?step=2')
+  }
+
   const handleSquareFootageChange = (polygonId, value) => {
     setSpaceSquareFootage((prevSquareFootage) => ({
       ...prevSquareFootage,
@@ -211,42 +346,6 @@ const SvgMap = ({ data, name }) => {
 
   const spaceData = useSelector((state) => state.secondStep.spaceData)
   console.log('Space Data from redux:', spaceData)
-
-  const handleSave = () => {
-    // Retrieve existing spaceData from localStorage
-    const localStorageSpaceData = localStorage.getItem('spaceData')
-
-    // Check if there is existing spaceData in localStorage
-    if (localStorageSpaceData) {
-      // Parse the existing spaceData
-      const parsedSpaceData = JSON.parse(localStorageSpaceData)
-
-      // Find the index of the item with the same name as the current page
-      const index = parsedSpaceData.findIndex((item) => item.name === name)
-
-      // If an item with the same name exists, update its data
-      if (index !== -1) {
-        parsedSpaceData[index] = {
-          ...parsedSpaceData[index],
-          selectedPolygon,
-          selectedPackage,
-          roomPrice,
-        }
-
-        // Update the localStorage with the updated spaceData
-        localStorage.setItem('spaceData', JSON.stringify(parsedSpaceData))
-        alert('Space data updated successfully!')
-      } else {
-        // If no item with the same name exists, show an alert
-        alert(`No data found for ${name} in localStorage`)
-      }
-    } else {
-      // If no spaceData exists in localStorage, set it with the current data
-      localStorage.setItem('spaceData', JSON.stringify(spaceData))
-      alert('Space data saved successfully!')
-    }
-    router.push('/calculator?step=2')
-  }
 
   return (
     <>

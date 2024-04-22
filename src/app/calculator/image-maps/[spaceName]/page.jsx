@@ -1,11 +1,15 @@
 'use client'
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import BedroomImage from '../BedroomImage'
 import LivingandDiningImage from '../LivingandDiningImage'
 import KitchenImage from '../KitchenImage'
+import KitchenLImage from '../KitchenLImage'
+import KitchenSImage from '../KitchenSImage'
+import KitchenPImage from '../KitchenPImage'
+import KitchenUImage from '../KitchenUImage'
 import BathroomImage from '../BathroomImage'
 import MandirRoomImage from '../MandirRoomImage'
 import StoreRoomImage from '../StoreRoomImage'
@@ -18,38 +22,43 @@ import DiningRoom from '../DiningRoomImage'
 import MaxWidthWrapper from '../../../../components/MaxWidthWrapper'
 import { ArrowLeft } from 'lucide-react'
 const Page = ({ params }) => {
-  // console.log(params.spaceName)
-  const [spaceDataFromLocalStorage, setSpaceDataFromLocalStorage] =
-    useState(null)
-  const spaceDataFromRedux = useSelector((state) => state.secondStep.spaceData)
+  const [spaceData, setSpaceData] = useState(null)
+  // const spaceDataFromRedux = useSelector((state) => state.secondStep.spaceData)
 
   useEffect(() => {
-    const spaceData = localStorage.getItem('spaceData')
-    if (spaceData) {
+    const space = localStorage.getItem('spaceData')
+    if (space) {
       // If spaceData exists in localStorage, parse and set it
-      setSpaceDataFromLocalStorage(JSON.parse(spaceData))
+      setSpaceData(JSON.parse(space))
     }
   }, [])
 
-  const getSpaceData = () => {
-    return spaceDataFromLocalStorage || spaceDataFromRedux
-  }
+  // const getSpaceData = () => {
+  //   return spaceDataFromLocalStorage || spaceDataFromRedux
+  // }
 
-  const spaceData = getSpaceData()
+  // const spaceData = getSpaceData()
 
-  console.log('spaceDataFromLocalStorage:', spaceDataFromLocalStorage)
-  console.log('spaceDataFromRedux:', spaceDataFromRedux)
+  // console.log('spaceDataFromLocalStorage:', spaceDataFromLocalStorage)
+  // console.log('spaceDataFromRedux:', spaceDataFromRedux)
   console.log('Space Data:', spaceData)
 
   const encodedSpaceName = params.spaceName
   const decodedSpaceName = decodeURIComponent(encodedSpaceName)
 
   // Extracting spaceType and spaceName from decodedSpaceName
-  const spaceType = decodedSpaceName.split(' ')[0]
+  let spaceType = decodedSpaceName.split(' ')[0]
   const spaceName = decodedSpaceName.replace(/%20/g, ' ')
+  const regex = /\(([^)]+)\)/
+  const matches = spaceName.match(regex)
+  const layout = matches ? matches[1] : ''
 
-  // console.log('Space Type:', spaceType)
-  // console.log('Space Name:', spaceName)
+  // Check if spaceName contains "Kitchen"
+  if (spaceName.toLowerCase().includes('kitchen')) {
+    spaceType = layout
+  }
+  console.log('Space Type:', spaceType)
+  console.log('Space Name:', spaceName)
 
   const getImageComponent = () => {
     switch (spaceType) {
@@ -58,9 +67,13 @@ const Page = ({ params }) => {
       case 'Master':
         return <BedroomImage data={spaceData} name={spaceName} />
       case 'Living':
-        return <LivingandDiningImage data={spaceData} name={spaceName} />
-      case 'Kitchen':
-        return <KitchenImage data={spaceData} name={spaceName} />
+        if (spaceName.includes('Living and Dining')) {
+          return <LivingandDiningImage data={spaceData} name={spaceName} />
+        } else {
+          return <LivingRoomImage data={spaceData} name={spaceName} />
+        }
+      // case 'Kitchen':
+      //   return <KitchenImage data={spaceData} name={spaceName} />
       case 'Bathroom':
         return <BathroomImage data={spaceData} name={spaceName} />
       case 'Mandir':
@@ -71,8 +84,8 @@ const Page = ({ params }) => {
         return <StoreRoomImage data={spaceData} name={spaceName} />
       case 'Study':
         return <StudyRoomImage data={spaceData} name={spaceName} />
-      case 'Living':
-        return <LivingRoomImage data={spaceData} name={spaceName} />
+      // case 'Living':
+      //   return <LivingRoomImage data={spaceData} name={spaceName} />
       case 'Entrance':
         return <EntranceRoomImage data={spaceData} name={spaceName} />
       case 'Balcony':
@@ -81,13 +94,17 @@ const Page = ({ params }) => {
         return <PassageImage data={spaceData} name={spaceName} />
       case 'Dining':
         return <DiningRoom data={spaceData} name={spaceName} />
+      case 'Straight':
+        return <KitchenSImage data={spaceData} name={spaceName} />
+      case 'L Shaped':
+        return <KitchenLImage data={spaceData} name={spaceName} />
+      case 'U Shaped':
+        return <KitchenUImage data={spaceData} name={spaceName} />
+      case 'Parallel':
+        return <KitchenPImage data={spaceData} name={spaceName} />
       default:
         return null
     }
-  }
-
-  const handleSpaceClick = (selectedSpace) => {
-    setSelectedSpace(selectedSpace)
   }
 
   // handling back navigations

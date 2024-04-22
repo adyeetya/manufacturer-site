@@ -59,7 +59,7 @@ const Assistance = () => {
       </div>
 
       {isVisible && (
-        <div className="absolute bottom-12 right-[-8px] rounded-lg p-2">
+        <div className="absolute bottom-12 right-[-8px] rounded p-2">
           <div className="border-2 bg-white cursor-pointer border-black w-12 h-12 rounded-full mb-4 flex justify-center items-center">
             <a href="https://wa.me/9899264978">
               <WhatsAppIcon sx={{ fontSize: 40 }} />

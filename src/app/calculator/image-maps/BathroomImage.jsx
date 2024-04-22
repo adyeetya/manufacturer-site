@@ -9,14 +9,9 @@ const SvgMap = ({ data, name }) => {
   const router = useRouter()
   const initialSquareFootage = {
     // ... existing bedroom spaces
-    plumbing: 1, // assuming 1 quantity
     wallTiles: 98,
     Flooring: 40,
-    sanitaryAndCP: 1, // assuming 1 quantity
-    ShowerEnclosure: 1, // assuming 1 quantity
     upvcWindow: 6,
-    bathroomVanity: 1, // assuming 1 quantity
-    door: 1, // assuming 1 quantity
     falseCeiling: 40,
     // ... other existing spaces
   }
@@ -28,12 +23,12 @@ const SvgMap = ({ data, name }) => {
       wallTiles: { pricePerSqFt: 170 }, // adjust based on your actual pricing
       Flooring: { pricePerSqFt: 170 }, // adjust based on your actual pricing
       sanitaryAndCP: { price: 34000 },
-      ShowerEnclosure: { price: 6000 },
+      ShowerEnclosure: { price: 7000 },
       upvcWindow: { pricePerSqFt: 750 },
       bathroomVanity: { price: 19000 },
       door: { price: 19000 },
       Electrical: { price: 4500 },
-      falseCeiling: { pricePerSqFt: 170 }, // adjust based on your actual pricing
+      falseCeiling: { pricePerSqFt: 180 }, // adjust based on your actual pricing
       // ... other existing premium spaces
     },
     luxury: {
@@ -45,7 +40,7 @@ const SvgMap = ({ data, name }) => {
       ShowerEnclosure: { price: 20000 },
       upvcWindow: { pricePerSqFt: 1050 },
       bathroomVanity: { price: 24000 },
-      Electrical: { price: 12500 },
+      Electrical: { price: 7500 },
       door: { price: 24000 },
       falseCeiling: { pricePerSqFt: 210 }, // adjust based on your actual pricing
       // ... other existing luxury spaces
@@ -53,22 +48,88 @@ const SvgMap = ({ data, name }) => {
     ultraLuxury: {
       // ... existing ultraLuxury spaces
       Plumbing: { price: 34000 },
-      wallTiles: { pricePerSqFt: 450 }, // adjust based on your actual pricing
+      wallTiles: { pricePerSqFt: 490 }, // adjust based on your actual pricing
       Flooring: { pricePerSqFt: 450 }, // adjust based on your actual pricing
       sanitaryAndCP: { price: 84000 },
       ShowerEnclosure: { price: 30500 },
       upvcWindow: { pricePerSqFt: 1450 },
       sideTables: { price: 19000 },
-      Electrical: { price: 17500 },
+      Electrical: { price: 11500 },
       bathroomVanity: { price: 34000 },
       door: { price: 35000 },
-      falseCeiling: { pricePerSqFt: 450 }, // adjust based on your actual pricing
+      falseCeiling: { pricePerSqFt: 250 }, // adjust based on your actual pricing
       // ... other existing ultraLuxury spaces
     },
   }
+  const descriptions = {
+    premium: {
+      falseCeiling:
+        'Gypsum board ceiling with heavy duty channel Boards (USG Boral) | Wires (KEI or similar) | Lights (Orient or similar)',
+      wallTiles:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 24"X24" (Price range Rs. 55-65/- psf)',
+      Flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 24"X48" (Price range Rs. 55-65/-)',
+      bathroomVanity:
+        'HDHMR bathroom vanity with shutter storage and mirror above vanity, including hardware, laminates on carcass and shutters Carcass (Cross Bond or similar) | Hardware (Stylus or equivalent) | 0.7mm Laminate (Skydecor or similar) | 1mm Laminate (Skydecor or similar) | Stone counter (upto Rs. 150/- psf)',
+      sanitaryAndCP:
+        'Sanitary Brands: Cera /Similar Inclusions: Sanitary Fittings (Faucets), Divertor Fittings, Bottle Trap etc.',
+      door: 'Flush door with hardware, both side laminate finish and Chaukhat repairing & polishing Door 35mm hardwood (price range Rs.80 to Rs. 125/-) | Hardware (Stylus or equivalent) | Locks (Upto Rs.1,800/-)',
+      upvcWindow: 'Premium UPVC windows UPVC (Deceuninck or Veka or similar)',
+      ShowerEnclosure:
+        '18 x 7 SqFt., 8mm toughened glass partition with installation',
+      Electrical:
+        'Electrical work with new points, relocation including switches & boards Wires (Havells or Polycab) | Switches (Legrand or Crabtree or similar) | Lights (Orient or Similar)',
+      Plumbing:
+        '1 NOS: Plumbing work including pipes and all sanitary installation CPVC (Price or similar) | PVC (Prakash or similar) | Water Proofing',
+    },
+    luxury: {
+      falseCeiling:
+        'POP ceiling with heavy duty channel POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      wallTiles:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 24"X48" (Price range Rs. 70-80/- psf)',
+      Flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 32"X64" (Price range Rs. 80-100/-)',
+      bathroomVanity:
+        'BWR plywood bathroom vanity with drawer storage and mirror above vanity, including hardware, laminates on carcass, Acrylic or plain membrane on shutters BWR (upto Rs. 60/- psf) | Hardware (Hettich or similar) | 0.8mm Laminate (Skydecor or similar) | Granite / Quartz (upto Rs. 250/- psf)',
+      sanitaryAndCP:
+        'Sanitary Brands: Jaquar /Similar Inclusions: Sanitary Fittings (Faucets), Divertor Fittings, Bottle Trap etc.',
+      door: 'Flush door with hardware, both side veneer with polish, and Chaukhat repairing & polishing Door 35mm hardwood (upto Rs. 125/-) | Hardware (Hettich or Hafele or similar) | Locks (Upto Rs.2,500/-)',
+      upvcWindow:
+        'Premium UPVC windows with 74mm shutter frame and 8mm toughened glass, and single wool pile UPVC (Fenesta or similar)',
+      ShowerEnclosure: 'Shower enclosure with 8mm toughened glass partition',
+      Electrical:
+        'Electrical work with point relocation including switches & boards Wires (Havells or Polycab) | Switches (Anchor Penta or similar) | Lights (Orient or Similar)',
+      Plumbing:
+        '1 NOS: Plumbing work including pipes and all sanitary installation CPVC (Vectus or similar) | PVC (Vectus or similar) | Water Proofing',
+    },
+    ultraLuxury: {
+      falseCeiling:
+        'POP Ceiling with cove, heavy duty channel & wooden design element POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      wallTiles:
+        'Tiling work including demolition, material (MYK Laticrete), grouting, cleaning, finishing Tile size 24"X48" (Price range upto Rs. 125/- psf)',
+      Flooring:
+        'Italian store flooring with installation and Diamond polish Italian stone (Price range upto Rs. 350/-)',
+      bathroomVanity:
+        'Standard TV Panel including hardware, laminates on carcass, veneer / PU polish on shutters BWR (upto Rs. 60/- psf) | Hardware (Hettich or similar) | 0.8mm Laminate (Skydecor or similar) | Granite / Quartz (upto Rs. 500/- psf)',
+      sanitaryAndCP:
+        'Sanitary Brands: Kohler/Similar Inclusions: Sanitary Fittings (Faucets), Divertor Fittings, Bottle Trap etc.',
+      door: 'Flush door with hardware, both side veneer with polish / HDHMR with PU, and new marandi Chaukhat with mouldings Door 35mm Bhutan Tuff (upto Rs. 165/-) | Hardware (Hettich or Hafele or similar) | Locks (Upto Rs.3,500/-)',
+      upvcWindow:
+        'Premium UPVC windows with 90mm shutter frame and 12.5mm toughened glass, key locking and single wool pile UPVC (Fenesta or similar)',
+      ShowerEnclosure:
+        'Branded shower cubical including hardware and installation Cubical (Jaquar or similar, upto Rs. 35,000/-)',
+      Electrical:
+        'Electrical work with new points, relocation including switches & boards Wires (Havells or Polycab) | Switches (Legrand or Crabtree or similar) | Lights (Orient or Similar)',
+      Plumbing:
+        '1NOS: Plumbing work including pipes and all sanitary CPVC (Astral or similar) | PVC (Supreme or similar) | Water Proofing',
+    },
+    // Add descriptions for other packages...
+  }
+
   console.log('data: ', data)
   console.log('name: ', name)
   const [selectedPolygon, setSelectedPolygon] = useState([])
+  const [selectedPolygonArea, setSelectedPolygonArea] = useState([])
   const [selectedPackage, setSelectedPackage] = useState('premium') // Default to premium
   const [spaceSquareFootage, setSpaceSquareFootage] = useState({}) // New state for square footage
 
@@ -78,58 +139,38 @@ const SvgMap = ({ data, name }) => {
 
   // to reset the selectedPolygon and roomPrice to back to inital state when package is changed
 
-  console.log('roomPrice: ', roomPrice)
+  useEffect(() => {
+    const localStorageSpaceData = localStorage.getItem('spaceData')
+    if (localStorageSpaceData) {
+      const parsedSpaceData = JSON.parse(localStorageSpaceData)
+      console.log('parsedSpaceData', parsedSpaceData)
+      setUpdatedData(parsedSpaceData)
+    }
+  }, [])
+
   const updateData = () => {
-    setUpdatedData((prevData) =>
-      prevData.map((item) =>
+    console.log('updatedData', updatedData)
+    setUpdatedData((prevData) => {
+      // console.log('prevData', prevData)
+
+      return prevData.map((item) =>
         item.name === name
           ? { ...item, selectedPolygon, selectedPackage, roomPrice }
           : item
       )
-    )
+    })
   }
   useEffect(() => {
     updateData()
   }, [selectedPolygon, selectedPackage, roomPrice])
+  useEffect(() => {
+    console.log('updatedData', updatedData)
+    // localStorage.setItem('spaceData', JSON.stringify(updatedData))
+  }, [updatedData])
+  // -----------------------------------------------------------
 
   const [editableSquareFootage, setEditableSquareFootage] =
     useState(initialSquareFootage)
-
-  const handlePolygonClick = (polygonId) => {
-    const isSelected = selectedPolygon.includes(polygonId)
-
-    // Check if the polygon is already selected
-    if (isSelected) {
-      // Polygon is already selected, remove it from the selected polygons
-      setSelectedPolygon((prevSelected) =>
-        prevSelected.filter((id) => id !== polygonId)
-      )
-
-      // Subtract the price of the deselected polygon from the room price
-      const priceOfDeselectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
-      )
-    } else {
-      // Polygon is not selected, add it to the selected polygons
-      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
-
-      // Add the price of the selected polygon to the room price
-      const priceOfSelectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
-      )
-    }
-
-    // Update the data
-    updateData()
-  }
 
   const calculateSpacePrice = (polygonId, selectedPackage) => {
     const component = pricing[selectedPackage]?.[polygonId]
@@ -146,6 +187,53 @@ const SvgMap = ({ data, name }) => {
     }
   }
 
+  const handlePolygonClick = (polygonId) => {
+    const isSelected = selectedPolygon.includes(polygonId)
+
+    // Check if the polygon is already selected
+    if (isSelected) {
+      // Polygon is already selected, remove it from the selected polygons
+      setSelectedPolygon((prevSelected) =>
+        prevSelected.filter((id) => id !== polygonId)
+      )
+
+      // Remove the polygon's area from selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.filter((item) => Object.keys(item)[0] !== polygonId)
+      )
+
+      // Subtract the price of the deselected polygon from the room price
+      const priceOfDeselectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
+      )
+    } else {
+      // Polygon is not selected, add it to the selected polygons
+      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
+
+      // Add the polygon's area to selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) => [
+        ...prevSelectedArea,
+        { [polygonId]: initialSquareFootage[polygonId] || '' },
+      ])
+
+      // Add the price of the selected polygon to the room price
+      const priceOfSelectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
+      )
+    }
+
+    // Update the data
+    updateData()
+  }
+
   const handleEditSquareFootage = (polygonId) => {
     const newSquareFootage = prompt(
       `Enter new square footage for ${polygonId}:`,
@@ -158,6 +246,15 @@ const SvgMap = ({ data, name }) => {
         [polygonId]: parseFloat(newSquareFootage),
       }
       setEditableSquareFootage(updatedSquareFootage)
+
+      // Update selectedPolygonArea with edited area
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.map((item) =>
+          Object.keys(item)[0] === polygonId
+            ? { [polygonId]: parseFloat(newSquareFootage) }
+            : item
+        )
+      )
 
       // Recalculate room price
       const priceOfSelectedPolygon = calculateSpacePrice(
@@ -174,12 +271,42 @@ const SvgMap = ({ data, name }) => {
       updateData() // Update the data after room price is updated
     }
   }
-  const handleSquareFootageChange = (polygonId, value) => {
-    setSpaceSquareFootage((prevSquareFootage) => ({
-      ...prevSquareFootage,
-      [polygonId]: parseFloat(value) || 0,
-    }))
-    updateData()
+
+  const handleSave = () => {
+    // Retrieve existing spaceData from localStorage
+    const localStorageSpaceData = localStorage.getItem('spaceData')
+
+    // Check if there is existing spaceData in localStorage
+    if (localStorageSpaceData) {
+      // Parse the existing spaceData
+      const parsedSpaceData = JSON.parse(localStorageSpaceData)
+
+      // Find the index of the item with the same name as the current page
+      const index = parsedSpaceData.findIndex((item) => item.name === name)
+
+      // If an item with the same name exists, update its data
+      if (index !== -1) {
+        parsedSpaceData[index] = {
+          ...parsedSpaceData[index],
+          selectedPolygonArea,
+          selectedPackage,
+          roomPrice,
+        }
+
+        // Update the localStorage with the updated spaceData
+        localStorage.setItem('newSpaceData', JSON.stringify(parsedSpaceData))
+        // localStorage.setItem('areaDetails', JSON.stringify(selectedPolygonArea))
+        alert('Space data updated successfully!')
+      } else {
+        // If no item with the same name exists, show an alert
+        alert(`No data found for ${name} in localStorage`)
+      }
+    } else {
+      // If no spaceData exists in localStorage, set it with the current data
+      localStorage.setItem('newSpaceData', JSON.stringify(spaceData))
+      alert('Space data saved successfully!')
+    }
+    router.push('/calculator?step=2')
   }
 
   const handleTabChange = (selectedTab) => {
@@ -214,52 +341,6 @@ const SvgMap = ({ data, name }) => {
         {tabName}
       </button>
     )
-  }
-
-  console.log('updatedData: ', updatedData)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(updateSpaceData(updatedData))
-  }, [dispatch, updatedData])
-
-  const spaceData = useSelector((state) => state.secondStep.spaceData)
-  console.log('Space Data from redux:', spaceData)
-
-  const handleSave = () => {
-    // Retrieve existing spaceData from localStorage
-    const localStorageSpaceData = localStorage.getItem('spaceData')
-
-    // Check if there is existing spaceData in localStorage
-    if (localStorageSpaceData) {
-      // Parse the existing spaceData
-      const parsedSpaceData = JSON.parse(localStorageSpaceData)
-
-      // Find the index of the item with the same name as the current page
-      const index = parsedSpaceData.findIndex((item) => item.name === name)
-
-      // If an item with the same name exists, update its data
-      if (index !== -1) {
-        parsedSpaceData[index] = {
-          ...parsedSpaceData[index],
-          selectedPolygon,
-          selectedPackage,
-          roomPrice,
-        }
-
-        // Update the localStorage with the updated spaceData
-        localStorage.setItem('spaceData', JSON.stringify(parsedSpaceData))
-        alert('Space data updated successfully!')
-      } else {
-        // If no item with the same name exists, show an alert
-        alert(`No data found for ${name} in localStorage`)
-      }
-    } else {
-      // If no spaceData exists in localStorage, set it with the current data
-      localStorage.setItem('spaceData', JSON.stringify(spaceData))
-      alert('Space data saved successfully!')
-    }
-    router.push('/calculator?step=2')
   }
 
   return (
@@ -508,39 +589,41 @@ const SvgMap = ({ data, name }) => {
             Bathroom Vanity
           </text>
           {/* ------ Plumbing--------- */}
-          {/* <polygon
-          points="55,925,430,886,427,1091,53,1223"
-          fill={selectedPolygon.includes('Plumbing') ? 'green' : 'transparent'}
-          fillOpacity="0.2"
-          onClick={() => handlePolygonClick('Plumbing')}
-          style={{ cursor: 'pointer' }}
-        />
+          <polygon
+            points="55,925,430,886,427,1091,53,1223"
+            fill={
+              selectedPolygon.includes('Plumbing') ? 'green' : 'transparent'
+            }
+            fillOpacity="0.2"
+            onClick={() => handlePolygonClick('Plumbing')}
+            style={{ cursor: 'pointer' }}
+          />
 
-        <rect
-          x="231.25"
-          y="988.25"
-          width="274.9938201904297"
-          height="60"
-          fill="#282828"
-          rx="30"
-          opacity="0.3"
-          ry="30"
-          class="dynamic-rectangle cursor-pointer"
-        ></rect>
-        <text
-          fill="white"
-          opacity="0.75"
-          fontWeight={400}
-          x="296.25"
-          y="1031.25"
-          fontSize={40}
-          id="Plumbing"
-          className="cursor-pointer"
-          onClick={() => handlePolygonClick('Plumbing')}
-          style={{ color: 'black' }}
-        >
-          Plumbing
-        </text> */}
+          <rect
+            x="231.25"
+            y="988.25"
+            width="274.9938201904297"
+            height="60"
+            fill="#282828"
+            rx="30"
+            opacity="0.3"
+            ry="30"
+            class="dynamic-rectangle cursor-pointer"
+          ></rect>
+          <text
+            fill="white"
+            opacity="0.75"
+            fontWeight={400}
+            x="296.25"
+            y="1031.25"
+            fontSize={40}
+            id="Plumbing"
+            className="cursor-pointer"
+            onClick={() => handlePolygonClick('Plumbing')}
+            style={{ color: 'black' }}
+          >
+            Plumbing
+          </text>
           {/* ----Walls Tiles------ */}
           <polygon
             points="42,169,696,515,923,520,923,630,873,628,871,604,837,589,828,591,819,600,813,611,795,613,776,621,778,628,791,621,804,624,811,624,826,628,832,634,834,637,837,630,828,619,821,613,832,602,843,600,860,608,867,619,867,639,871,725,873,823,873,845,841,842,845,851,858,851,856,868,804,873,798,881,795,896,811,896,813,881,852,879,845,903,860,905,865,886,873,877,888,881,888,864,869,868,867,851,888,849,886,840,880,840,878,801,873,667,871,628,923,630,917,1174,696,1171,687,1174,62,1550,57,1221,430,1091,430,888,412,890,393,890,367,892,345,894,324,896,302,896,282,899,265,901,252,903,235,905,222,907,200,907,183,909,168,912,150,914,131,914,114,918,92,918,77,918,64,922,51,925,53,907,51,888,51,864,51,845,51,823,51,808,49,788,49,769,49,751,49,732,49,710,49,691,47,671,44,647,44,630,47,611,44,591,42,567,42,550,44,531,44,509,42,489,42,463,42,444,44,424,44,405,42,379,44,355,44,331,42,312,42,290,44,253"
@@ -589,7 +672,7 @@ const SvgMap = ({ data, name }) => {
             fontSize={40}
             id="wallTiles"
             className="cursor-pointer"
-            onClick={() => handlePolygonClick('Walls-Tiles')}
+            onClick={() => handlePolygonClick('wallTiles')}
             style={{ color: 'black' }}
           >
             Walls Tiles
@@ -753,9 +836,15 @@ const SvgMap = ({ data, name }) => {
               }}
             >
               <div className="float-left">
-                <span>{polygon} </span>
+                <span className="font-bold text-lg capitalize">{polygon} </span>
+                {editableSquareFootage[polygon] && (
+                  <span style={{ fontSize: '12px' }}>
+                    {' '}
+                    - {editableSquareFootage[polygon]} sqft
+                  </span>
+                )}
                 {polygon === 'wallTiles' ||
-                polygon === 'flooring' ||
+                polygon === 'Flooring' ||
                 polygon === 'walls' ||
                 polygon === 'tvpanel' ||
                 polygon == 'upvcWindow' ||
@@ -767,6 +856,17 @@ const SvgMap = ({ data, name }) => {
                     ✏️ Edit
                   </span>
                 ) : null}
+                {selectedPackage && (
+                  <div
+                    style={{
+                      fontSize: '14px',
+                      marginTop: '5px',
+                      width: '650px',
+                    }}
+                  >
+                    {descriptions[selectedPackage]?.[polygon]}
+                  </div>
+                )}
               </div>
               <div></div>
               <div className="float-right">

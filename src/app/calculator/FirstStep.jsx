@@ -11,54 +11,36 @@ import {
   setTextInput,
 } from '../../components/redux/actions/firstStepActions'
 import Image from 'next/image'
+import { useState } from 'react'
 
 const FirstStepSection = () => {
-  const dispatch = useDispatch()
-  const {
-    selectedOptionSet1,
-    selectedOptionSet2,
-    selectedOptionSet3,
-    selectedOptionSet4,
-    textInput,
-  } = useSelector((state) => state.firstStep)
+  const [userData, setUserData] = useState({
+    propertyType: '',
+    numberOfRooms: '',
+    interiorType: '',
+    city: '',
+  })
 
   // empty the local storage if there is already a spaceData there
   useEffect(() => {
     // Check if there is space data in local storage
     const spaceData = JSON.parse(localStorage.getItem('spaceData'))
+    const newSpaceData = JSON.parse(localStorage.getItem('newSpaceData'))
     if (spaceData) {
       // Remove space data from local storage
       localStorage.removeItem('spaceData')
     }
+    if (newSpaceData) {
+      // Remove new space data from local storage
+      localStorage.removeItem('newSpaceData')
+    }
   }, [])
-
-  // Load saved input values from local storage on component mount
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem('firstStepData')) || {}
-    dispatch(setOptionSet1(savedData.selectedOptionSet1 || null))
-    dispatch(setOptionSet2(savedData.selectedOptionSet2 || null))
-    dispatch(setOptionSet3(savedData.selectedOptionSet3 || null))
-    dispatch(setOptionSet4(savedData.selectedOptionSet4 || null))
-    dispatch(setTextInput(savedData.textInput || ''))
-  }, [dispatch])
 
   // Save input values to local storage whenever they change
   useEffect(() => {
-    const dataToSave = {
-      selectedOptionSet1,
-      selectedOptionSet2,
-      selectedOptionSet3,
-      selectedOptionSet4,
-      textInput,
-    }
-    localStorage.setItem('firstStepData', JSON.stringify(dataToSave))
-  }, [
-    selectedOptionSet1,
-    selectedOptionSet2,
-    selectedOptionSet3,
-    selectedOptionSet4,
-    textInput,
-  ])
+    localStorage.setItem('userData', JSON.stringify(userData))
+    console.log(userData)
+  }, [userData])
 
   const handleButtonClick = (option, setNumber, event) => {
     if (event) {
@@ -66,33 +48,22 @@ const FirstStepSection = () => {
     }
     switch (setNumber) {
       case 1:
-        dispatch(setOptionSet1(option))
+        setUserData((prev) => ({ ...prev, propertyType: option }))
         break
       case 2:
-        dispatch(setOptionSet2(option))
+        setUserData((prev) => ({ ...prev, numberOfRooms: option }))
         break
       case 3:
-        dispatch(setOptionSet3(option))
+        setUserData((prev) => ({ ...prev, interiorType: option }))
         break
-      case 4:
-        dispatch(setOptionSet4(option))
-        break
+
       default:
         break
     }
   }
 
   const handleTextInputChange = (e) => {
-    dispatch(setTextInput(e.target.value))
-  }
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault()
-    console.log('Selected Option Set 1:', selectedOptionSet1)
-    console.log('Selected Option Set 2:', selectedOptionSet2)
-    console.log('Selected Option Set 3:', selectedOptionSet3)
-    console.log('Selected Option Set 4:', selectedOptionSet4)
-    console.log('Text Input:', textInput)
+    setUserData((prev) => ({ ...prev, city: e.target.value }))
   }
 
   return (
@@ -107,7 +78,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('Apartment', 1, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet1 === 'Apartment'
+                  userData.propertyType === 'Apartment'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -126,7 +97,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('Villa', 1, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet1 === 'Villa'
+                  userData.propertyType === 'Villa'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -154,7 +125,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('1 BHK', 2, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet2 === '1 BHK'
+                  userData.numberOfRooms === '1 BHK'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -172,7 +143,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('2 BHK', 2, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet2 === '2 BHK'
+                  userData.numberOfRooms === '2 BHK'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -190,7 +161,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('3 BHK', 2, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet2 === '3 BHK'
+                  userData.numberOfRooms === '3 BHK'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -208,7 +179,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('4+ BHK', 2, event)}
                 className={`flex w-32 h-12 text-xs items-center p-2 rounded shadow-md hover:shadow-lg hover:border-[1px] hover:border-blue-400 ${
-                  selectedOptionSet2 === '4+ BHK'
+                  userData.numberOfRooms === '4+ BHK'
                     ? 'bg-blue-500 text-white'
                     : 'bg-white'
                 }`}
@@ -237,7 +208,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('New', 3, event)}
                 className={`rounded w-32 h-12 text-xs   ${
-                  selectedOptionSet3 === 'New'
+                  userData.interiorType === 'New'
                     ? 'bg-green-400 text-white hover:text-white'
                     : 'bg-white hover:text-green-400'
                 }`}
@@ -248,7 +219,7 @@ const FirstStepSection = () => {
                 type="button"
                 onClick={(event) => handleButtonClick('Renovation', 3, event)}
                 className={`rounded w-32 h-12 text-xs   ${
-                  selectedOptionSet3 === 'Renovation'
+                  userData.interiorType === 'Renovation'
                     ? 'bg-green-400 text-white hover:text-white'
                     : 'bg-white hover:text-green-400'
                 }`}
@@ -267,7 +238,7 @@ const FirstStepSection = () => {
               type="text"
               required
               placeholder="Type Your City..."
-              value={textInput}
+              value={userData.city}
               onChange={handleTextInputChange}
               className="border-2 border-blue-500 rounded p-2 sm:w-1/3 text-xs"
             />

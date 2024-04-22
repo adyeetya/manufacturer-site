@@ -328,7 +328,7 @@ const Page = ({}) => {
                         alt={projects[projectIndex]?.name}
                         width={1000}
                         height={1000}
-                        className="h-auto lg:h-[506px] h-[306px] rounded-sm "
+                        className="h-auto lg:h-[506px] h-[306px] rounded "
                       />
                     </div>
                   ))}

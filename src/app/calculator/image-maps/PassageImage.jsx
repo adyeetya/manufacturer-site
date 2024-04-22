@@ -29,6 +29,40 @@ const SvgMap = ({ data, name }) => {
     },
   }
 
+  const descriptions = {
+    premium: {
+      Walls:
+        'Premium Emulsion with basic putty repairing and one highlight wall Paint (Asian Paints or similar)',
+      Flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 24"X48" (Price range Rs. 55-65/-)',
+      FalseCeiling:
+        'Gypsum board ceiling with heavy duty channel Boards (USG Boral) | Wires (KEI or similar) | Lights (Orient or similar)',
+      Electrical:
+        'Electrical work including point relocation excluding switches Wires (Havells or Polycab)',
+    },
+    luxury: {
+      Walls:
+        'Premium Emulsion with 2 primer coats, putty repairing and one highlight wall Paint (Asian Paints or similar)',
+      Flooring:
+        'Tiling work including demolition, material, grouting, cleaning, finishing Tile size 32"X64" (Price range Rs. 80-100/-)',
+      FalseCeiling:
+        'POP ceiling with heavy duty channel POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      Electrical:
+        'Electrical work with point relocation including switches & boards Wires (Havells or Polycab) | Switches (Anchor Penta or similar) | Lights (Orient or Similar)',
+    },
+    ultraLuxury: {
+      Walls:
+        'Premium paint with POP finish and one rustic / textured wall POP 3-5 mm (Sakarni) | Paint (Asian Paint Royale or similar)',
+      Flooring:
+        'Italian store flooring with installation and Diamond polish Italian stone (Price range upto Rs. 350/-)',
+      FalseCeiling:
+        'POP Ceiling with cove, heavy duty channel & wooden design element POP (Sakarni) | Wires (Havells or Polycab) | Lights (Philips or similar)',
+      Electrical:
+        'Electrical work with new points, relocation including switches & boards Wires (Havells or Polycab) | Switches (Legrand or Crabtree or similar) | Lights (Orient or Similar)',
+    },
+    // Add descriptions for other packages...
+  }
+
   const initialSquareFootage = {
     FalseCeiling: 60,
     electrical: 1,
@@ -38,6 +72,7 @@ const SvgMap = ({ data, name }) => {
   console.log('data: ', data)
   console.log('name: ', name)
   const [selectedPolygon, setSelectedPolygon] = useState([])
+  const [selectedPolygonArea, setSelectedPolygonArea] = useState([])
   const [selectedPackage, setSelectedPackage] = useState('premium') // Default to premium
   const [spaceSquareFootage, setSpaceSquareFootage] = useState({}) // New state for square footage
 
@@ -45,57 +80,39 @@ const SvgMap = ({ data, name }) => {
   const [roomPrice, setRoomPrice] = useState(0)
   // let roomPrice = 0
 
+  useEffect(() => {
+    const localStorageSpaceData = localStorage.getItem('spaceData')
+    if (localStorageSpaceData) {
+      const parsedSpaceData = JSON.parse(localStorageSpaceData)
+      console.log('parsedSpaceData', parsedSpaceData)
+      setUpdatedData(parsedSpaceData)
+    }
+  }, [])
+
   const updateData = () => {
-    setUpdatedData((prevData) =>
-      prevData.map((item) =>
+    console.log('updatedData', updatedData)
+    setUpdatedData((prevData) => {
+      // console.log('prevData', prevData)
+
+      return prevData.map((item) =>
         item.name === name
           ? { ...item, selectedPolygon, selectedPackage, roomPrice }
           : item
       )
-    )
+    })
   }
   useEffect(() => {
     updateData()
   }, [selectedPolygon, selectedPackage, roomPrice])
+  useEffect(() => {
+    console.log('updatedData', updatedData)
+    // localStorage.setItem('spaceData', JSON.stringify(updatedData))
+  }, [updatedData])
+
+  // ----------------------------------------------------------------------------------
 
   const [editableSquareFootage, setEditableSquareFootage] =
     useState(initialSquareFootage)
-
-  const handlePolygonClick = (polygonId) => {
-    const isSelected = selectedPolygon.includes(polygonId)
-
-    // Check if the polygon is already selected
-    if (isSelected) {
-      // Polygon is already selected, remove it from the selected polygons
-      setSelectedPolygon((prevSelected) =>
-        prevSelected.filter((id) => id !== polygonId)
-      )
-
-      // Subtract the price of the deselected polygon from the room price
-      const priceOfDeselectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
-      )
-    } else {
-      // Polygon is not selected, add it to the selected polygons
-      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
-
-      // Add the price of the selected polygon to the room price
-      const priceOfSelectedPolygon = calculateSpacePrice(
-        polygonId,
-        selectedPackage
-      )
-      setRoomPrice(
-        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
-      )
-    }
-
-    // Update the data
-    updateData()
-  }
 
   const calculateSpacePrice = (polygonId, selectedPackage) => {
     const component = pricing[selectedPackage]?.[polygonId]
@@ -112,6 +129,53 @@ const SvgMap = ({ data, name }) => {
     }
   }
 
+  const handlePolygonClick = (polygonId) => {
+    const isSelected = selectedPolygon.includes(polygonId)
+
+    // Check if the polygon is already selected
+    if (isSelected) {
+      // Polygon is already selected, remove it from the selected polygons
+      setSelectedPolygon((prevSelected) =>
+        prevSelected.filter((id) => id !== polygonId)
+      )
+
+      // Remove the polygon's area from selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.filter((item) => Object.keys(item)[0] !== polygonId)
+      )
+
+      // Subtract the price of the deselected polygon from the room price
+      const priceOfDeselectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice - parseFloat(priceOfDeselectedPolygon)
+      )
+    } else {
+      // Polygon is not selected, add it to the selected polygons
+      setSelectedPolygon((prevSelected) => [...prevSelected, polygonId])
+
+      // Add the polygon's area to selectedPolygonArea
+      setSelectedPolygonArea((prevSelectedArea) => [
+        ...prevSelectedArea,
+        { [polygonId]: initialSquareFootage[polygonId] || '' },
+      ])
+
+      // Add the price of the selected polygon to the room price
+      const priceOfSelectedPolygon = calculateSpacePrice(
+        polygonId,
+        selectedPackage
+      )
+      setRoomPrice(
+        (prevRoomPrice) => prevRoomPrice + parseFloat(priceOfSelectedPolygon)
+      )
+    }
+
+    // Update the data
+    updateData()
+  }
+
   const handleEditSquareFootage = (polygonId) => {
     const newSquareFootage = prompt(
       `Enter new square footage for ${polygonId}:`,
@@ -124,6 +188,15 @@ const SvgMap = ({ data, name }) => {
         [polygonId]: parseFloat(newSquareFootage),
       }
       setEditableSquareFootage(updatedSquareFootage)
+
+      // Update selectedPolygonArea with edited area
+      setSelectedPolygonArea((prevSelectedArea) =>
+        prevSelectedArea.map((item) =>
+          Object.keys(item)[0] === polygonId
+            ? { [polygonId]: parseFloat(newSquareFootage) }
+            : item
+        )
+      )
 
       // Recalculate room price
       const priceOfSelectedPolygon = calculateSpacePrice(
@@ -140,6 +213,44 @@ const SvgMap = ({ data, name }) => {
       updateData() // Update the data after room price is updated
     }
   }
+
+  const handleSave = () => {
+    // Retrieve existing spaceData from localStorage
+    const localStorageSpaceData = localStorage.getItem('spaceData')
+
+    // Check if there is existing spaceData in localStorage
+    if (localStorageSpaceData) {
+      // Parse the existing spaceData
+      const parsedSpaceData = JSON.parse(localStorageSpaceData)
+
+      // Find the index of the item with the same name as the current page
+      const index = parsedSpaceData.findIndex((item) => item.name === name)
+
+      // If an item with the same name exists, update its data
+      if (index !== -1) {
+        parsedSpaceData[index] = {
+          ...parsedSpaceData[index],
+          selectedPolygonArea,
+          selectedPackage,
+          roomPrice,
+        }
+
+        // Update the localStorage with the updated spaceData
+        localStorage.setItem('newSpaceData', JSON.stringify(parsedSpaceData))
+        // localStorage.setItem('areaDetails', JSON.stringify(selectedPolygonArea))
+        alert('Space data updated successfully!')
+      } else {
+        // If no item with the same name exists, show an alert
+        alert(`No data found for ${name} in localStorage`)
+      }
+    } else {
+      // If no spaceData exists in localStorage, set it with the current data
+      localStorage.setItem('newSpaceData', JSON.stringify(spaceData))
+      alert('Space data saved successfully!')
+    }
+    router.push('/calculator?step=2')
+  }
+
   const handleSquareFootageChange = (polygonId, value) => {
     setSpaceSquareFootage((prevSquareFootage) => ({
       ...prevSquareFootage,
@@ -180,52 +291,6 @@ const SvgMap = ({ data, name }) => {
         {tabName}
       </button>
     )
-  }
-
-  console.log('updatedData: ', updatedData)
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(updateSpaceData(updatedData))
-  }, [dispatch, updatedData])
-
-  const spaceData = useSelector((state) => state.secondStep.spaceData)
-  console.log('Space Data from redux:', spaceData)
-
-  const handleSave = () => {
-    // Retrieve existing spaceData from localStorage
-    const localStorageSpaceData = localStorage.getItem('spaceData')
-
-    // Check if there is existing spaceData in localStorage
-    if (localStorageSpaceData) {
-      // Parse the existing spaceData
-      const parsedSpaceData = JSON.parse(localStorageSpaceData)
-
-      // Find the index of the item with the same name as the current page
-      const index = parsedSpaceData.findIndex((item) => item.name === name)
-
-      // If an item with the same name exists, update its data
-      if (index !== -1) {
-        parsedSpaceData[index] = {
-          ...parsedSpaceData[index],
-          selectedPolygon,
-          selectedPackage,
-          roomPrice,
-        }
-
-        // Update the localStorage with the updated spaceData
-        localStorage.setItem('spaceData', JSON.stringify(parsedSpaceData))
-        alert('Space data updated successfully!')
-      } else {
-        // If no item with the same name exists, show an alert
-        alert(`No data found for ${name} in localStorage`)
-      }
-    } else {
-      // If no spaceData exists in localStorage, set it with the current data
-      localStorage.setItem('spaceData', JSON.stringify(spaceData))
-      alert('Space data saved successfully!')
-    }
-    router.push('/calculator?step=2')
   }
 
   return (
@@ -454,7 +519,13 @@ const SvgMap = ({ data, name }) => {
               }}
             >
               <div className="float-left">
-                <span>{polygon} </span>
+                <span className="font-bold text-lg capitalize">{polygon} </span>
+                {editableSquareFootage[polygon] && (
+                  <span style={{ fontSize: '12px' }}>
+                    {' '}
+                    - {editableSquareFootage[polygon]} sqft
+                  </span>
+                )}
                 {polygon === 'FalseCeiling' ||
                 polygon === 'Flooring' ||
                 polygon === 'Walls' ||
@@ -469,6 +540,17 @@ const SvgMap = ({ data, name }) => {
                     ✏️ Edit
                   </span>
                 ) : null}
+                {selectedPackage && (
+                  <div
+                    style={{
+                      fontSize: '14px',
+                      marginTop: '5px',
+                      width: '650px',
+                    }}
+                  >
+                    {descriptions[selectedPackage]?.[polygon]}
+                  </div>
+                )}
               </div>
               <div></div>
               <div className="float-right">

@@ -3,27 +3,36 @@ import React, { useState, useEffect } from 'react'
 import Modal from 'react-modal'
 import { Pencil } from 'lucide-react'
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux'
+
 // import { updateSpaceData } from '@/components/redux/actions/secondStepActions'
 import { updateSpaceData } from '../../components/redux/actions/secondStepActions'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
 const ThirdStep = (props) => {
-  const dispatch = useDispatch()
-  const spaceCounts = useSelector((state) => state.space)
+  // const spaceCounts = useSelector((state) => state.space)
   const [area, setArea] = useState('')
   const [editModalOpen, setEditModalOpen] = useState(false)
+  const [layoutModalOpen, setLayoutModalOpen] = useState(false)
   const [editSpaceName, setEditSpaceName] = useState('')
+  const [layoutSpaceName, setLayoutSpaceName] = useState('')
   const [length, setLength] = useState('')
   const [width, setWidth] = useState('')
   const [spaceData, setSpaceData] = useState([])
   const [spaceDataFromLs, setSpaceDataFromLs] = useState([])
+  const [initialSpaceData, setInitialSpaceData] = useState([])
   const [totalRoomPrice, setTotalRoomPrice] = useState(0)
-
-  // Fetch spaceData and firstStepData from localStorage on component mount
+  const [spaceCounts, setSpaceCounts] = useState({})
+  // fetching space count from ls
   useEffect(() => {
-    const localStorageSpaceData = localStorage.getItem('spaceData')
+    let count = JSON.parse(localStorage.getItem('spaceCounts'))
+    setSpaceCounts(count)
+    // console.log(spaceCounts)
+  }, [])
+
+  // Fetch spaceData and firstStepData from localStorage on component mount for price
+  useEffect(() => {
+    const localStorageSpaceData = localStorage.getItem('newSpaceData')
 
     if (localStorageSpaceData) {
       const parsedSpaceData = JSON.parse(localStorageSpaceData)
@@ -35,10 +44,10 @@ const ThirdStep = (props) => {
       setTotalRoomPrice(total)
     }
   }, [])
+  // -----------------------------------------------------------------------------
 
   useEffect(() => {
-    // Initialize spaceData based on spaceCounts
-    const initialSpaceData = Object.entries(spaceCounts).flatMap(
+    const initialData = Object.entries(spaceCounts).flatMap(
       ([spaceName, count]) => {
         if (count > 0) {
           return Array.from({ length: count }, (_, index) => ({
@@ -50,11 +59,44 @@ const ThirdStep = (props) => {
         }
       }
     )
-
-    setSpaceData(initialSpaceData)
+    setSpaceData(initialData)
   }, [spaceCounts])
 
-  console.log(spaceData)
+  useEffect(() => {
+    const localStorageSpaceData = localStorage.getItem('newSpaceData')
+
+    if (
+      localStorageSpaceData &&
+      localStorageSpaceData !== 'undefined' &&
+      localStorageSpaceData !== 'null'
+    ) {
+      // If spaceData exists in localStorage, set spaceData from localStorage
+      console.log('it ran this')
+      console.log(
+        'Setting spaceData from localStorage:',
+        JSON.parse(localStorageSpaceData)
+      )
+      setSpaceDataFromLs(JSON.parse(localStorageSpaceData))
+    }
+  }, [])
+
+  useEffect(() => {
+    if (
+      spaceDataFromLs &&
+      spaceDataFromLs !== 'undefined' &&
+      spaceDataFromLs !== 'null'
+    ) {
+      console.log('spaceDataFromLs', spaceDataFromLs)
+      setSpaceData(spaceDataFromLs)
+    }
+  }, [spaceDataFromLs])
+
+  useEffect(() => {
+    localStorage.setItem('spaceData', JSON.stringify(spaceData))
+    // console.log('spaceData', spaceData)
+  }, [spaceData])
+
+  // --------------------------------------------------------
 
   const handleEditArea = (spaceName) => {
     setEditSpaceName(spaceName)
@@ -92,14 +134,9 @@ const ThirdStep = (props) => {
     setEditModalOpen(false)
   }
 
-  const handleSubmit = () => {
-    // console.log('Entered Areas:', areas)
-    console.log('Redux Areas:', spaceCounts)
-  }
-
-  useEffect(() => {
-    console.log('Redux Areas:', spaceCounts)
-  }, [spaceCounts])
+  // useEffect(() => {
+  //   console.log('Redux Areas:', spaceCounts)
+  // }, [spaceCounts])
 
   const customStyles = {
     content: {
@@ -125,7 +162,7 @@ const ThirdStep = (props) => {
     },
   }
 
-  const router = useRouter() // Add this line to use the useRouter hook
+  // Add this line to use the useRouter hook
 
   // ... other code
 
@@ -139,10 +176,35 @@ const ThirdStep = (props) => {
     // Construct the URL with the encoded space name
     // router.push(`/calculator/image-maps/${encodedSpaceName}`)
   }
+  // for layouts ------------------------------------------------------------
+  const router = useRouter()
+  const handleKitchenLayout = (spaceName) => {
+    setLayoutSpaceName(spaceName)
+    setLayoutModalOpen(true)
+  }
+  const handleLayoutButtonClick = (layout) => {
+    const updatedSpaceName = spaceData.find(
+      (space) => space.name === layoutSpaceName
+    )?.name
+    const newSpaceName = `${updatedSpaceName.replace(
+      /\s*\(.*?\)\s*/,
+      ''
+    )} (${layout})`
 
-  useEffect(() => {
-    dispatch(updateSpaceData(spaceData))
-  }, [dispatch, spaceData])
+    setSpaceData((prevSpaceData) =>
+      prevSpaceData.map((space) =>
+        space.name === layoutSpaceName
+          ? { ...space, name: newSpaceName }
+          : space
+      )
+    )
+
+    setLayoutModalOpen(false)
+    console.log('newSpaceName', newSpaceName)
+    router.push(`calculator/image-maps/${encodeURIComponent(newSpaceName)}`)
+  }
+
+  // ------------------------------------------------------------------------
 
   return (
     <div>
@@ -163,12 +225,15 @@ const ThirdStep = (props) => {
         const hasSelectedPolygon = spaceDataFromLs.some(
           (item) =>
             item.name === space.name &&
-            item.selectedPolygon &&
-            item.selectedPolygon.length > 0
+            item.selectedPolygonArea &&
+            item.selectedPolygonArea.length > 0
         )
         const roomPrice = spaceDataFromLs.find(
           (item) => item.name === space.name && item.roomPrice
         )
+        {
+          /* console.log(space) */
+        }
         return (
           <div key={`${space.name}-${index + 1}`} className="mx-4 mb-4">
             <div
@@ -227,13 +292,20 @@ const ThirdStep = (props) => {
                     }`}
                     onClick={() => handlePlanClick(space.name)}
                   >
-                    <Link
-                      href={`/calculator/image-maps/${encodeURIComponent(
-                        space.name
-                      )}`}
-                    >
-                      PLAN
-                    </Link>
+                    {space.name.includes('Kitchen') ? (
+                      <button onClick={() => handleKitchenLayout(space.name)}>
+                        PLAN
+                      </button>
+                    ) : (
+                      /* Render link for other spaces */
+                      <Link
+                        href={`/calculator/image-maps/${encodeURIComponent(
+                          space.name
+                        )}`}
+                      >
+                        PLAN
+                      </Link>
+                    )}
                   </button>
                 }
               </div>
@@ -334,6 +406,85 @@ const ThirdStep = (props) => {
           Submit
         </button>
       </div> */}
+      <Modal
+        isOpen={layoutModalOpen}
+        onRequestClose={() => setLayoutModalOpen(false)}
+        contentLabel="Edit SpaceName Modal"
+        style={customStyles}
+      >
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">{editSpaceName}</h2>
+          <button
+            onClick={() => setLayoutModalOpen(false)}
+            className="text-gray-500 hover:text-gray-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div className="flex flex-col items-center mb-4">
+          <div className="flex mt-4">
+            <button
+              onClick={() => handleLayoutButtonClick('Straight')}
+              className="text-gray-500 hover:text-gray-900 mr-4"
+            >
+              <Image
+                src={'/images/calculator/straightkitchenicon.png'}
+                height={200}
+                width={200}
+                alt="Straight"
+              ></Image>
+            </button>
+            <button
+              onClick={() => handleLayoutButtonClick('L Shaped')}
+              className="text-gray-500 hover:text-gray-900"
+            >
+              <Image
+                src={'/images/calculator/LShapeKitchenicon.png'}
+                height={200}
+                width={200}
+                alt="L Shaped"
+              ></Image>
+            </button>
+          </div>
+          <div className="flex mt-4">
+            <button
+              onClick={() => handleLayoutButtonClick('U Shaped')}
+              className="text-gray-500 hover:text-gray-900 mr-4"
+            >
+              <Image
+                src={'/images/calculator/ushapekitchenicon.png'}
+                height={200}
+                width={200}
+                alt="U Shaped"
+              ></Image>
+            </button>
+            <button
+              onClick={() => handleLayoutButtonClick('Parallel')}
+              className="text-gray-500 hover:text-gray-900"
+            >
+              <Image
+                src={'/images/calculator/parallelkitchenicon.png'}
+                height={200}
+                width={200}
+                alt="Parallel"
+              ></Image>
+            </button>
+          </div>
+        </div>
+      </Modal>
     </div>
   )
 }
