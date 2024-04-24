@@ -171,10 +171,7 @@ const FeatureSection = () => {
 
 const Contact = () => {
   return (
-    <div
-      className="flex flex-col md:flex-row justify-center"
-      style={{ gap: '110px', marginTop: '100px' }}
-    >
+    <div className="flex flex-col md:flex-row justify-between mt-12 gap-4">
       <div style={{ width: '300px' }}>
         <h1 className="font-bold text-2xl uppercase">Contact Us</h1>
         <div className="mt-8 text-sm">
