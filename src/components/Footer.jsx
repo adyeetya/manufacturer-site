@@ -519,9 +519,9 @@ const Footer = () => {
           <LetsConnectForm />
         </div> */}
 
-        <div className="my-8">
+        {/* <div className="my-8">
           <ScrollToTopButton />
-        </div>
+        </div> */}
         <div className="my-24 ">
           {' '}
           {/* <h1 className="text-4xl md:text font-semibold text-center  pt-16">
